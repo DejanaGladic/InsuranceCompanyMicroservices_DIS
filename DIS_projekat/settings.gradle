@@ -1,0 +1,7 @@
+include ':api'
+include ':util'
+include ':microservices:insurance-company-service'
+include ':microservices:insurance-offer-service'
+include ':microservices:employee-service'
+include ':microservices:transaction-service'
+include ':microservices:insurance-company-composite-service'

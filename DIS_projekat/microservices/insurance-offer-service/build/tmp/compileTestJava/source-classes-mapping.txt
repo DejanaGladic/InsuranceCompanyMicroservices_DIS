@@ -1,0 +1,2 @@
+se/magnus/microservices/core/insuranceoffer/InsuranceOfferServiceApplicationTests.java
+ se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests
