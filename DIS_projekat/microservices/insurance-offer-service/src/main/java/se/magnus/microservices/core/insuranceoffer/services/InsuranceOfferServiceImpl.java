@@ -29,7 +29,7 @@ public class InsuranceOfferServiceImpl implements InsuranceOfferService {
 
         if (insuranceCompanyId < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
-        if (insuranceCompanyId == 113) {
+        if (insuranceCompanyId == 213) {
             LOG.debug("No insurance offers found for insuranceCompanyId: {}", insuranceCompanyId);
             return  new ArrayList<>();
         }

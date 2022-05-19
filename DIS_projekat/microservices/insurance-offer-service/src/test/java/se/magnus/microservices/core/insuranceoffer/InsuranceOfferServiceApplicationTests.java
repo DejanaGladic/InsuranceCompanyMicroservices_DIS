@@ -66,7 +66,7 @@ public class InsuranceOfferServiceApplicationTests {
 	@Test
 	public void  getInsuranceOffersNotFound() {
 
-		int insuranceCompanyIdNotFound = 113;
+		int insuranceCompanyIdNotFound = 213;
 
 		client.get()
 			.uri("/insuranceOffer?insuranceCompanyId=" + insuranceCompanyIdNotFound)

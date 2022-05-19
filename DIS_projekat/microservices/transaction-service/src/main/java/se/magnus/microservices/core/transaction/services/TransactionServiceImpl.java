@@ -29,7 +29,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         if (insuranceCompanyId < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
-        if (insuranceCompanyId == 113) {
+        if (insuranceCompanyId == 313) {
             LOG.debug("No transactions found for insuranceCompanyId: {}", insuranceCompanyId);
             return  new ArrayList<>();
         }

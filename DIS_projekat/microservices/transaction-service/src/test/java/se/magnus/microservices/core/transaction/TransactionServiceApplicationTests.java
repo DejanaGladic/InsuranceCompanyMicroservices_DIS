@@ -66,7 +66,7 @@ public class TransactionServiceApplicationTests {
 	@Test
 	public void  getTransactionsNotFound() {
 
-		int insuranceCompanyIdNotFound = 113;
+		int insuranceCompanyIdNotFound = 313;
 
 		client.get()
 			.uri("/transaction?insuranceCompanyId=" + insuranceCompanyIdNotFound)
