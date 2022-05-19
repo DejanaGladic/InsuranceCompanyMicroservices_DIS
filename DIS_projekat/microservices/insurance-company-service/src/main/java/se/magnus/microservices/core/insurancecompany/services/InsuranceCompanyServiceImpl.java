@@ -23,7 +23,7 @@ public class InsuranceCompanyServiceImpl implements InsuranceCompanyService {
 
     @Override
     public InsuranceCompany getInsuranceCompany(int insuranceCompanyId) {
-        LOG.debug("/product return the found product for insuranceCompanyId={}", insuranceCompanyId);
+        LOG.debug("/insuranceCompany return the found insurance company for insuranceCompanyId={}", insuranceCompanyId);
 
         if (insuranceCompanyId < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
