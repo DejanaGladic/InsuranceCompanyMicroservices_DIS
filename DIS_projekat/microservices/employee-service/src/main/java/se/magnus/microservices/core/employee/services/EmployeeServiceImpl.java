@@ -27,11 +27,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> getEmployees(int insuranceCompanyId) {
-
+	
         if (insuranceCompanyId < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
-        if (insuranceCompanyId == 113) {
-            LOG.debug("No employees found for insuranceCompanyId: {}", insuranceCompanyId);
+        if (insuranceCompanyId == 113){
+            LOG.debug("No employees found for insuranceCompanyId: ", insuranceCompanyId);
             return  new ArrayList<>();
         }
 

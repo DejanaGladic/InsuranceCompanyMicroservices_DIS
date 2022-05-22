@@ -119,7 +119,7 @@ public class InsuranceCompanyCompositeIntegration
 			return employees;
 
 		} catch (Exception ex) {
-			LOG.warn("Got an exception while requesting recommendations, return zero employees: {}",
+			LOG.warn("Got an exception while requesting employees, return zero employees: {}",
 					ex.getMessage());
 			return new ArrayList<>();
 		}

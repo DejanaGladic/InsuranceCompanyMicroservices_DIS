@@ -36,7 +36,7 @@ public class InsuranceCompanyServiceApplicationTests {
 
 	@Test
 	public void getInsuranceCompanyInvalidParameter() {
-
+		
 		client.get()
 			.uri("/insuranceCompany/invalid-param-type")
 			.accept(APPLICATION_JSON)
@@ -44,8 +44,7 @@ public class InsuranceCompanyServiceApplicationTests {
 			.expectStatus().isEqualTo(BAD_REQUEST)
 			.expectHeader().contentType(APPLICATION_JSON)
 			.expectBody()
-			.jsonPath("$.path").isEqualTo("/insuranceCompany/invalid-param-type")
-			.jsonPath("$.message").isEqualTo("Type mismatch.");
+			.jsonPath("$.path").isEqualTo("/insuranceCompany/invalid-param-type");	
 	}
 
 	@Test
