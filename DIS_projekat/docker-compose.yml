@@ -1,0 +1,34 @@
+version: '2.1'
+
+services:
+  insurance-company:
+    build: microservices/insurance-company-service
+    mem_limit: 350m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  insurance-offer:
+    build: microservices/insurance-offer-service
+    mem_limit: 350m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  employee:
+    build: microservices/employee-service
+    mem_limit: 350m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  transaction:
+    build: microservices/transaction-service
+    mem_limit: 350m
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+
+  insurance-company-composite:
+    build: microservices/insurance-company-composite-service
+    mem_limit: 350m
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker

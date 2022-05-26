@@ -30,8 +30,8 @@ import static org.springframework.http.MediaType.APPLICATION_JSON;
 public class InsuranceCompanyCompositeServiceApplicationTests {
 
 	private static final int INSURANCE_COMPANY_ID_OK = 1;
-	private static final int INSURANCE_COMPANY_ID_NOT_FOUND = 2;
-	private static final int INSURANCE_COMPANY_ID_INVALID = 3;
+	private static final int INSURANCE_COMPANY_ID_NOT_FOUND = 13;
+	private static final int INSURANCE_COMPANY_ID_INVALID = -1;
 
 	@Autowired
 	private WebTestClient client;

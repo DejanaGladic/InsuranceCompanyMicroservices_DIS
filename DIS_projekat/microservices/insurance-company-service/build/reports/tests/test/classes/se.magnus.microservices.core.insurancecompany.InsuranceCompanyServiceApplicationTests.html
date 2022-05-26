@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.815s</div>
+<div class="counter">0.842s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,22 +79,22 @@
 </thead>
 <tr>
 <td class="success">getInsuranceCompany</td>
-<td class="success">0.021s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceCompanyInvalidParameter</td>
-<td class="success">0.085s</td>
+<td class="success">0.046s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceCompanyInvalidParameterNegativeValue</td>
-<td class="success">0.019s</td>
+<td class="success">0.011s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceCompanyNotFound</td>
-<td class="success">1.690s</td>
+<td class="success">0.772s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,15 +102,15 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>15:38:09.250 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-15:38:09.250 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-15:38:09.251 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-15:38:09.252 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-15:38:09.258 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@7bce5495 testClass = InsuranceCompanyServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@6148d5c1 testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4d71c612, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2f825705, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@24686270, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6a053082, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@54433191, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
-15:38:09.260 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-15:38:09.260 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-15:38:09.265 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@7bce5495 testClass = InsuranceCompanyServiceApplicationTests, testInstance = se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests@3bae9f5c, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@6148d5c1 testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4d71c612, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2f825705, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@24686270, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@6a053082, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@54433191, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
-15:38:09.291 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+<pre>17:11:53.119 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+17:11:53.135 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+17:11:53.135 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+17:11:53.135 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+17:11:53.135 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@260b8588 testClass = InsuranceCompanyServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@493b8246 testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@67365183, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7f5f3e15, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@245742d3, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@61797462, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@4c8559dc, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+17:11:53.135 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+17:11:53.135 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+17:11:53.150 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@260b8588 testClass = InsuranceCompanyServiceApplicationTests, testInstance = se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests@9c01831, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@493b8246 testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@67365183, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@7f5f3e15, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@245742d3, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@61797462, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@4c8559dc, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
+17:11:53.166 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -120,17 +120,17 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.0.RELEASE)
 
-2022-05-22 15:38:09.771  INFO 16252 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Starting InsuranceCompanyServiceApplicationTests on DESKTOP-HJGV6OB with PID 16252 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-company-service)
-2022-05-22 15:38:09.772 DEBUG 16252 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2022-05-22 15:38:09.773  INFO 16252 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : No active profile set, falling back to default profiles: default
-2022-05-22 15:38:12.750  INFO 16252 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-05-22 15:38:14.868  INFO 16252 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 62328
-2022-05-22 15:38:14.894  INFO 16252 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Started InsuranceCompanyServiceApplicationTests in 5.598 seconds (JVM running for 7.209)
-2022-05-22 15:38:16.302 DEBUG 16252 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : /insuranceCompany return the found insurance company for insuranceCompanyId=13
-2022-05-22 15:38:16.323 DEBUG 16252 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 404 NOT_FOUND for path: /insuranceCompany/13, message: No insurance company found for insuranceCompanyId: 13
-2022-05-22 15:38:16.777 DEBUG 16252 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : /insuranceCompany return the found insurance company for insuranceCompanyId=1
-2022-05-22 15:38:16.801 DEBUG 16252 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : /insuranceCompany return the found insurance company for insuranceCompanyId=-1
-2022-05-22 15:38:16.802 DEBUG 16252 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /insuranceCompany/-1, message: Invalid insuranceCompanyId: -1
+2022-05-25 17:11:53.608  INFO 16088 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Starting InsuranceCompanyServiceApplicationTests on DESKTOP-HJGV6OB with PID 16088 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-company-service)
+2022-05-25 17:11:53.608 DEBUG 16088 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2022-05-25 17:11:53.608  INFO 16088 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : No active profile set, falling back to default profiles: default
+2022-05-25 17:11:55.502  INFO 16088 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-05-25 17:11:56.632  INFO 16088 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 52104
+2022-05-25 17:11:56.648  INFO 16088 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Started InsuranceCompanyServiceApplicationTests in 3.47 seconds (JVM running for 5.066)
+2022-05-25 17:11:57.292 DEBUG 16088 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : /insuranceCompany return the found insurance company for insuranceCompanyId=13
+2022-05-25 17:11:57.309 DEBUG 16088 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 404 NOT_FOUND for path: /insuranceCompany/13, message: No insurance company found for insuranceCompanyId: 13
+2022-05-25 17:11:57.513 DEBUG 16088 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : /insuranceCompany return the found insurance company for insuranceCompanyId=1
+2022-05-25 17:11:57.529 DEBUG 16088 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : /insuranceCompany return the found insurance company for insuranceCompanyId=-1
+2022-05-25 17:11:57.529 DEBUG 16088 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /insuranceCompany/-1, message: Invalid insuranceCompanyId: -1
 </pre>
 </span>
 </div>
@@ -142,7 +142,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 22 May 2022, 15:38:22</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 25 May 2022, 17:12:02</p>
 </div>
 </div>
 </body>

@@ -1,3 +1,53 @@
+api:
+
+  common:
+    version: 1.0.0
+    title: Sample API
+    description: Description of the API...
+    termsOfServiceUrl: MINE TERMS OF SERVICE URL
+    license: License
+    licenseUrl: MY LICENSE URL
+
+    contact:
+      name: Contact
+      url: My
+      email: me@mail.com
+
+  insurance-company-composite:
+
+    get-composite-insurance-company:
+      description: Returns a composite view of the specified insurance company id
+      notes: |
+        # Normal response
+        If the requested insurance company id is found the method will return information regarding:
+        1. Base insurance company information
+        1. Employees
+        1. Insurance offers
+        1. Transactions
+        1. Service Addresses
+        (technical information regarding the addresses of the microservices that created the response)
+
+        # Expected partial and error responses
+        In the following cases, only a partial response be created (used to simplify testing of error conditions)
+
+        ## Insurance company id 113
+        200 - Ok, but no Employees will be returned
+
+        ## Insurance company id 213
+        200 - Ok, but no Insurance offers will be returned
+        
+         ## Insurance company id 313
+        200 - Ok, but no Transactions will be returned
+
+        ## Non numerical product id
+        400 - A <b>Bad Request</b> error will be returned
+
+        ## Insurance company id 13
+        404 - A <b>Not Found</b> error will be returned
+
+        ## Negative Insurance company ids
+        422 - An <b>Unprocessable Entity</b> error will be returned
+
 server.port: 7000
 server.error.include-message: always
 
@@ -19,3 +69,22 @@ logging:
     level:
         root: INFO
         se.magnus: DEBUG
+        
+---
+spring.profiles: docker
+
+server.port: 8081
+
+app:
+  employee-service:
+    host: employee
+    port: 8081
+  insurance-company-service:
+    host: insurance-company
+    port: 8081
+  insurance-offer-service:
+    host: insurance-offer
+    port: 8081
+  transaction-service:
+    host: transaction
+    port: 8081
