@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="se.magnus.microservices.core.insurancecompany.PersistenceTests" tests="7" skipped="0" failures="1" errors="0" timestamp="2022-05-27T00:54:46" hostname="DESKTOP-HJGV6OB" time="0.711">
+  <properties/>
+  <testcase name="optimisticLockError" classname="se.magnus.microservices.core.insurancecompany.PersistenceTests" time="0.579"/>
+  <testcase name="paging" classname="se.magnus.microservices.core.insurancecompany.PersistenceTests" time="0.052"/>
+  <testcase name="duplicateError" classname="se.magnus.microservices.core.insurancecompany.PersistenceTests" time="0.012">
+    <failure message="java.lang.AssertionError: Expected exception: org.springframework.dao.DuplicateKeyException" type="java.lang.AssertionError">java.lang.AssertionError: Expected exception: org.springframework.dao.DuplicateKeyException
+	at org.junit.internal.runners.statements.ExpectException.evaluate(ExpectException.java:34)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:115)
+	at org.junit.vintage.engine.execution.RunnerExecutor.execute(RunnerExecutor.java:43)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195)
+	at java.base/java.util.Iterator.forEachRemaining(Iterator.java:133)
+	at java.base/java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:484)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474)
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150)
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:497)
+	at org.junit.vintage.engine.VintageTestEngine.executeAllChildren(VintageTestEngine.java:82)
+	at org.junit.vintage.engine.VintageTestEngine.execute(VintageTestEngine.java:73)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:102)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:82)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:78)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:132)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+</failure>
+  </testcase>
+  <testcase name="createInsuranceCompany" classname="se.magnus.microservices.core.insurancecompany.PersistenceTests" time="0.015"/>
+  <testcase name="getByInsuranceCompanyId" classname="se.magnus.microservices.core.insurancecompany.PersistenceTests" time="0.026"/>
+  <testcase name="deleteInsuranceCompany" classname="se.magnus.microservices.core.insurancecompany.PersistenceTests" time="0.012"/>
+  <testcase name="updateInsuranceCompany" classname="se.magnus.microservices.core.insurancecompany.PersistenceTests" time="0.008"/>
+  <system-out><![CDATA[02:54:43.140 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.PersistenceTests]
+02:54:43.140 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.PersistenceTests]
+02:54:43.141 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.PersistenceTests]
+02:54:43.141 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.PersistenceTests]
+02:54:43.149 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@3de99e8b testClass = PersistenceTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7f683a78 testClass = PersistenceTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@76d1a922, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@8a68c150, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@59f3a579, [ImportsContextCustomizer@7c420eac key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoReactiveDataAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoReactiveRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration, org.springframework.boot.autoconfigure.mongo.MongoReactiveAutoConfiguration, org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5f6457a7, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5cd73fc2, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+02:54:43.152 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.PersistenceTests]
+02:54:43.152 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.PersistenceTests]
+02:54:43.158 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@3de99e8b testClass = PersistenceTests, testInstance = se.magnus.microservices.core.insurancecompany.PersistenceTests@6cef890c, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@7f683a78 testClass = PersistenceTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@76d1a922, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@351584c0, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@8a68c150, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@59f3a579, [ImportsContextCustomizer@7c420eac key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoReactiveDataAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoReactiveRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration, org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration, org.springframework.boot.autoconfigure.mongo.MongoReactiveAutoConfiguration, org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration, org.springframework.boot.autoconfigure.transaction.TransactionAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5f6457a7, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@5cd73fc2, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]].
+02:54:43.189 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.0.RELEASE)
+
+2022-05-27 02:54:43.811  INFO 7108 --- [    Test worker] s.m.m.c.i.PersistenceTests               : Starting PersistenceTests on DESKTOP-HJGV6OB with PID 7108 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-company-service)
+2022-05-27 02:54:43.813 DEBUG 7108 --- [    Test worker] s.m.m.c.i.PersistenceTests               : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2022-05-27 02:54:43.815  INFO 7108 --- [    Test worker] s.m.m.c.i.PersistenceTests               : No active profile set, falling back to default profiles: default
+2022-05-27 02:54:44.379  INFO 7108 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-05-27 02:54:44.594  INFO 7108 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 208ms. Found 1 MongoDB repository interfaces.
+2022-05-27 02:54:45.425  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2022-05-27 02:54:45.477  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.476+0200 I CONTROL  [initandlisten] MongoDB starting : pid=10732 port=63745 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-4c4596fd-04dc-4529-a926-d10a8eccabd1 64-bit host=DESKTOP-HJGV6OB
+2022-05-27 02:54:45.477  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2022-05-27 02:54:45.478  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten] db version v3.5.5
+2022-05-27 02:54:45.478  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2022-05-27 02:54:45.478  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2022-05-27 02:54:45.478  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten] modules: none
+2022-05-27 02:54:45.479  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten] build environment:
+2022-05-27 02:54:45.479  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2022-05-27 02:54:45.479  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2022-05-27 02:54:45.479  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.477+0200 I CONTROL  [initandlisten] options: { net: { bindIp: "127.0.0.1", http: { enabled: false }, port: 63745 }, security: { authorization: "disabled" }, storage: { dbPath: "C:\Users\user\AppData\Local\Temp\embedmongo-db-4c4596fd-04dc-4529-a926-d10a8eccabd1", journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2022-05-27 02:54:45.480  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.478+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2022-05-27 02:54:45.536  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.536+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2022-05-27 02:54:45.536  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.536+0200 I CONTROL  [initandlisten] 
+2022-05-27 02:54:45.536  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.536+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2022-05-27 02:54:45.536  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.536+0200 I CONTROL  [initandlisten] **       Not recommended for production.
+2022-05-27 02:54:45.538  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.536+0200 I CONTROL  [initandlisten] 
+2022-05-27 02:54:45.799  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.798+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-4c4596fd-04dc-4529-a926-d10a8eccabd1/diagnostic.data'
+2022-05-27 02:54:45.827  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.827+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: "incompatible_with_version_32", ns: "admin.system.version" }
+2022-05-27 02:54:45.827  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.827+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2022-05-27 02:54:45.829  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.830+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2022-05-27 02:54:45.831  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.831+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2022-05-27 02:54:45.832  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.833+0200 I NETWORK  [thread1] waiting for connections on port 63745
+2022-05-27 02:54:45.833  INFO 7108 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@3961bd5b
+2022-05-27 02:54:45.905  INFO 7108 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:63745], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-05-27 02:54:45.950  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.950+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:63753 #1 (1 connection now open)
+2022-05-27 02:54:45.964  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:45.964+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:63753 conn1: { driver: { name: "mongo-java-driver|sync|spring-boot", version: "4.0.3" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11.0.9+7-LTS" }
+2022-05-27 02:54:45.983  INFO 7108 --- [localhost:63745] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:63745
+2022-05-27 02:54:45.988  INFO 7108 --- [localhost:63745] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:63745, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1675100}
+2022-05-27 02:54:46.408  INFO 7108 --- [    Test worker] s.m.m.c.i.PersistenceTests               : Started PersistenceTests in 3.216 seconds (JVM running for 4.804)
+2022-05-27 02:54:46.845  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:46.846+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:63754 #2 (2 connections now open)
+2022-05-27 02:54:46.846  INFO 7108 --- [      Thread-79] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-27T02:54:46.846+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:63754 conn2: { driver: { name: "mongo-java-driver|sync|spring-boot", version: "4.0.3" }, os: { type: "Windows", name: "Windows 10", architecture: "amd64", version: "10.0" }, platform: "Java/Oracle Corporation/11.0.9+7-LTS" }
+2022-05-27 02:54:46.848  INFO 7108 --- [    Test worker] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:63745
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
