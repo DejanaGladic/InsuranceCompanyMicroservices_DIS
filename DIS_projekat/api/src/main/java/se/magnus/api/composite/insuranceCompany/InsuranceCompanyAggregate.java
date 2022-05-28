@@ -13,6 +13,18 @@ public class InsuranceCompanyAggregate {
 	private final List<TransactionSummary> transactions;
 	private final ServiceAddresses serviceAddresses;
 
+	public InsuranceCompanyAggregate() {
+		this.insuranceCompanyId = 0;
+		this.name = null;
+		this.city = null;
+		this.address = null;
+		this.phoneNumber = null;
+		this.employees = null;
+		this.insuranceOffers = null;
+		this.transactions = null;
+		this.serviceAddresses = null;
+	}
+	
 	public InsuranceCompanyAggregate(int insuranceCompanyId, String name, String city, String address,
 			String phoneNumber, List<EmployeeSummary> employees, List<InsuranceOfferSummary> insuranceOffers,
 			List<TransactionSummary> transactions, ServiceAddresses serviceAddresses) {

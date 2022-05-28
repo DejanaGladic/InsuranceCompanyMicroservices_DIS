@@ -1,5 +1,7 @@
 package se.magnus.microservices.composite.insurancecompany.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import se.magnus.api.composite.insuranceCompany.*;
@@ -18,6 +20,7 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
 
 	private final ServiceUtil serviceUtil;
 	private InsuranceCompanyCompositeIntegration integration;
+	private static final Logger LOG = LoggerFactory.getLogger(InsuranceCompanyCompositeServiceImpl.class);
 
 	@Autowired
 	public InsuranceCompanyCompositeServiceImpl(ServiceUtil serviceUtil,
@@ -27,7 +30,48 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
 	}
 
 	@Override
-	public InsuranceCompanyAggregate getInsuranceCompany(int insuranceCompanyId) {
+    public void createCompositeInsuranceCompany(InsuranceCompanyAggregate body) {
+
+        try {
+
+            LOG.debug("createCompositeInsuranceCompany: creates a new composite entity for insuranceCompanyId: {}", body.getInsuranceCompanyId());
+
+            InsuranceCompany insuranceCompany = new InsuranceCompany(body.getInsuranceCompanyId(), body.getName(), body.getCity(),
+            		body.getAddress(),body.getPhoneNumber(),  null);
+            integration.createInsuranceCompany(insuranceCompany);
+
+            if (body.getEmployees() != null) {
+                body.getEmployees().forEach(r -> {
+                	Employee employee = new Employee(body.getInsuranceCompanyId(), r.getEmployeeId(), r.getName(), r.getSurname(),null, r.getSpecialization(), null);
+                    integration.createEmployee(employee);
+                });
+            }
+
+            if (body.getInsuranceOffers() != null) {
+                body.getInsuranceOffers().forEach(r -> {
+                	InsuranceOffer insuranceOffer = new InsuranceOffer(body.getInsuranceCompanyId(), r.getInsuranceOfferId(), r.getOfferName(), null, null, r.getPrice(), r.getCurrencyOffer(), null);
+                    integration.createInsuranceOffer(insuranceOffer);
+                });
+            }
+            
+            if (body.getTransactions() != null) {
+                body.getTransactions().forEach(r -> {
+                	Transaction transaction = new Transaction(body.getInsuranceCompanyId(), r.getTransactionId(), r.getTypeTransaction(),null,  r.getAmount(), r.getCurrencyTransaction(), null, r.getPolicyNumber(), null);
+                    integration.createTransaction(transaction);
+                });
+            }
+
+            LOG.debug("createCompositeInsuranceCompany: composite entites created for insuranceCompanyId: {}", body.getInsuranceCompanyId());
+
+        } catch (RuntimeException re) {
+            LOG.warn("createCompositeInsuranceCompany failed", re);
+            throw re;
+        }
+    }
+
+	
+	@Override
+	public InsuranceCompanyAggregate getCompositeInsuranceCompany(int insuranceCompanyId) {
 
 		InsuranceCompany insuranceCompany = integration.getInsuranceCompany(insuranceCompanyId);
 		if (insuranceCompany == null)
@@ -39,10 +83,28 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
 
 		List<Transaction> transactions = integration.getTransactions(insuranceCompanyId);
 
+		LOG.debug("getCompositeInsuranceCompany: aggregate entity found for insuranceCompanyId: {}", insuranceCompanyId);
+		
 		return createInsuranceCompanyAggregate(insuranceCompany, employees, insuranceOffers, transactions,
 				serviceUtil.getServiceAddress());
 	}
 
+	@Override
+    public void deleteCompositeInsuranceCompany(int insuranceCompanyId) {
+
+        LOG.debug("deleteCompositeInsuranceCompany: Deletes a insurance company aggregate for insuranceCompanyId: {}", insuranceCompanyId);
+
+        integration.deleteInsuranceCompany(insuranceCompanyId);
+
+        integration.deleteEmployees(insuranceCompanyId);
+
+        integration.deleteInsuranceOffers(insuranceCompanyId);
+        
+        integration.deleteTransactions(insuranceCompanyId);
+
+        LOG.debug("getCompositeInsuranceCompanyt: aggregate entities deleted for insuranceCompanyId: {}", insuranceCompanyId);
+    }
+	
 	private InsuranceCompanyAggregate createInsuranceCompanyAggregate(InsuranceCompany insuranceCompany,
 			List<Employee> employees, List<InsuranceOffer> insuranceOffers, List<Transaction> transactions,
 			String serviceAddress) {
