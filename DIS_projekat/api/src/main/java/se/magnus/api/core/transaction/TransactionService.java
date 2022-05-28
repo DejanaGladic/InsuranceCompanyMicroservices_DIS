@@ -1,10 +1,9 @@
 package se.magnus.api.core.transaction;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import org.springframework.web.bind.annotation.PathVariable;
+
 
 public interface TransactionService {
 	

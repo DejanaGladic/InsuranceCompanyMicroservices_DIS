@@ -3,8 +3,9 @@ package se.magnus.microservices.core.insuranceoffer.services;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
-import se.magnus.api.core.insuranceOffer.InsuranceOffer;
-import se.magnus.microservices.core.insuranceoffer.persistence.InsuranceOfferEntity;
+import se.magnus.api.core.insuranceOffer.*;
+import se.magnus.microservices.core.insuranceoffer.persistence.*;
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface InsuranceOfferMapper {
@@ -16,7 +17,13 @@ public interface InsuranceOfferMapper {
 
     @Mappings({
         @Mapping(target = "id", ignore = true),
-        @Mapping(target = "version", ignore = true)
+        @Mapping(target = "version", ignore = true),
+        //ne vidim gde je problem ali sam ga ovako sredila
+        @Mapping(target = "insuranceOfferIdd", source = "insuranceOfferId")
     })
     InsuranceOfferEntity apiToEntity(InsuranceOffer apiInsuranceOffer);
+    
+    
+    List<InsuranceOffer> entityListToApiList(List<InsuranceOfferEntity> entity);
+    List<InsuranceOfferEntity> apiListToEntityList(List<InsuranceOffer> api);
 }

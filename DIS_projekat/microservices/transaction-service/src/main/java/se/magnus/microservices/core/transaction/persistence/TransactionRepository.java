@@ -9,4 +9,6 @@ public interface TransactionRepository extends CrudRepository<TransactionEntity,
 
     @Transactional(readOnly = true)
     List<TransactionEntity> findByInsuranceCompanyId(int insuranceCompanyId);
+    @Transactional(readOnly = true)
+    TransactionEntity findByTransactionId(int transactionId);
 }

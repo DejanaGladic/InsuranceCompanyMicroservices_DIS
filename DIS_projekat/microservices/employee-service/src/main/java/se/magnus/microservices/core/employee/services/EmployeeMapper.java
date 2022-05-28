@@ -5,6 +5,7 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import se.magnus.api.core.employee.Employee;
 import se.magnus.microservices.core.employee.persistence.EmployeeEntity;
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface EmployeeMapper {
@@ -19,4 +20,7 @@ public interface EmployeeMapper {
         @Mapping(target = "version", ignore = true)
     })
     EmployeeEntity apiToEntity(Employee apiEmployee);
+    
+    List<Employee> entityListToApiList(List<EmployeeEntity> entity);
+    List<EmployeeEntity> apiListToEntityList(List<Employee> api);
 }

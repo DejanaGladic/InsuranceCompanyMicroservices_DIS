@@ -7,7 +7,7 @@ public class InsuranceCompany{
 	private final String city;
 	private final String address;
 	private final String phoneNumber;
-	private final String serviceAddress;
+	private String serviceAddress;
 
 	public InsuranceCompany() {
 		insuranceCompanyId = 0;
@@ -50,5 +50,9 @@ public class InsuranceCompany{
 
 	public String getServiceAddress() {
 		return this.serviceAddress;
+	}
+	
+	public void setServiceAddress(String serviceAddress) {
+		 this.serviceAddress = serviceAddress;
 	}
 }

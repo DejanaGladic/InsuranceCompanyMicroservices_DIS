@@ -1,6 +1,6 @@
 package se.magnus.microservices.core.insurancecompany.persistence;
 
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.*;
 
 import java.util.Optional;
 

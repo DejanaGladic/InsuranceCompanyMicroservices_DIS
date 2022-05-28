@@ -1,4 +1,5 @@
 package se.magnus.api.core.transaction;
+
 import java.util.Date;
 
 public class Transaction {
@@ -10,7 +11,7 @@ public class Transaction {
 	private final String currencyTransaction;
 	private final String accountNumber;
 	private final String policyNumber;
-	private final String serviceAddress;
+	private String serviceAddress;
 
 	public Transaction() {
 		insuranceCompanyId = 0;
@@ -72,5 +73,9 @@ public class Transaction {
 
 	public String getServiceAddress() {
 		return serviceAddress;
+	}
+
+	public void setServiceAddress(String serviceAddress) {
+		this.serviceAddress = serviceAddress;
 	}
 }

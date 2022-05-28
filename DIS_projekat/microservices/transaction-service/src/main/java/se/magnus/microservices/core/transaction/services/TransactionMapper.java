@@ -4,7 +4,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import se.magnus.api.core.transaction.Transaction;
-import se.magnus.microservices.core.transaction.persistence.Transaction;
+import se.magnus.microservices.core.transaction.persistence.*;
+import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface TransactionMapper {
@@ -19,4 +20,7 @@ public interface TransactionMapper {
         @Mapping(target = "version", ignore = true)
     })
     TransactionEntity apiToEntity(Transaction apiTransaction);
+    
+    List<Transaction> entityListToApiList(List<TransactionEntity> entity);
+    List<TransactionEntity> apiListToEntityList(List<Transaction> api);
 }

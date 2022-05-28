@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 //mapiramo Entity klasu u kolekciju u MongoDB-u
-@Document(collection="insuranceCompanies")
+@Document(collection="insuranceCompanys")
 public class InsuranceCompanyEntity {
 
     @Id

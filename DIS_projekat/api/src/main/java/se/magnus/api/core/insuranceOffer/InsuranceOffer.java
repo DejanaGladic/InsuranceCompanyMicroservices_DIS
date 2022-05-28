@@ -8,7 +8,7 @@ public class InsuranceOffer {
 	private final String typeInsuranceCoverage;
 	private final double price;
 	private final String currencyOffer;
-	private final String serviceAddress;
+	private String serviceAddress;
 
 	public InsuranceOffer() {
 		insuranceCompanyId = 0;
@@ -63,5 +63,9 @@ public class InsuranceOffer {
 
 	public String getServiceAddress() {
 		return serviceAddress;
+	}
+	
+	public void setServiceAddress(String serviceAddress) {
+		this.serviceAddress = serviceAddress;
 	}
 }

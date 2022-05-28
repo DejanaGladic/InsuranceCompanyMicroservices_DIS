@@ -2,14 +2,16 @@ package se.magnus.microservices.core.transaction.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import se.magnus.api.core.transaction.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.RestController;
+import se.magnus.api.core.transaction.*;
+import se.magnus.microservices.core.transaction.persistence.*;
 import se.magnus.util.exceptions.InvalidInputException;
 import se.magnus.util.exceptions.NotFoundException;
 import se.magnus.util.http.ServiceUtil;
+import java.util.List;
 import java.util.Date;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -17,30 +19,52 @@ public class TransactionServiceImpl implements TransactionService {
 
     private static final Logger LOG = LoggerFactory.getLogger(TransactionServiceImpl.class);
 
-    private final ServiceUtil serviceUtil;
+    private ServiceUtil serviceUtil;
+	private TransactionRepository repository;
+	private TransactionMapper mapper;
 
     @Autowired
-    public TransactionServiceImpl(ServiceUtil serviceUtil) {
+    public TransactionServiceImpl(ServiceUtil serviceUtil, TransactionRepository repository, TransactionMapper mapper) {
         this.serviceUtil = serviceUtil;
+        this.repository = repository;
+        this.mapper = mapper;
     }
 
     @Override
-    public List<Transaction> getTransactions(int insuranceCompanyId) {
+   	public Transaction createTransaction(Transaction body) {
+   		try {
+   			TransactionEntity entity = mapper.apiToEntity(body);
+   			TransactionEntity newEntity = repository.save(entity);
 
-        if (insuranceCompanyId < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
+   			LOG.debug("createTransaction: created a insurance transaction entity: {}/{}", body.getInsuranceCompanyId(),
+   					body.getTransactionId());
+   			return mapper.entityToApi(newEntity);
 
-        if (insuranceCompanyId == 313) {
-            LOG.debug("No transactions found for insuranceCompanyId: {}", insuranceCompanyId);
-            return  new ArrayList<>();
-        }
+   		} catch (DataIntegrityViolationException dive) {
+   			throw new InvalidInputException("Duplicate key, InsuranceCompanyId Id: " + body.getInsuranceCompanyId() + ", Transaction Id:"
+   					+ body.getTransactionId());
+   		}
+   	}
 
-        List<Transaction> list = new ArrayList<>();
-        list.add(new Transaction(insuranceCompanyId, 1, "typeTransaction 1",new Date(), 570.67, "currencyOffer 1", "accountNumber 1","policeNumber 1", serviceUtil.getServiceAddress()));
-        list.add(new Transaction(insuranceCompanyId, 2, "typeTransaction 2",new Date(), 570.67, "currencyOffer 2","accountNumber 2","policeNumber 2", serviceUtil.getServiceAddress()));
-        list.add(new Transaction(insuranceCompanyId, 3, "typeTransaction 3",new Date(), 570.67, "currencyOffer 3", "accountNumber 2","policeNumber 3",serviceUtil.getServiceAddress()));
+   	@Override
+   	public List<Transaction> getTransactions(int insuranceCompanyId) {
 
-        LOG.debug("/transaction response size: {}", list.size());
+   		if (insuranceCompanyId < 1)
+   			throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
-        return list;
-    }
+   		List<TransactionEntity> entityList = repository.findByInsuranceCompanyId(insuranceCompanyId);
+   		List<Transaction> list = mapper.entityListToApiList(entityList);
+   		list.forEach(e -> e.setServiceAddress(serviceUtil.getServiceAddress()));
+
+   		LOG.debug("getTransactions: response size: {}", list.size());
+
+   		return list;
+   	}
+
+   	@Override
+   	public void deleteTransactions(int insuranceCompanyId) {
+   		LOG.debug("deleteTransactions: tries to delete transactions for the insurance company with insuranceCompanyId: {}",
+   				insuranceCompanyId);
+   		repository.deleteAll(repository.findByInsuranceCompanyId(insuranceCompanyId));
+   	}
 }

@@ -7,7 +7,7 @@ public class Employee {
 	private final String surname;
 	private final String education;
 	private final String specialization;
-	private final String serviceAddress;
+	private String serviceAddress;
 
 	public Employee() {
 		insuranceCompanyId = 0;
@@ -56,5 +56,9 @@ public class Employee {
 
 	public String getServiceAddress() {
 		return serviceAddress;
+	}
+	
+	public void setServiceAddress(String serviceAddress) {
+		this.serviceAddress = serviceAddress;
 	}
 }
