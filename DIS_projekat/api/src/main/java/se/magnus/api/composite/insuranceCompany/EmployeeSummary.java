@@ -6,6 +6,13 @@ public class EmployeeSummary {
 	private final String surname;
 	private final String specialization;
 
+	public EmployeeSummary() {
+		this.employeeId = 0;
+		this.name = null;
+		this.surname = null;
+		this.specialization = null;
+	}
+
 	public EmployeeSummary(int employeeId, String name, String surname, String specialization) {
 		this.employeeId = employeeId;
 		this.name = name;

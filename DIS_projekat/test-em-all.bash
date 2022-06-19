@@ -77,6 +77,69 @@ function waitForService() {
     done
 }
 
+function recreateComposite() {
+    local insuranceCompanyId=$1
+    local composite=$2
+
+    assertCurl 200 "curl -X DELETE http://$HOST:$PORT/insurance-company-composite/${insuranceCompanyId} -s"
+    curl -X POST http://$HOST:$PORT/insurance-company-composite -H "Content-Type: application/json" --data "$composite"
+}
+
+function setupTestdata() {
+
+    body=\
+'{"insuranceCompanyId":1,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "employees":[
+        {"employeeId":1,"name":"name 1","surname":"surname 1","specialization":"specialization 1"},
+        {"employeeId":2,"name":"name 2","surname":"surname 2","specialization":"specialization 2"},
+        {"employeeId":3,"name":"name 3","surname":"surname 3","specialization":"specialization 3"}
+    ], "insuranceOffers":[
+        {"insuranceOfferId":1,"offerName":"offerName 1","price":500.50,"currencyOffer":"currencyOffer 1"},
+        {"insuranceOfferId":2,"offerName":"offerName 2","price":550.50,"currencyOffer":"currencyOffer 2"},
+        {"insuranceOfferId":3,"offerName":"offerName 3","price":600.50,"currencyOffer":"currencyOffer 3"}
+    ], "transactions":[
+        {"transactionId":1,"typeTransaction":"typeTransaction 1","amount":500.50,"currencyTransaction":"currencyTransaction 1","policyNumber":"policyNumber 1"},
+        {"transactionId":2,"typeTransaction":"typeTransaction 2","amount":550.50,"currencyTransaction":"currencyTransaction 2","policyNumber":"policyNumber 2"},
+        {"transactionId":3,"typeTransaction":"typeTransaction 3","amount":600.50,"currencyTransaction":"currencyTransaction 3","policyNumber":"policyNumber 3"}
+    ]}'
+    recreateComposite 1 "$body"
+
+    body=\
+'{"insuranceCompanyId":1,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "insuranceOffers":[
+        {"insuranceOfferId":1,"offerName":"offerName 1","price":500.50,"currencyOffer":"currencyOffer 1"},
+        {"insuranceOfferId":2,"offerName":"offerName 2","price":550.50,"currencyOffer":"currencyOffer 2"},
+        {"insuranceOfferId":3,"offerName":"offerName 3","price":600.50,"currencyOffer":"currencyOffer 3"}
+    ], "transactions":[
+        {"transactionId":1,"typeTransaction":"typeTransaction 1","amount":500.50,"currencyTransaction":"currencyTransaction 1","policyNumber":"policyNumber 1"},
+        {"transactionId":2,"typeTransaction":"typeTransaction 2","amount":550.50,"currencyTransaction":"currencyTransaction 2","policyNumber":"policyNumber 2"},
+        {"transactionId":3,"typeTransaction":"typeTransaction 3","amount":600.50,"currencyTransaction":"currencyTransaction 3","policyNumber":"policyNumber 3"}
+    ]}'
+    recreateComposite 113 "$body"
+
+    body=\
+'{"insuranceCompanyId":1,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "employees":[
+        {"employeeId":1,"name":"name 1","surname":"surname 1","specialization":"specialization 1"},
+        {"employeeId":2,"name":"name 2","surname":"surname 2","specialization":"specialization 2"},
+        {"employeeId":3,"name":"name 3","surname":"surname 3","specialization":"specialization 3"}
+    ], "transactions":[
+        {"transactionId":1,"typeTransaction":"typeTransaction 1","amount":500.50,"currencyTransaction":"currencyTransaction 1","policyNumber":"policyNumber 1"},
+        {"transactionId":2,"typeTransaction":"typeTransaction 2","amount":550.50,"currencyTransaction":"currencyTransaction 2","policyNumber":"policyNumber 2"},
+        {"transactionId":3,"typeTransaction":"typeTransaction 3","amount":600.50,"currencyTransaction":"currencyTransaction 3","policyNumber":"policyNumber 3"}
+    ]}'
+    recreateComposite 213 "$body"
+	
+    body=\
+'{"insuranceCompanyId":1,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "employees":[
+        {"employeeId":1,"name":"name 1","surname":"surname 1","specialization":"specialization 1"},
+        {"employeeId":2,"name":"name 2","surname":"surname 2","specialization":"specialization 2"},
+        {"employeeId":3,"name":"name 3","surname":"surname 3","specialization":"specialization 3"}
+    ], "insuranceOffers":[
+        {"insuranceOfferId":1,"offerName":"offerName 1","price":500.50,"currencyOffer":"currencyOffer 1"},
+        {"insuranceOfferId":2,"offerName":"offerName 2","price":550.50,"currencyOffer":"currencyOffer 2"},
+        {"insuranceOfferId":3,"offerName":"offerName 3","price":600.50,"currencyOffer":"currencyOffer 3"}
+    ]}'
+    recreateComposite 313 "$body"
+
+}
 
 set -e
 
@@ -94,7 +157,9 @@ then
     docker-compose up -d
 fi
 
-waitForService http://$HOST:$PORT/insurance-company-composite/1
+waitForService curl -X DELETE http://$HOST:$PORT/insurance-company-composite/13
+
+setupTestdata
 
 # Verify that a normal request works
 assertCurl 200 "curl http://$HOST:$PORT/insurance-company-composite/1 -s"

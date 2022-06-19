@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.180s</div>
+<div class="counter">1.211s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,37 +79,37 @@
 </thead>
 <tr>
 <td class="success">deleteInsuranceOffers</td>
-<td class="success">0.889s</td>
+<td class="success">0.928s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceOffersByInsuranceCompanyId</td>
-<td class="success">0.055s</td>
+<td class="success">0.053s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceOffersInvalidParameter</td>
-<td class="success">0.016s</td>
+<td class="success">0.015s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceOffersInvalidParameterNegativeValue</td>
-<td class="success">0.028s</td>
+<td class="success">0.031s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceOffersMissingParameter</td>
-<td class="success">0.133s</td>
+<td class="success">0.135s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceOffersNotFound</td>
-<td class="success">0.029s</td>
+<td class="success">0.020s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">postInsuranceOffer</td>
-<td class="success">0.030s</td>
+<td class="success">0.029s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -117,15 +117,15 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:51:40.223 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
-14:51:40.223 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
-14:51:40.224 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
-14:51:40.224 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
-14:51:40.230 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@22ae86a8 testClass = InsuranceOfferServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@347050e2 testClass = InsuranceOfferServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.datasource.url=jdbc:h2:mem:review-db, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58a5f3b8, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2f1c101f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@434a88, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@42f7de6c, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@6662e387, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
-14:51:40.232 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
-14:51:40.232 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
-14:51:40.237 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@22ae86a8 testClass = InsuranceOfferServiceApplicationTests, testInstance = se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests@3618551c, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@347050e2 testClass = InsuranceOfferServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.datasource.url=jdbc:h2:mem:review-db, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58a5f3b8, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2f1c101f, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@434a88, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@42f7de6c, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@6662e387, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
-14:51:40.271 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, spring.datasource.url=jdbc:h2:mem:review-db, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+<pre>16:13:49.678 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
+16:13:49.678 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
+16:13:49.678 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
+16:13:49.678 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
+16:13:49.693 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@48eef403 testClass = InsuranceOfferServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@202a7bc8 testClass = InsuranceOfferServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.datasource.url=jdbc:h2:mem:review-db, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4bd35a2e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2beeb40c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7297b366, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@643ee97a, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@7a5930e3, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+16:13:49.693 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
+16:13:49.693 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests]
+16:13:49.709 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@48eef403 testClass = InsuranceOfferServiceApplicationTests, testInstance = se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplicationTests@2327e047, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@202a7bc8 testClass = InsuranceOfferServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insuranceoffer.InsuranceOfferServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.datasource.url=jdbc:h2:mem:review-db, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4bd35a2e, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@2beeb40c, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7297b366, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@643ee97a, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@7a5930e3, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
+16:13:49.724 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, spring.datasource.url=jdbc:h2:mem:review-db, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -135,133 +135,133 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.0.RELEASE)
 
-2022-05-28 14:51:40.691  INFO 18348 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : Starting InsuranceOfferServiceApplicationTests on DESKTOP-HJGV6OB with PID 18348 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-offer-service)
-2022-05-28 14:51:40.692 DEBUG 18348 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2022-05-28 14:51:40.693  INFO 18348 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : No active profile set, falling back to default profiles: default
-2022-05-28 14:51:41.903  INFO 18348 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2022-05-28 14:51:42.137  INFO 18348 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 221ms. Found 1 JPA repository interfaces.
-2022-05-28 14:51:43.050  INFO 18348 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2022-05-28 14:51:43.146  INFO 18348 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-28 14:51:43.257  INFO 18348 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
-2022-05-28 14:51:43.585  INFO 18348 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
-2022-05-28 14:51:43.852  INFO 18348 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-05-28 14:51:43.943  INFO 18348 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-05-28 14:51:44.278  INFO 18348 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-05-28 14:51:44.357  INFO 18348 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-05-28 14:51:45.517 DEBUG 18348 --- [         task-1] org.hibernate.SQL                        : create table insurance_offers (id integer not null, currency_offer varchar(255), insurance_company_id integer not null, insurance_offer_id integer not null, offer_name varchar(255), price double not null, type_insurance_coverage varchar(255), type_offer_program varchar(255), version integer not null, primary key (id))
-2022-05-28 14:51:45.528 DEBUG 18348 --- [         task-1] org.hibernate.SQL                        : alter table insurance_offers drop constraint if exists insuranceOffers_unique_idx
-2022-05-28 14:51:45.528 DEBUG 18348 --- [         task-1] org.hibernate.SQL                        : alter table insurance_offers add constraint insuranceOffers_unique_idx unique (insurance_company_id, insurance_offer_id)
-2022-05-28 14:51:45.533 DEBUG 18348 --- [         task-1] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
-2022-05-28 14:51:45.536  INFO 18348 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-28 14:51:45.548  INFO 18348 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-28 14:51:46.465  INFO 18348 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 55480
-2022-05-28 14:51:46.466  INFO 18348 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2022-05-28 14:51:46.852  INFO 18348 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2022-05-28 14:51:46.866  INFO 18348 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : Started InsuranceOfferServiceApplicationTests in 6.591 seconds (JVM running for 8.491)
-2022-05-28 14:51:47.254 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:47.679 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-05-28 14:51:47.702 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:47.705 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
-2022-05-28 14:51:47.706 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:47.706 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:47.706 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
-2022-05-28 14:51:47.707 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
-2022-05-28 14:51:47.708 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
-2022-05-28 14:51:47.708 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
-2022-05-28 14:51:47.708 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:47.709 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [1]
-2022-05-28 14:51:47.715 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/1
-2022-05-28 14:51:47.762 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:47.763 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.795 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : deleteInsuranceOffers: tries to delete insurance offers for the insurance company with insuranceCompanyId: 1
-2022-05-28 14:51:47.797 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:47.798 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.806 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:47.806 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.823 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:47.825 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.825 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:47.833 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:47.834 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.839 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : deleteInsuranceOffers: tries to delete insurance offers for the insurance company with insuranceCompanyId: 1
-2022-05-28 14:51:47.841 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:47.841 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.859 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:47.860 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:47.861 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.868 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-05-28 14:51:47.869 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:47.869 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
-2022-05-28 14:51:47.869 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:47.870 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:47.870 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
-2022-05-28 14:51:47.870 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
-2022-05-28 14:51:47.871 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
-2022-05-28 14:51:47.871 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
-2022-05-28 14:51:47.871 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:47.871 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [2]
-2022-05-28 14:51:47.872 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/1
-2022-05-28 14:51:47.884 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-05-28 14:51:47.885 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:47.885 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
-2022-05-28 14:51:47.886 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:47.886 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [2]
-2022-05-28 14:51:47.886 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
-2022-05-28 14:51:47.886 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
-2022-05-28 14:51:47.887 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
-2022-05-28 14:51:47.887 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
-2022-05-28 14:51:47.887 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:47.887 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [3]
-2022-05-28 14:51:47.888 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/2
-2022-05-28 14:51:47.898 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-05-28 14:51:47.899 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:47.899 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
-2022-05-28 14:51:47.900 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:47.900 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [3]
-2022-05-28 14:51:47.900 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
-2022-05-28 14:51:47.900 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
-2022-05-28 14:51:47.900 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
-2022-05-28 14:51:47.901 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
-2022-05-28 14:51:47.901 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:47.901 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [4]
-2022-05-28 14:51:47.902 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/3
-2022-05-28 14:51:47.906 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:47.907 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:47.915 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:47.917 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:47.918 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2022-05-28 14:51:47.918 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:47.918 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:47.919 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
-2022-05-28 14:51:47.919 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:47.919 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:47.920 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
-2022-05-28 14:51:47.920 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:48.048 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:48.056 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-05-28 14:51:48.057 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:48.058 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
-2022-05-28 14:51:48.058 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:48.058 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:48.059 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
-2022-05-28 14:51:48.059 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
-2022-05-28 14:51:48.059 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
-2022-05-28 14:51:48.059 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
-2022-05-28 14:51:48.059 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:48.059 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [5]
-2022-05-28 14:51:48.060 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/1
-2022-05-28 14:51:48.069 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_offer_id=?
-2022-05-28 14:51:48.070 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:48.079 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:48.081 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:48.082 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
-2022-05-28 14:51:48.082 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:48.094 DEBUG 18348 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /insuranceOffer, message: Invalid insuranceCompanyId: -1
-2022-05-28 14:51:48.109 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:48.115 DEBUG 18348 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:48.116 TRACE 18348 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [213]
-2022-05-28 14:51:48.118 DEBUG 18348 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : getInsuranceOffer: response size: 0
-2022-05-28 14:51:48.138 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:50.186  INFO 9180 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : Starting InsuranceOfferServiceApplicationTests on DESKTOP-HJGV6OB with PID 9180 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-offer-service)
+2022-06-17 16:13:50.186 DEBUG 9180 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2022-06-17 16:13:50.186  INFO 9180 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : No active profile set, falling back to default profiles: default
+2022-06-17 16:13:51.406  INFO 9180 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-06-17 16:13:51.597  INFO 9180 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 185ms. Found 1 JPA repository interfaces.
+2022-06-17 16:13:52.466  INFO 9180 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-17 16:13:52.569  INFO 9180 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-17 16:13:52.682  INFO 9180 --- [         task-1] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.15.Final
+2022-06-17 16:13:52.993  INFO 9180 --- [         task-1] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2022-06-17 16:13:53.266  INFO 9180 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-17 16:13:53.388  INFO 9180 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-06-17 16:13:53.650  INFO 9180 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-17 16:13:53.736  INFO 9180 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-06-17 16:13:54.940 DEBUG 9180 --- [         task-1] org.hibernate.SQL                        : create table insurance_offers (id integer not null, currency_offer varchar(255), insurance_company_id integer not null, insurance_offer_id integer not null, offer_name varchar(255), price double not null, type_insurance_coverage varchar(255), type_offer_program varchar(255), version integer not null, primary key (id))
+2022-06-17 16:13:54.956 DEBUG 9180 --- [         task-1] org.hibernate.SQL                        : alter table insurance_offers drop constraint if exists insuranceOffers_unique_idx
+2022-06-17 16:13:54.956 DEBUG 9180 --- [         task-1] org.hibernate.SQL                        : alter table insurance_offers add constraint insuranceOffers_unique_idx unique (insurance_company_id, insurance_offer_id)
+2022-06-17 16:13:54.956 DEBUG 9180 --- [         task-1] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2022-06-17 16:13:54.956  INFO 9180 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-17 16:13:54.971  INFO 9180 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-17 16:13:55.845  INFO 9180 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 54043
+2022-06-17 16:13:55.845  INFO 9180 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2022-06-17 16:13:56.291  INFO 9180 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2022-06-17 16:13:56.307  INFO 9180 --- [    Test worker] .i.InsuranceOfferServiceApplicationTests : Started InsuranceOfferServiceApplicationTests in 6.579 seconds (JVM running for 8.388)
+2022-06-17 16:13:56.720 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:57.132 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:57.148 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:57.164 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [1]
+2022-06-17 16:13:57.164 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/1
+2022-06-17 16:13:57.227 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:57.227 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.259 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : deleteInsuranceOffers: tries to delete insurance offers for the insurance company with insuranceCompanyId: 1
+2022-06-17 16:13:57.267 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:57.267 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.267 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:57.267 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.299 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:57.299 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.299 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:57.299 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:57.299 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.299 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : deleteInsuranceOffers: tries to delete insurance offers for the insurance company with insuranceCompanyId: 1
+2022-06-17 16:13:57.299 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:57.314 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.331 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:57.331 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:57.331 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.347 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:57.347 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:57.347 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
+2022-06-17 16:13:57.347 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:57.347 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [2]
+2022-06-17 16:13:57.351 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/1
+2022-06-17 16:13:57.351 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:57.351 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
+2022-06-17 16:13:57.351 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [2]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [3]
+2022-06-17 16:13:57.366 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/2
+2022-06-17 16:13:57.366 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:57.366 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [3]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:57.366 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [4]
+2022-06-17 16:13:57.366 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/3
+2022-06-17 16:13:57.382 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:57.382 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.382 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:57.382 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:57.382 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2022-06-17 16:13:57.382 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:57.382 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:57.382 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
+2022-06-17 16:13:57.382 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:57.382 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:57.382 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
+2022-06-17 16:13:57.382 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:57.525 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:57.525 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:57.525 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [offername]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [582.75]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeofferpr]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:57.525 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [5]
+2022-06-17 16:13:57.541 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : createInsuranceOffer: created a insurance offer entity: 1/1
+2022-06-17 16:13:57.541 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_offer_id=?
+2022-06-17 16:13:57.541 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:57.558 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:57.558 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:57.558 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2022-06-17 16:13:57.558 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:57.573 DEBUG 9180 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /insuranceOffer, message: Invalid insuranceCompanyId: -1
+2022-06-17 16:13:57.589 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:57.589 DEBUG 9180 --- [ctor-http-nio-3] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:57.589 TRACE 9180 --- [ctor-http-nio-3] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [213]
+2022-06-17 16:13:57.589 DEBUG 9180 --- [ctor-http-nio-3] s.m.m.c.i.s.InsuranceOfferServiceImpl    : getInsuranceOffer: response size: 0
+2022-06-17 16:13:57.604 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
 </pre>
 </span>
 </div>
@@ -273,7 +273,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 28 May 2022, 14:51:54</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 17 Jun 2022, 16:14:03</p>
 </div>
 </div>
 </body>

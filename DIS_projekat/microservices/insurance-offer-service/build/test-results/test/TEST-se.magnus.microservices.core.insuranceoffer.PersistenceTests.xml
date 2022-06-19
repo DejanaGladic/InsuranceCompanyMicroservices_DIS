@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="se.magnus.microservices.core.insuranceoffer.PersistenceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-05-28T12:51:48" hostname="DESKTOP-HJGV6OB" time="0.278">
+<testsuite name="se.magnus.microservices.core.insuranceoffer.PersistenceTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-06-17T14:13:58" hostname="DESKTOP-HJGV6OB" time="0.251">
   <properties/>
-  <testcase name="optimisticLockError" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.126"/>
+  <testcase name="optimisticLockError" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.113"/>
   <testcase name="updateInsuranceOffer" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.031"/>
-  <testcase name="getByInsuranceCompanyId" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.032"/>
-  <testcase name="createInsuranceOffer" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.04"/>
-  <testcase name="deleteInsuranceOffer" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.045"/>
+  <testcase name="getByInsuranceCompanyId" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.031"/>
+  <testcase name="createInsuranceOffer" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.035"/>
+  <testcase name="deleteInsuranceOffer" classname="se.magnus.microservices.core.insuranceoffer.PersistenceTests" time="0.035"/>
   <system-out><![CDATA[
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -15,197 +15,197 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.0.RELEASE)
 
-2022-05-28 14:51:48.222  INFO 18348 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : Starting PersistenceTests on DESKTOP-HJGV6OB with PID 18348 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-offer-service)
-2022-05-28 14:51:48.223 DEBUG 18348 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
-2022-05-28 14:51:48.225  INFO 18348 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : No active profile set, falling back to default profiles: default
-2022-05-28 14:51:48.477  INFO 18348 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in LAZY mode.
-2022-05-28 14:51:48.493  INFO 18348 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 1 JPA repository interfaces.
-2022-05-28 14:51:48.509  INFO 18348 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
-2022-05-28 14:51:48.557  INFO 18348 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:d259e446-5f30-456f-957d-4c60718b9735;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
-2022-05-28 14:51:48.664  INFO 18348 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-28 14:51:48.677  INFO 18348 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-05-28 14:51:48.744 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : create table insurance_offers (id integer not null, currency_offer varchar(255), insurance_company_id integer not null, insurance_offer_id integer not null, offer_name varchar(255), price double not null, type_insurance_coverage varchar(255), type_offer_program varchar(255), version integer not null, primary key (id))
+2022-06-17 16:13:57.689  INFO 9180 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : Starting PersistenceTests on DESKTOP-HJGV6OB with PID 9180 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-offer-service)
+2022-06-17 16:13:57.689 DEBUG 9180 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : Running with Spring Boot v2.3.0.RELEASE, Spring v5.2.6.RELEASE
+2022-06-17 16:13:57.689  INFO 9180 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : No active profile set, falling back to default profiles: default
+2022-06-17 16:13:57.888  INFO 9180 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in LAZY mode.
+2022-06-17 16:13:57.904  INFO 9180 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 1 JPA repository interfaces.
+2022-06-17 16:13:57.920  INFO 9180 --- [    Test worker] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2022-06-17 16:13:57.970  INFO 9180 --- [    Test worker] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:93fffc4a-5c97-437c-b32a-c6eb99decd55;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2022-06-17 16:13:58.066  INFO 9180 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-17 16:13:58.080  INFO 9180 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-06-17 16:13:58.147 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : create table insurance_offers (id integer not null, currency_offer varchar(255), insurance_company_id integer not null, insurance_offer_id integer not null, offer_name varchar(255), price double not null, type_insurance_coverage varchar(255), type_offer_program varchar(255), version integer not null, primary key (id))
 Hibernate: create table insurance_offers (id integer not null, currency_offer varchar(255), insurance_company_id integer not null, insurance_offer_id integer not null, offer_name varchar(255), price double not null, type_insurance_coverage varchar(255), type_offer_program varchar(255), version integer not null, primary key (id))
-2022-05-28 14:51:48.746 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : alter table insurance_offers drop constraint if exists insuranceOffers_unique_idx
+2022-06-17 16:13:58.147 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : alter table insurance_offers drop constraint if exists insuranceOffers_unique_idx
 Hibernate: alter table insurance_offers drop constraint if exists insuranceOffers_unique_idx
-2022-05-28 14:51:48.747 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : alter table insurance_offers add constraint insuranceOffers_unique_idx unique (insurance_company_id, insurance_offer_id)
+2022-06-17 16:13:58.147 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : alter table insurance_offers add constraint insuranceOffers_unique_idx unique (insurance_company_id, insurance_offer_id)
 Hibernate: alter table insurance_offers add constraint insuranceOffers_unique_idx unique (insurance_company_id, insurance_offer_id)
-2022-05-28 14:51:48.748 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2022-06-17 16:13:58.147 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
 Hibernate: create sequence hibernate_sequence start with 1 increment by 1
-2022-05-28 14:51:48.750  INFO 18348 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-28 14:51:48.750  INFO 18348 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-28 14:51:48.846  INFO 18348 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : Started PersistenceTests in 0.686 seconds (JVM running for 10.472)
-2022-05-28 14:51:48.927 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:58.147  INFO 9180 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-17 16:13:58.163  INFO 9180 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-17 16:13:58.265  INFO 9180 --- [    Test worker] s.m.m.c.insuranceoffer.PersistenceTests  : Started PersistenceTests in 0.637 seconds (JVM running for 10.341)
+2022-06-17 16:13:58.343 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
 Hibernate: select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:48.932 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:58.343 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
 Hibernate: call next value for hibernate_sequence
-2022-05-28 14:51:48.934 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:58.343 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
 Hibernate: insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:48.935 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
-2022-05-28 14:51:48.935 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:48.936 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:48.936 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
-2022-05-28 14:51:48.936 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:48.936 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
-2022-05-28 14:51:48.936 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
-2022-05-28 14:51:48.937 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:48.937 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [1]
-2022-05-28 14:51:48.940 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.350 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:58.351 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [1]
+2022-06-17 16:13:58.352 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:48.942 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:48.945 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.352 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:58.356 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:48.946 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:48.949 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:58.356 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:48.950 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:48.954 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : update insurance_offers set currency_offer=?, insurance_company_id=?, insurance_offer_id=?, offer_name=?, price=?, type_insurance_coverage=?, type_offer_program=?, version=? where id=? and version=?
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:58.356 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : update insurance_offers set currency_offer=?, insurance_company_id=?, insurance_offer_id=?, offer_name=?, price=?, type_insurance_coverage=?, type_offer_program=?, version=? where id=? and version=?
 Hibernate: update insurance_offers set currency_offer=?, insurance_company_id=?, insurance_offer_id=?, offer_name=?, price=?, type_insurance_coverage=?, type_offer_program=?, version=? where id=? and version=?
-2022-05-28 14:51:48.955 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
-2022-05-28 14:51:48.955 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:48.956 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:48.956 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name2]
-2022-05-28 14:51:48.956 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:48.956 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
-2022-05-28 14:51:48.956 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
-2022-05-28 14:51:48.957 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1]
-2022-05-28 14:51:48.957 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [1]
-2022-05-28 14:51:48.957 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [0]
-2022-05-28 14:51:48.961 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name2]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [1]
+2022-06-17 16:13:58.356 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [0]
+2022-06-17 16:13:58.372 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:48.962 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:48.971 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.372 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:58.372 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:48.972 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:48.980 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:58.372 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:58.388 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
 Hibernate: select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:48.982 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:58.388 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
 Hibernate: delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:48.983 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:48.983 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:48.986 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:58.388 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:58.388 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.388 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
 Hibernate: call next value for hibernate_sequence
-2022-05-28 14:51:48.987 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:58.388 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
 Hibernate: insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:48.988 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
-2022-05-28 14:51:48.989 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:48.989 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:48.989 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
-2022-05-28 14:51:48.989 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:48.989 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
-2022-05-28 14:51:48.989 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
-2022-05-28 14:51:48.990 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:48.990 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [2]
-2022-05-28 14:51:48.992 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.388 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
+2022-06-17 16:13:58.388 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.404 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:58.404 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [2]
+2022-06-17 16:13:58.405 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:48.993 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2022-05-28 14:51:48.995 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : update insurance_offers set currency_offer=?, insurance_company_id=?, insurance_offer_id=?, offer_name=?, price=?, type_insurance_coverage=?, type_offer_program=?, version=? where id=? and version=?
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2022-06-17 16:13:58.405 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : update insurance_offers set currency_offer=?, insurance_company_id=?, insurance_offer_id=?, offer_name=?, price=?, type_insurance_coverage=?, type_offer_program=?, version=? where id=? and version=?
 Hibernate: update insurance_offers set currency_offer=?, insurance_company_id=?, insurance_offer_id=?, offer_name=?, price=?, type_insurance_coverage=?, type_offer_program=?, version=? where id=? and version=?
-2022-05-28 14:51:48.996 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
-2022-05-28 14:51:48.996 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:48.998 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:48.998 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name2]
-2022-05-28 14:51:48.998 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:48.999 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
-2022-05-28 14:51:48.999 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
-2022-05-28 14:51:48.999 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1]
-2022-05-28 14:51:48.999 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [2]
-2022-05-28 14:51:48.999 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [0]
-2022-05-28 14:51:49.002 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name2]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [1]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [2]
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [0]
+2022-06-17 16:13:58.405 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:49.003 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2022-05-28 14:51:49.014 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:58.405 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2022-06-17 16:13:58.422 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
 Hibernate: select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:49.017 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:58.422 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
 Hibernate: delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:49.018 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2022-05-28 14:51:49.019 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:49.023 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:58.422 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2022-06-17 16:13:58.422 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.422 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
 Hibernate: call next value for hibernate_sequence
-2022-05-28 14:51:49.024 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:58.434 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
 Hibernate: insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:49.025 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
-2022-05-28 14:51:49.025 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:49.025 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:49.025 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
-2022-05-28 14:51:49.025 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:49.026 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
-2022-05-28 14:51:49.026 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
-2022-05-28 14:51:49.026 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:49.026 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [3]
-2022-05-28 14:51:49.031 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [3]
+2022-06-17 16:13:58.434 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
 Hibernate: select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_ where insuranceo0_.insurance_company_id=?
-2022-05-28 14:51:49.032 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-05-28 14:51:49.046 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:58.434 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-17 16:13:58.450 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
 Hibernate: select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:49.049 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:58.450 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
 Hibernate: delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:49.049 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
-2022-05-28 14:51:49.050 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:49.052 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:58.450 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
+2022-06-17 16:13:58.450 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:58.450 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
 Hibernate: call next value for hibernate_sequence
-2022-05-28 14:51:49.054 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:58.450 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
 Hibernate: insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:49.056 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
-2022-05-28 14:51:49.056 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:49.056 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:49.057 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
-2022-05-28 14:51:49.057 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:49.057 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
-2022-05-28 14:51:49.057 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
-2022-05-28 14:51:49.057 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:49.057 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [4]
-2022-05-28 14:51:49.059 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [4]
+2022-06-17 16:13:58.466 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
 Hibernate: call next value for hibernate_sequence
-2022-05-28 14:51:49.061 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:58.466 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
 Hibernate: insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:49.062 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer2]
-2022-05-28 14:51:49.062 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:49.062 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [2]
-2022-05-28 14:51:49.062 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name2]
-2022-05-28 14:51:49.062 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:49.063 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage2]
-2022-05-28 14:51:49.063 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram2]
-2022-05-28 14:51:49.063 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:49.063 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [5]
-2022-05-28 14:51:49.066 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer2]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [2]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name2]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage2]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram2]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [5]
+2022-06-17 16:13:58.466 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:49.067 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
-2022-05-28 14:51:49.075 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:58.466 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2022-06-17 16:13:58.482 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from insurance_offers insuranceo0_
 Hibernate: select count(*) as col_0_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:49.088 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
+2022-06-17 16:13:58.482 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
 Hibernate: select insuranceo0_.id as id1_0_, insuranceo0_.currency_offer as currency2_0_, insuranceo0_.insurance_company_id as insuranc3_0_, insuranceo0_.insurance_offer_id as insuranc4_0_, insuranceo0_.offer_name as offer_na5_0_, insuranceo0_.price as price6_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_, insuranceo0_.type_offer_program as type_off8_0_, insuranceo0_.version as version9_0_ from insurance_offers insuranceo0_
-2022-05-28 14:51:49.092 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:58.498 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
 Hibernate: delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:49.093 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
-2022-05-28 14:51:49.093 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:49.095 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:58.499 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
 Hibernate: delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:49.096 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
-2022-05-28 14:51:49.096 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:49.099 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [5]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:58.499 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
 Hibernate: call next value for hibernate_sequence
-2022-05-28 14:51:49.100 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-17 16:13:58.499 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
 Hibernate: insert into insurance_offers (currency_offer, insurance_company_id, insurance_offer_id, offer_name, price, type_insurance_coverage, type_offer_program, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-05-28 14:51:49.101 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
-2022-05-28 14:51:49.102 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
-2022-05-28 14:51:49.103 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
-2022-05-28 14:51:49.103 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
-2022-05-28 14:51:49.103 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
-2022-05-28 14:51:49.103 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
-2022-05-28 14:51:49.103 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
-2022-05-28 14:51:49.103 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
-2022-05-28 14:51:49.103 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [6]
-2022-05-28 14:51:49.107 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [currencyOffer1]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [1]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [INTEGER] - [1]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [VARCHAR] - [name1]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [DOUBLE] - [100.58]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [typeInsuranceCoverage1]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [VARCHAR] - [typeOfferProgram1]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [INTEGER] - [0]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [6]
+2022-06-17 16:13:58.499 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select insuranceo0_.id as id1_0_0_, insuranceo0_.currency_offer as currency2_0_0_, insuranceo0_.insurance_company_id as insuranc3_0_0_, insuranceo0_.insurance_offer_id as insuranc4_0_0_, insuranceo0_.offer_name as offer_na5_0_0_, insuranceo0_.price as price6_0_0_, insuranceo0_.type_insurance_coverage as type_ins7_0_0_, insuranceo0_.type_offer_program as type_off8_0_0_, insuranceo0_.version as version9_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:49.108 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
-2022-05-28 14:51:49.110 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
+2022-06-17 16:13:58.499 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : delete from insurance_offers where id=? and version=?
 Hibernate: delete from insurance_offers where id=? and version=?
-2022-05-28 14:51:49.112 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
-2022-05-28 14:51:49.112 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-05-28 14:51:49.117 DEBUG 18348 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
+2022-06-17 16:13:58.499 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-17 16:13:58.514 DEBUG 9180 --- [    Test worker] org.hibernate.SQL                        : select count(*) as col_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
 Hibernate: select count(*) as col_0_0_ from insurance_offers insuranceo0_ where insuranceo0_.id=?
-2022-05-28 14:51:49.118 TRACE 18348 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
+2022-06-17 16:13:58.514 TRACE 9180 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [6]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

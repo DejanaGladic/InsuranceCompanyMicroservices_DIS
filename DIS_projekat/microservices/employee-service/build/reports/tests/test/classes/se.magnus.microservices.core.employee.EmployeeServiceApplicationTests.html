@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.200s</div>
+<div class="counter">1.094s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,37 +79,37 @@
 </thead>
 <tr>
 <td class="success">deleteEmployees</td>
-<td class="success">0.056s</td>
+<td class="success">0.052s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesByInsuranceCompanyId</td>
-<td class="success">0.989s</td>
+<td class="success">0.879s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesInvalidParameter</td>
-<td class="success">0.013s</td>
+<td class="success">0.010s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesInvalidParameterNegativeValue</td>
-<td class="success">0.024s</td>
+<td class="success">0.027s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesMissingParameter</td>
-<td class="success">0.035s</td>
+<td class="success">0.038s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesNotFound</td>
-<td class="success">0.064s</td>
+<td class="success">0.070s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">postEmployee</td>
-<td class="success">0.019s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -117,15 +117,15 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>14:07:56.495 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-14:07:56.495 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-14:07:56.496 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-14:07:56.497 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-14:07:56.505 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@54e60d51 testClass = EmployeeServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@14f5b2a9 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3afc9de4, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5298c1a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@624a9bf7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@2963e713, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@6c1433e4, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
-14:07:56.507 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-14:07:56.507 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-14:07:56.514 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@54e60d51 testClass = EmployeeServiceApplicationTests, testInstance = se.magnus.microservices.core.employee.EmployeeServiceApplicationTests@4cbab1fb, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@14f5b2a9 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@3afc9de4, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5298c1a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@624a9bf7, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@2963e713, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@6c1433e4, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
-14:07:56.545 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+<pre>16:13:17.180 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+16:13:17.180 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+16:13:17.180 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+16:13:17.180 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+16:13:17.180 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@1de026ff testClass = EmployeeServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@397e0682 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4a5a4480, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3afc0871, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6ba64314, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3b8fd770, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@56cbe1f5, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+16:13:17.180 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+16:13:17.180 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+16:13:17.196 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@1de026ff testClass = EmployeeServiceApplicationTests, testInstance = se.magnus.microservices.core.employee.EmployeeServiceApplicationTests@75fed22e, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@397e0682 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4a5a4480, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@3afc0871, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6ba64314, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3b8fd770, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@56cbe1f5, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
+16:13:17.212 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -135,78 +135,78 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2022-05-28 14:07:57.031  INFO 9368 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Starting EmployeeServiceApplicationTests on DESKTOP-HJGV6OB with PID 9368 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\employee-service)
-2022-05-28 14:07:57.032 DEBUG 9368 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
-2022-05-28 14:07:57.033  INFO 9368 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : No active profile set, falling back to default profiles: default
-2022-05-28 14:07:58.066  INFO 9368 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
-2022-05-28 14:07:58.254  INFO 9368 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 180ms. Found 1 MongoDB repository interfaces.
-2022-05-28 14:08:00.834  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
-2022-05-28 14:08:00.887  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.887+0200 I CONTROL  [initandlisten] MongoDB starting : pid=13448 port=55163 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-3778ead3-50d6-4d62-bc86-25e6c83d648d 64-bit host=DESKTOP-HJGV6OB
-2022-05-28 14:08:00.888  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
-2022-05-28 14:08:00.888  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten] db version v3.5.5
-2022-05-28 14:08:00.888  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
-2022-05-28 14:08:00.888  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten] allocator: tcmalloc
-2022-05-28 14:08:00.889  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten] modules: none
-2022-05-28 14:08:00.889  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten] build environment:
-2022-05-28 14:08:00.889  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten]     distarch: x86_64
-2022-05-28 14:08:00.889  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten]     target_arch: x86_64
-2022-05-28 14:08:00.890  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.888+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 55163 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-3778ead3-50d6-4d62-bc86-25e6c83d648d&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
-2022-05-28 14:08:00.891  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.889+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
-2022-05-28 14:08:00.974  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.974+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
-2022-05-28 14:08:00.974  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.974+0200 I CONTROL  [initandlisten] 
-2022-05-28 14:08:00.974  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.974+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
-2022-05-28 14:08:00.975  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.974+0200 I CONTROL  [initandlisten] **       Not recommended for production.
-2022-05-28 14:08:00.975  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:00.974+0200 I CONTROL  [initandlisten] 
-2022-05-28 14:08:01.625  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.625+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-3778ead3-50d6-4d62-bc86-25e6c83d648d/diagnostic.data'
-2022-05-28 14:08:01.664  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.664+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
-2022-05-28 14:08:01.665  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.664+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
-2022-05-28 14:08:01.668  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.668+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
-2022-05-28 14:08:01.671  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.671+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
-2022-05-28 14:08:01.672  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.672+0200 I NETWORK  [thread1] waiting for connections on port 55163
-2022-05-28 14:08:01.673  INFO 9368 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@167d82
-2022-05-28 14:08:01.750  INFO 9368 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:55163], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-05-28 14:08:01.798  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.798+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:55166 #1 (1 connection now open)
-2022-05-28 14:08:01.812  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:01.812+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:55166 conn1: { driver: { name: &quot;mongo-java-driver|sync|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/11.0.9+7-LTS&quot; }
-2022-05-28 14:08:01.831  INFO 9368 --- [localhost:55163] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:55163
-2022-05-28 14:08:01.836  INFO 9368 --- [localhost:55163] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:55163, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1865800}
-2022-05-28 14:08:02.827  INFO 9368 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2022-05-28 14:08:03.969  INFO 9368 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 55185
-2022-05-28 14:08:04.021  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:04.022+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:55186 #2 (2 connections now open)
-2022-05-28 14:08:04.022  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:04.022+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:55186 conn2: { driver: { name: &quot;mongo-java-driver|sync|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/11.0.9+7-LTS&quot; }
-2022-05-28 14:08:04.024  INFO 9368 --- [    Test worker] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:55163
-2022-05-28 14:08:04.069  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:04.068+0200 I INDEX    [conn2] build index on: employee-db.employees properties: { v: 2, unique: true, key: { insuranceCompanyId: 1, employeeId: 1 }, name: &quot;incom-empl-id&quot;, ns: &quot;employee-db.employees&quot; }
-2022-05-28 14:08:04.069  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:04.068+0200 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
-2022-05-28 14:08:04.072  INFO 9368 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-05-28T14:08:04.072+0200 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
-2022-05-28 14:08:04.087  INFO 9368 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Started EmployeeServiceApplicationTests in 7.537 seconds (JVM running for 9.345)
-2022-05-28 14:08:04.545 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
-2022-05-28 14:08:05.006 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
-2022-05-28 14:08:05.017 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/1
-2022-05-28 14:08:05.058 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
-2022-05-28 14:08:05.060 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/2
-2022-05-28 14:08:05.068 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
-2022-05-28 14:08:05.070 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/3
-2022-05-28 14:08:05.091 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
-2022-05-28 14:08:05.138 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
-2022-05-28 14:08:05.145 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
-2022-05-28 14:08:05.147 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/1
-2022-05-28 14:08:05.151 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
-2022-05-28 14:08:05.166 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
-2022-05-28 14:08:05.168 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
-2022-05-28 14:08:05.173 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Remove using query: { &quot;_id&quot; : { &quot;$oid&quot; : &quot;629210a532db6c2df9302b24&quot;}, &quot;version&quot; : 0} in collection: employees.
-2022-05-28 14:08:05.179 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
-2022-05-28 14:08:05.185 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
-2022-05-28 14:08:05.186 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
-2022-05-28 14:08:05.194 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
-2022-05-28 14:08:05.200 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 113} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
-2022-05-28 14:08:05.202 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : getEmployees: response size: 0
-2022-05-28 14:08:05.259 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
-2022-05-28 14:08:05.294 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
-2022-05-28 14:08:05.300 DEBUG 9368 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
-2022-05-28 14:08:05.302 DEBUG 9368 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/1
-2022-05-28 14:08:05.307 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;employeeId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
-2022-05-28 14:08:05.314 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
-2022-05-28 14:08:05.323 DEBUG 9368 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /employee, message: Invalid insuranceCompanyId: -1
-2022-05-28 14:08:05.339 DEBUG 9368 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
+2022-06-17 16:13:17.720  INFO 14264 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Starting EmployeeServiceApplicationTests on DESKTOP-HJGV6OB with PID 14264 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\employee-service)
+2022-06-17 16:13:17.720 DEBUG 14264 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2022-06-17 16:13:17.720  INFO 14264 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : No active profile set, falling back to default profiles: default
+2022-06-17 16:13:18.733  INFO 14264 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2022-06-17 16:13:18.912  INFO 14264 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 175ms. Found 1 MongoDB repository interfaces.
+2022-06-17 16:13:20.328  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2022-06-17 16:13:20.381  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] MongoDB starting : pid=6932 port=53918 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-a6858ac5-2cbb-4dbc-88e3-26e7d9bbda04 64-bit host=DESKTOP-HJGV6OB
+2022-06-17 16:13:20.381  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2022-06-17 16:13:20.381  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] db version v3.5.5
+2022-06-17 16:13:20.381  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2022-06-17 16:13:20.381  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2022-06-17 16:13:20.382  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] modules: none
+2022-06-17 16:13:20.382  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] build environment:
+2022-06-17 16:13:20.382  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2022-06-17 16:13:20.382  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2022-06-17 16:13:20.382  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.381+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 53918 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-a6858ac5-2cbb-4dbc-88e3-26e7d9bbda04&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2022-06-17 16:13:20.383  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.382+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2022-06-17 16:13:20.449  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.449+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2022-06-17 16:13:20.449  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.449+0200 I CONTROL  [initandlisten] 
+2022-06-17 16:13:20.450  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.449+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2022-06-17 16:13:20.450  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.449+0200 I CONTROL  [initandlisten] **       Not recommended for production.
+2022-06-17 16:13:20.450  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.449+0200 I CONTROL  [initandlisten] 
+2022-06-17 16:13:20.836  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.836+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-a6858ac5-2cbb-4dbc-88e3-26e7d9bbda04/diagnostic.data'
+2022-06-17 16:13:20.865  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.865+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
+2022-06-17 16:13:20.865  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.865+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2022-06-17 16:13:20.868  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.868+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2022-06-17 16:13:20.870  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.870+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2022-06-17 16:13:20.871  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.871+0200 I NETWORK  [thread1] waiting for connections on port 53918
+2022-06-17 16:13:20.872  INFO 14264 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@33a1ea55
+2022-06-17 16:13:20.951  INFO 14264 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:53918], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-17 16:13:20.999  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:20.999+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:53921 #1 (1 connection now open)
+2022-06-17 16:13:21.016  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:21.015+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:53921 conn1: { driver: { name: &quot;mongo-java-driver|sync|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/11.0.9+7-LTS&quot; }
+2022-06-17 16:13:21.034  INFO 14264 --- [localhost:53918] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:53918
+2022-06-17 16:13:21.037  INFO 14264 --- [localhost:53918] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:53918, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=1501900}
+2022-06-17 16:13:21.985  INFO 14264 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2022-06-17 16:13:23.252  INFO 14264 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 53940
+2022-06-17 16:13:23.312  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:23.312+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:53941 #2 (2 connections now open)
+2022-06-17 16:13:23.313  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:23.313+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:53941 conn2: { driver: { name: &quot;mongo-java-driver|sync|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/11.0.9+7-LTS&quot; }
+2022-06-17 16:13:23.314  INFO 14264 --- [    Test worker] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:53918
+2022-06-17 16:13:23.355  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:23.355+0200 I INDEX    [conn2] build index on: employee-db.employees properties: { v: 2, unique: true, key: { insuranceCompanyId: 1, employeeId: 1 }, name: &quot;incom-empl-id&quot;, ns: &quot;employee-db.employees&quot; }
+2022-06-17 16:13:23.355  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:23.355+0200 I INDEX    [conn2] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2022-06-17 16:13:23.359  INFO 14264 --- [       Thread-4] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-17T16:13:23.359+0200 I INDEX    [conn2] build index done.  scanned 0 total records. 0 secs
+2022-06-17 16:13:23.378  INFO 14264 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Started EmployeeServiceApplicationTests in 6.154 seconds (JVM running for 8.061)
+2022-06-17 16:13:23.784 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
+2022-06-17 16:13:24.183 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
+2022-06-17 16:13:24.196 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/1
+2022-06-17 16:13:24.234 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
+2022-06-17 16:13:24.235 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/2
+2022-06-17 16:13:24.244 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
+2022-06-17 16:13:24.245 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/3
+2022-06-17 16:13:24.266 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
+2022-06-17 16:13:24.320 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
+2022-06-17 16:13:24.327 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
+2022-06-17 16:13:24.328 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/1
+2022-06-17 16:13:24.332 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
+2022-06-17 16:13:24.347 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
+2022-06-17 16:13:24.348 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
+2022-06-17 16:13:24.351 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Remove using query: { &quot;_id&quot; : { &quot;$oid&quot; : &quot;62ac8c043e766620619dbfb5&quot;}, &quot;version&quot; : 0} in collection: employees.
+2022-06-17 16:13:24.355 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
+2022-06-17 16:13:24.363 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
+2022-06-17 16:13:24.365 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
+2022-06-17 16:13:24.372 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
+2022-06-17 16:13:24.378 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;insuranceCompanyId&quot; : 113} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
+2022-06-17 16:13:24.381 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : getEmployees: response size: 0
+2022-06-17 16:13:24.443 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
+2022-06-17 16:13:24.481 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
+2022-06-17 16:13:24.487 DEBUG 14264 --- [ctor-http-nio-3] o.s.data.mongodb.core.MongoTemplate      : Inserting Document containing fields: [version, insuranceCompanyId, employeeId, name, surname, education, specialization, _class] in collection: employees
+2022-06-17 16:13:24.489 DEBUG 14264 --- [ctor-http-nio-3] s.m.m.c.e.services.EmployeeServiceImpl   : createEmployee: created a employee entity: 1/1
+2022-06-17 16:13:24.493 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : find using query: { &quot;employeeId&quot; : 1} fields: Document{{}} for class: class se.magnus.microservices.core.employee.persistence.EmployeeEntity in collection: employees
+2022-06-17 16:13:24.499 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
+2022-06-17 16:13:24.508 DEBUG 14264 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /employee, message: Invalid insuranceCompanyId: -1
+2022-06-17 16:13:24.526 DEBUG 14264 --- [    Test worker] o.s.data.mongodb.core.MongoTemplate      : Remove using query: {} in collection: employees.
 </pre>
 </span>
 </div>
@@ -218,7 +218,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 28 May 2022, 14:08:09</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 17 Jun 2022, 16:13:28</p>
 </div>
 </div>
 </body>
