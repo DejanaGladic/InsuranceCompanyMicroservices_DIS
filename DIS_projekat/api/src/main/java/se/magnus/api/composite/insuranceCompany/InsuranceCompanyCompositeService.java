@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import reactor.core.publisher.Mono;
 
 @Api(description = "REST API for composite insurance company information.")
 public interface InsuranceCompanyCompositeService {
@@ -25,7 +26,7 @@ public interface InsuranceCompanyCompositeService {
 			@ApiResponse(code = 422, message = "Unprocessable entity, input parameters caused the processing to fails. See response message for more information.") })
 
 	@GetMapping(value = "/insurance-company-composite/{insuranceCompanyId}", produces = "application/json")
-	InsuranceCompanyAggregate getCompositeInsuranceCompany(@PathVariable int insuranceCompanyId);
+	Mono<InsuranceCompanyAggregate> getCompositeInsuranceCompany(@PathVariable int insuranceCompanyId);
 
 	
 	@ApiOperation(value = "${api.insurance-company-composite.delete-composite-insurance-company.description}", notes = "${api.insurance-company-composite.delete-composite-insurance-company.notes}")

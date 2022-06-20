@@ -1,4 +1,4 @@
-package se.magnus.microservices.composite.insuranceCompany;
+package se.magnus.microservices.composite.insurancecompany;
 
 import java.util.Date;
 import org.junit.Before;
@@ -10,6 +10,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import se.magnus.api.composite.insuranceCompany.*;
 import se.magnus.api.core.insuranceCompany.*;
 import se.magnus.api.core.employee.*;
@@ -44,16 +46,20 @@ public class InsuranceCompanyCompositeServiceApplicationTests {
 	public void setUp() {
 
 		when(compositeIntegration.getInsuranceCompany(INSURANCE_COMPANY_ID_OK)).
-			thenReturn(new InsuranceCompany(INSURANCE_COMPANY_ID_OK, "name","city", "address", "phoneNumber", "mock-address"));
+			thenReturn(Mono.just(new InsuranceCompany(INSURANCE_COMPANY_ID_OK, "name","city",
+					"address", "phoneNumber", "mock-address")));
 		
 		when(compositeIntegration.getEmployees(INSURANCE_COMPANY_ID_OK)).
-			thenReturn(singletonList(new Employee(INSURANCE_COMPANY_ID_OK, 1, "Dejana","Gladic", "Education 1", "Specialization 1", "mock-address")));
+			thenReturn(Flux.fromIterable(singletonList(new Employee(INSURANCE_COMPANY_ID_OK, 1,
+					"Dejana","Gladic", "Education 1", "Specialization 1", "mock-address"))));
 		
 		when(compositeIntegration.getInsuranceOffers(INSURANCE_COMPANY_ID_OK)).
-			thenReturn(singletonList(new InsuranceOffer(INSURANCE_COMPANY_ID_OK, 1, "OfferName 1","typeOfferProgram 1", "typeInsuranceCoverage 1",570.67, "currencyOffer 1","mock-address")));
+			thenReturn(Flux.fromIterable(singletonList(new InsuranceOffer(INSURANCE_COMPANY_ID_OK, 1, "OfferName 1",
+					"typeOfferProgram 1", "typeInsuranceCoverage 1",570.67, "currencyOffer 1","mock-address"))));
 
 		when(compositeIntegration.getTransactions(INSURANCE_COMPANY_ID_OK)).
-			thenReturn(singletonList(new Transaction(INSURANCE_COMPANY_ID_OK, 1, "typeTransaction 1",new Date(), 570.67, "currencyTransaction 1", "accountNumber 1","policeNumber 1", "mock-address")));
+			thenReturn(Flux.fromIterable(singletonList(new Transaction(INSURANCE_COMPANY_ID_OK, 1, "typeTransaction 1",new Date(),
+					570.67, "currencyTransaction 1", "accountNumber 1","policeNumber 1", "mock-address"))));
 			
 		when(compositeIntegration.getInsuranceCompany(INSURANCE_COMPANY_ID_NOT_FOUND)).thenThrow(new NotFoundException("NOT FOUND: " + INSURANCE_COMPANY_ID_NOT_FOUND));
 

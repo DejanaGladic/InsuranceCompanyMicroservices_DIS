@@ -5,10 +5,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import se.magnus.api.core.employee.EmployeeService;
 import se.magnus.api.core.employee.Employee;
 import se.magnus.api.core.insuranceCompany.InsuranceCompany;
@@ -21,10 +24,7 @@ import se.magnus.util.exceptions.*;
 import se.magnus.util.http.HttpErrorInfo;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.springframework.http.HttpMethod.*;
+import static reactor.core.publisher.Flux.empty;
 
 @Component
 public class InsuranceCompanyCompositeIntegration
@@ -32,6 +32,7 @@ public class InsuranceCompanyCompositeIntegration
 
 	private static final Logger LOG = LoggerFactory.getLogger(InsuranceCompanyCompositeIntegration.class);
 
+	private final WebClient webClient;
 	private final RestTemplate restTemplate;
 	private final ObjectMapper mapper;
 
@@ -41,7 +42,7 @@ public class InsuranceCompanyCompositeIntegration
 	private final String transactionServiceUrl;
 
 	@Autowired
-	public InsuranceCompanyCompositeIntegration(RestTemplate restTemplate, ObjectMapper mapper,
+	public InsuranceCompanyCompositeIntegration(RestTemplate restTemplate, WebClient.Builder webClient, ObjectMapper mapper,
 
 			@Value("${app.insurance-company-service.host}") String insuranceCompanyServiceHost,
 			@Value("${app.insurance-company-service.port}") int insuranceCompanyServicePort,
@@ -55,17 +56,14 @@ public class InsuranceCompanyCompositeIntegration
 			@Value("${app.transaction-service.host}") String transactionServiceHost,
 			@Value("${app.transaction-service.port}") int transactionServicePort) {
 
+		this.webClient = webClient.build();
 		this.restTemplate = restTemplate;
 		this.mapper = mapper;
 
-		insuranceCompanyServiceUrl = "http://" + insuranceCompanyServiceHost + ":" + insuranceCompanyServicePort
-				+ "/insuranceCompany/";
-		employeeServiceUrl = "http://" + employeeServiceHost + ":" + employeeServicePort
-				+ "/employee?insuranceCompanyId=";
-		insuranceOfferServiceUrl = "http://" + insuranceOfferServiceHost + ":" + insuranceOfferServicePort
-				+ "/insuranceOffer?insuranceCompanyId=";
-		transactionServiceUrl = "http://" + transactionServiceHost + ":" + transactionServicePort
-				+ "/transaction?insuranceCompanyId=";
+		insuranceCompanyServiceUrl = "http://" + insuranceCompanyServiceHost + ":" + insuranceCompanyServicePort;
+		employeeServiceUrl = "http://" + employeeServiceHost + ":" + employeeServicePort;
+		insuranceOfferServiceUrl = "http://" + insuranceOfferServiceHost + ":" + insuranceOfferServicePort;
+		transactionServiceUrl = "http://" + transactionServiceHost + ":" + transactionServicePort;
 	}
 
 	@Override
@@ -85,33 +83,11 @@ public class InsuranceCompanyCompositeIntegration
 		}
 	}
 
-	public InsuranceCompany getInsuranceCompany(int insuranceCompanyId) {
+	public Mono<InsuranceCompany> getInsuranceCompany(int insuranceCompanyId) {
+		String url = insuranceCompanyServiceUrl + "/product/" + insuranceCompanyId;
+		LOG.debug("Will call the getProduct API on URL: {}", url);
 
-		try {
-			String url = insuranceCompanyServiceUrl + insuranceCompanyId;
-			LOG.debug("Will call getInsuranceCompany API on URL: {}", url);
-
-			InsuranceCompany insuranceCompany = restTemplate.getForObject(url, InsuranceCompany.class);
-			LOG.debug("Found a insurance company with id: {}", insuranceCompany.getInsuranceCompanyId());
-
-			return insuranceCompany;
-
-		} catch (HttpClientErrorException ex) {
-
-			switch (ex.getStatusCode()) {
-
-			case NOT_FOUND:
-				throw new NotFoundException(getErrorMessage(ex));
-
-			case UNPROCESSABLE_ENTITY:
-				throw new InvalidInputException(getErrorMessage(ex));
-
-			default:
-				LOG.warn("Got a unexpected HTTP error: {}, will rethrow it", ex.getStatusCode());
-				LOG.warn("Error body: {}", ex.getResponseBodyAsString());
-				throw ex;
-			}
-		}
+		return webClient.get().uri(url).retrieve().bodyToMono(InsuranceCompany.class).log().onErrorMap(WebClientResponseException.class, ex -> handleException(ex));
 	}
 
 	@Override
@@ -144,24 +120,14 @@ public class InsuranceCompanyCompositeIntegration
 		}
 	}
 
-	public List<Employee> getEmployees(int insuranceCompanyId) {
+	public Flux<Employee> getEmployees(int insuranceCompanyId) {
 
-		try {
-			String url = employeeServiceUrl + "?insuranceCompanyId=" + insuranceCompanyId;
+		String url = employeeServiceUrl + "/employee?insuranceCompanyId=" + insuranceCompanyId;
 
-			LOG.debug("Will call the getEmployees API on URL: {}", url);
-			List<Employee> employees = restTemplate
-					.exchange(url, GET, null, new ParameterizedTypeReference<List<Employee>>() {
-					}).getBody();
+		LOG.debug("Will call the getRecommendations API on URL: {}", url);
 
-			LOG.debug("Found {} employees for a insurance company with id: {}", employees.size(), insuranceCompanyId);
-			return employees;
-
-		} catch (Exception ex) {
-			LOG.warn("Got an exception while requesting employees, return zero employees: {}",
-					ex.getMessage());
-			return new ArrayList<>();
-		}
+		// Return an empty result if something goes wrong to make it possible for the composite service to return partial responses
+		return webClient.get().uri(url).retrieve().bodyToFlux(Employee.class).log().onErrorResume(error -> empty());
 	}
 
 	@Override
@@ -194,24 +160,14 @@ public class InsuranceCompanyCompositeIntegration
 		}
 	}
 
-	public List<Transaction> getTransactions(int insuranceCompanyId) {
+	public Flux<Transaction> getTransactions(int insuranceCompanyId) {
 
-		try {
-			String url = transactionServiceUrl + "?insuranceCompanyId=" + insuranceCompanyId;
+		String url = transactionServiceUrl + "/employee?insuranceCompanyId=" + insuranceCompanyId;
 
-			LOG.debug("Will call the getTransactions API on URL: {}", url);
-			List<Transaction> transactions = restTemplate
-					.exchange(url, GET, null, new ParameterizedTypeReference<List<Transaction>>() {
-					}).getBody();
+		LOG.debug("Will call the getTransactions API on URL: {}", url);
 
-			LOG.debug("Found {} transactions for a insurance company with id: {}", transactions.size(), insuranceCompanyId);
-			return transactions;
-
-		} catch (Exception ex) {
-			LOG.warn("Got an exception while requesting transactions, return zero transactions: {}",
-					ex.getMessage());
-			return new ArrayList<>();
-		}
+		// Return an empty result if something goes wrong to make it possible for the composite service to return partial responses
+		return webClient.get().uri(url).retrieve().bodyToFlux(Transaction.class).log().onErrorResume(error -> empty());
 	}
 
 	@Override
@@ -243,24 +199,14 @@ public class InsuranceCompanyCompositeIntegration
 		}
 	}
 
-	public List<InsuranceOffer> getInsuranceOffers(int insuranceCompanyId) {
+	public Flux<InsuranceOffer> getInsuranceOffers(int insuranceCompanyId) {
 
-		try {
-			String url = insuranceOfferServiceUrl + "?insuranceCompanyId=" + insuranceCompanyId;
+		String url = insuranceOfferServiceUrl + "/insuranceOffer?insuranceCompanyId=" + insuranceCompanyId;
 
-			LOG.debug("Will call the getInsuranceOffers API on URL: {}", url);
-			List<InsuranceOffer> insuranceOffers = restTemplate
-					.exchange(url, GET, null, new ParameterizedTypeReference<List<InsuranceOffer>>() {
-					}).getBody();
+		LOG.debug("Will call the getInsuranceOffers API on URL: {}", url);
 
-			LOG.debug("Found {} insuranceOffers for a insurance company with id: {}", insuranceOffers.size(), insuranceCompanyId);
-			return insuranceOffers;
-
-		} catch (Exception ex) {
-			LOG.warn("Got an exception while requesting insurance offers, return zero insurance offers: {}",
-					ex.getMessage());
-			return new ArrayList<>();
-		}
+		// Return an empty result if something goes wrong to make it possible for the composite service to return partial responses
+		return webClient.get().uri(url).retrieve().bodyToFlux(InsuranceOffer.class).log().onErrorResume(error -> empty());
 	}
 
 	@Override
@@ -280,10 +226,10 @@ public class InsuranceCompanyCompositeIntegration
         switch (ex.getStatusCode()) {
 
         case NOT_FOUND:
-            return new NotFoundException(getErrorMessage(ex));
+            return new NotFoundException(getErrorMessage0(ex));
 
         case UNPROCESSABLE_ENTITY :
-            return new InvalidInputException(getErrorMessage(ex));
+            return new InvalidInputException(getErrorMessage0(ex));
 
         default:
             LOG.warn("Got a unexpected HTTP error: {}, will rethrow it", ex.getStatusCode());
@@ -292,12 +238,44 @@ public class InsuranceCompanyCompositeIntegration
         }
     }
 
-    private String getErrorMessage(HttpClientErrorException ex) {
+	private Throwable handleException(Throwable ex) {
+
+		if (!(ex instanceof WebClientResponseException)) {
+			LOG.warn("Got a unexpected error: {}, will rethrow it", ex.toString());
+			return ex;
+		}
+
+		WebClientResponseException wcre = (WebClientResponseException)ex;
+
+		switch (wcre.getStatusCode()) {
+
+			case NOT_FOUND:
+				return new NotFoundException(getErrorMessage(wcre));
+
+			case UNPROCESSABLE_ENTITY :
+				return new InvalidInputException(getErrorMessage(wcre));
+
+			default:
+				LOG.warn("Got a unexpected HTTP error: {}, will rethrow it", wcre.getStatusCode());
+				LOG.warn("Error body: {}", wcre.getResponseBodyAsString());
+				return ex;
+		}
+	}
+
+    private String getErrorMessage(WebClientResponseException  ex) {
         try {
             return mapper.readValue(ex.getResponseBodyAsString(), HttpErrorInfo.class).getMessage();
         } catch (IOException ioex) {
             return ex.getMessage();
         }
     }
+
+	private String getErrorMessage0(HttpClientErrorException ex) {
+		try {
+			return mapper.readValue(ex.getResponseBodyAsString(), HttpErrorInfo.class).getMessage();
+		} catch (IOException ioex) {
+			return ex.getMessage();
+		}
+	}
 
 }

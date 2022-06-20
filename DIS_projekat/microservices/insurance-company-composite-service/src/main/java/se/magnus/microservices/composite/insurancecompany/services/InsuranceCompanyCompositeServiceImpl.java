@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 import se.magnus.api.composite.insuranceCompany.*;
 import se.magnus.api.core.insuranceCompany.InsuranceCompany;
 import se.magnus.api.core.insuranceOffer.InsuranceOffer;
@@ -71,22 +72,16 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
 
 	
 	@Override
-	public InsuranceCompanyAggregate getCompositeInsuranceCompany(int insuranceCompanyId) {
+	public Mono<InsuranceCompanyAggregate> getCompositeInsuranceCompany(int insuranceCompanyId) {
 
-		InsuranceCompany insuranceCompany = integration.getInsuranceCompany(insuranceCompanyId);
-		if (insuranceCompany == null)
-			throw new NotFoundException("No insurance company found for insuranceCompanyId: " + insuranceCompanyId);
-
-		List<Employee> employees = integration.getEmployees(insuranceCompanyId);
-
-		List<InsuranceOffer> insuranceOffers = integration.getInsuranceOffers(insuranceCompanyId);
-
-		List<Transaction> transactions = integration.getTransactions(insuranceCompanyId);
-
-		LOG.debug("getCompositeInsuranceCompany: aggregate entity found for insuranceCompanyId: {}", insuranceCompanyId);
-		
-		return createInsuranceCompanyAggregate(insuranceCompany, employees, insuranceOffers, transactions,
-				serviceUtil.getServiceAddress());
+		return Mono.zip(
+						values -> createInsuranceCompanyAggregate((InsuranceCompany) values[0], (List<Employee>) values[1], (List<InsuranceOffer>) values[2],(List<Transaction>) values[3], serviceUtil.getServiceAddress()),
+						integration.getInsuranceCompany(insuranceCompanyId),
+						integration.getEmployees(insuranceCompanyId).collectList(),
+						integration.getInsuranceOffers(insuranceCompanyId).collectList(),
+						integration.getTransactions(insuranceCompanyId).collectList())
+				.doOnError(ex -> LOG.warn("getCompositeInsuranceCompany failed: {}", ex.toString()))
+				.log();
 	}
 
 	@Override
