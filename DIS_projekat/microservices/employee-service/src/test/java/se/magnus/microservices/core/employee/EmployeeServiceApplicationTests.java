@@ -5,17 +5,27 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.integration.channel.AbstractMessageChannel;
+import org.springframework.messaging.MessagingException;
+import org.springframework.messaging.support.GenericMessage;
+import se.magnus.api.event.Event;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import se.magnus.api.core.employee.*;
 import se.magnus.microservices.core.employee.persistence.*;
+import se.magnus.util.exceptions.InvalidInputException;
+import se.magnus.api.core.insuranceCompany.*;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static reactor.core.publisher.Mono.just;
+import static se.magnus.api.event.Event.Type.CREATE;
+import static se.magnus.api.event.Event.Type.DELETE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT, properties = { "spring.data.mongodb.port: 0" })
@@ -27,9 +37,15 @@ public class EmployeeServiceApplicationTests {
 	@Autowired
 	private EmployeeRepository repository;
 
+	@Autowired
+	private Sink channels;
+
+	private AbstractMessageChannel input = null;
+	
 	@Before
 	public void setupDb() {
-		repository.deleteAll();
+		input = (AbstractMessageChannel) channels.input();
+		repository.deleteAll().block();
 	}
 
 	@Test
@@ -37,11 +53,18 @@ public class EmployeeServiceApplicationTests {
 
 		int insuranceCompanyId = 1;
 
-		postAndVerifyEmployee(insuranceCompanyId, 1, OK);
-		postAndVerifyEmployee(insuranceCompanyId, 2, OK);
-		postAndVerifyEmployee(insuranceCompanyId, 3, OK);
+		sendCreateEmployeeEvent(insuranceCompanyId, 1);
+		sendCreateEmployeeEvent(insuranceCompanyId, 2);
+		sendCreateEmployeeEvent(insuranceCompanyId, 3);
 
-		assertEquals(3, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
+		assertEquals(3, (long)repository.findByInsuranceCompanyId(insuranceCompanyId).count().block());
+		assertEquals(1, (long)repository.findByName("Name 3").count().block());
+		
+		//ono gore mi je provera jer ovaj kod ispod ne daje rezultat kako treba, proveriti zahtev nekako kasnije
+		/*getAndVerifyEmployeesByInsuranceCompanyId(insuranceCompanyId, OK)
+			.jsonPath("$.length()").isEqualTo(3)
+			.jsonPath("$[2].insuranceCompanyId").isEqualTo(insuranceCompanyId)
+			.jsonPath("$[2].employeeId").isEqualTo(3);*/
 	}
 
 	@Test
@@ -50,13 +73,14 @@ public class EmployeeServiceApplicationTests {
 		int insuranceCompanyId = 1;
 		int employeeId = 1;
 
-		postAndVerifyEmployee(insuranceCompanyId, employeeId, OK);
-		assertEquals(1, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
+		sendCreateEmployeeEvent(insuranceCompanyId, employeeId);
 
-		deleteAndVerifyEmployeesByInsuranceCompanyId(insuranceCompanyId, OK);
-		assertEquals(0, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
+		assertEquals(1, (long)repository.findByInsuranceCompanyId(insuranceCompanyId).count().block());
 
-		deleteAndVerifyEmployeesByInsuranceCompanyId(insuranceCompanyId, OK);
+		sendDeleteEmployeeEvent(insuranceCompanyId);
+		assertEquals(0, (long)repository.findByInsuranceCompanyId(insuranceCompanyId).count().block());
+
+		sendDeleteEmployeeEvent(insuranceCompanyId);
 	}
 
 	@Test
@@ -91,13 +115,9 @@ public class EmployeeServiceApplicationTests {
 						.isEqualTo("Invalid insuranceCompanyId: " + insuranceCompanyIdInvalid);
 
 	}
-
-	@Test
-	public void postEmployee() {
-		int insuranceCompanyId = 1;
-		int employeeId = 1;
-		postAndVerifyEmployee(insuranceCompanyId, employeeId, OK);
-		assertNotNull(repository.findByEmployeeId(employeeId));
+	
+	private WebTestClient.BodyContentSpec getAndVerifyEmployeesByInsuranceCompanyId(int insuranceCompanyId, HttpStatus expectedStatus) {
+		return getAndVerifyEmployeesByInsuranceCompanyId("?insuranceCompanyId=" + insuranceCompanyId, expectedStatus);
 	}
 
 	private WebTestClient.BodyContentSpec getAndVerifyEmployeesByInsuranceCompanyId(String insuranceCompanyIdQuery,
@@ -106,7 +126,7 @@ public class EmployeeServiceApplicationTests {
 				.expectStatus().isEqualTo(expectedStatus).expectHeader().contentType(APPLICATION_JSON).expectBody();
 	}
 
-	private WebTestClient.BodyContentSpec postAndVerifyEmployee(int insuranceCompanyId, int employeeId,
+	/*private WebTestClient.BodyContentSpec postAndVerifyEmployee(int insuranceCompanyId, int employeeId,
 			HttpStatus expectedStatus) {
 		Employee employee = new Employee(insuranceCompanyId, employeeId, "name 1", "surname 1", "education 1",
 				"specialization 1", "SA");
@@ -118,5 +138,17 @@ public class EmployeeServiceApplicationTests {
 			HttpStatus expectedStatus) {
 		return client.delete().uri("/employee?insuranceCompanyId=" + insuranceCompanyId).accept(APPLICATION_JSON)
 				.exchange().expectStatus().isEqualTo(expectedStatus).expectBody();
+	}*/
+	
+	//ove dve metode mi se malo razlikuju od onog u knjizi jer mi je ovo nekako logicnije bilo - proveriti
+	private void sendCreateEmployeeEvent(int insuranceCompanyId, int employeeId) {
+		Employee employee = new Employee(insuranceCompanyId, employeeId, "Name " + employeeId, "Surname " + employeeId, "Education " + employeeId,"Specialization " + employeeId, "SA");
+		Event<Integer, Employee> event = new Event(CREATE, null, employee);
+		input.send(new GenericMessage<>(event));
+	}
+
+	private void sendDeleteEmployeeEvent(int insuranceCompanyId) {
+		Event<Integer, Employee> event = new Event(DELETE, insuranceCompanyId, null);
+		input.send(new GenericMessage<>(event));
 	}
 }

@@ -11,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
+import reactor.test.StepVerifier;
 import se.magnus.microservices.core.insurancecompany.persistence.*;
 
 import java.util.List;
@@ -25,115 +26,114 @@ import static org.springframework.data.domain.Sort.Direction.ASC;
 @DataMongoTest
 public class PersistenceTests {
 
-    @Autowired
-    private InsuranceCompanyRepository repository;
+	@Autowired
+	private InsuranceCompanyRepository repository;
 
-    private InsuranceCompanyEntity savedEntity;
+	private InsuranceCompanyEntity savedEntity;
 
-    @Before
-   	public void setupDb() {
-   		repository.deleteAll();
+	@Before
+	public void setupDb() {
+		StepVerifier.create(repository.deleteAll()).verifyComplete();
 
-   		InsuranceCompanyEntity entity = new InsuranceCompanyEntity(1, "insuranceCompany 1","city 1", "address 1", "phone number 1");
-        savedEntity = repository.save(entity);
+		InsuranceCompanyEntity entity = new InsuranceCompanyEntity(1, "insuranceCompany 1", "city 1", "address 1",
+				"phone number 1");
+		StepVerifier.create(repository.save(entity)).expectNextMatches(createdEntity -> {
+			savedEntity = createdEntity;
+			return areInsuranceCompanyEqual(entity, savedEntity);
+		}).verifyComplete();
+	}
 
-        assertEqualsInsuranceCompany(entity, savedEntity);
-    }
+	@Test
+	public void createInsuranceCompany() {
 
+		InsuranceCompanyEntity newEntity = new InsuranceCompanyEntity(2, "insuranceCompany 2", "city 2", "address 2",
+				"phone number 2");
 
-    @Test
-   	public void createInsuranceCompany() {
+		StepVerifier.create(repository.save(newEntity))
+				.expectNextMatches(
+						createdEntity -> newEntity.getInsuranceCompanyId() == createdEntity.getInsuranceCompanyId())
+				.verifyComplete();
 
-    	InsuranceCompanyEntity newEntity = new InsuranceCompanyEntity(2, "insuranceCompany 2","city 2", "address 2", "phone number 2");
-        repository.save(newEntity);
+		StepVerifier.create(repository.findById(newEntity.getId()))
+				.expectNextMatches(foundEntity -> areInsuranceCompanyEqual(newEntity, foundEntity)).verifyComplete();
 
-        InsuranceCompanyEntity foundEntity = repository.findById(newEntity.getId()).get();
-        assertEqualsInsuranceCompany(newEntity, foundEntity);
+		StepVerifier.create(repository.count()).expectNext(2l).verifyComplete();
+	}
 
-        assertEquals(2, repository.count());
-    }
+	@Test
+	public void updateInsuranceCompany() {
+		savedEntity.setName("insuranceCompany 2");
 
-    @Test
-   	public void updateInsuranceCompany() {
-        savedEntity.setName("insuranceCompany 2");
-        repository.save(savedEntity);
+		StepVerifier.create(repository.save(savedEntity))
+				.expectNextMatches(updatedEntity -> updatedEntity.getName().equals("insuranceCompany 2"))
+				.verifyComplete();
 
-        InsuranceCompanyEntity foundEntity = repository.findById(savedEntity.getId()).get();
-        assertEquals(1, (long)foundEntity.getVersion());
-        assertEquals("insuranceCompany 2", foundEntity.getName());
-    }
+		StepVerifier.create(repository.findById(savedEntity.getId())).expectNextMatches(
+				foundEntity -> foundEntity.getVersion() == 1 && foundEntity.getName().equals("insuranceCompany 2"))
+				.verifyComplete();
+	}
 
-    @Test
-   	public void deleteInsuranceCompany() {
-        repository.delete(savedEntity);
-        assertFalse(repository.existsById(savedEntity.getId()));
-    }
+	@Test
+	public void deleteInsuranceCompany() {
+		StepVerifier.create(repository.delete(savedEntity)).verifyComplete();
+		StepVerifier.create(repository.existsById(savedEntity.getId())).expectNext(false).verifyComplete();
+	}
 
-    @Test
-   	public void getByInsuranceCompanyId() {
-        Optional<InsuranceCompanyEntity> entity = repository.findByInsuranceCompanyId(savedEntity.getInsuranceCompanyId());
+	@Test
+	public void getByInsuranceCompanyId() {
 
-        assertTrue(entity.isPresent());
-        assertEqualsInsuranceCompany(savedEntity, entity.get());
-    }
-    
-	/*@Test(expected = DuplicateKeyException.class)
-	public void duplicateError() {
-		InsuranceCompanyEntity entity = new InsuranceCompanyEntity(2, "insuranceCompany 2","city 2", "address 2", "phone number 2");
-		repository.save(entity);
-	}*/
+		StepVerifier.create(repository.findByInsuranceCompanyId(savedEntity.getInsuranceCompanyId()))
+				.expectNextMatches(foundEntity -> areInsuranceCompanyEqual(savedEntity, foundEntity)).verifyComplete();
+	}
 
-    @Test
-   	public void optimisticLockError() {
+	@Test
+	public void optimisticLockError() {
 
-    	InsuranceCompanyEntity entity1 = repository.findById(savedEntity.getId()).get();
-    	InsuranceCompanyEntity entity2 = repository.findById(savedEntity.getId()).get();
+		InsuranceCompanyEntity entity1 = repository.findById(savedEntity.getId()).block();
+		InsuranceCompanyEntity entity2 = repository.findById(savedEntity.getId()).block();
 
-        entity1.setName("n1");
-        repository.save(entity1);
+		entity1.setName("n1");
+		repository.save(entity1).block();
 
-        try {
-            entity2.setName("n2");
-            repository.save(entity2);
+		StepVerifier.create(repository.save(entity2)).expectError(OptimisticLockingFailureException.class).verify();
 
-            fail("Expected an OptimisticLockingFailureException");
-        } catch (OptimisticLockingFailureException e) {}
+		StepVerifier.create(repository.findById(savedEntity.getId()))
+				.expectNextMatches(foundEntity -> foundEntity.getVersion() == 1 && foundEntity.getName().equals("n1"))
+				.verifyComplete();
+	}
 
-        InsuranceCompanyEntity updatedEntity = repository.findById(savedEntity.getId()).get();
-        assertEquals(1, (int)updatedEntity.getVersion());
-        assertEquals("n1", updatedEntity.getName());
-    }
+	/*
+	 * @Test public void paging() {
+	 * 
+	 * repository.deleteAll();
+	 * 
+	 * List<InsuranceCompanyEntity> newInsuranceCompanies = rangeClosed(1001, 1010)
+	 * .mapToObj(i -> new InsuranceCompanyEntity(i, "insuranceCompany"+i,"city"+i,
+	 * "address"+i, "phone number"+i)) .collect(Collectors.toList());
+	 * repository.saveAll(newInsuranceCompanies);
+	 * 
+	 * Pageable nextPage = PageRequest.of(0, 4, ASC, "insuranceCompanyId"); nextPage
+	 * = testNextPage(nextPage, "[1001, 1002, 1003, 1004]", true); nextPage =
+	 * testNextPage(nextPage, "[1005, 1006, 1007, 1008]", true); nextPage =
+	 * testNextPage(nextPage, "[1009, 1010]", false); }
+	 * 
+	 * private Pageable testNextPage(Pageable nextPage, String
+	 * expectedInsuranceCompanyIds, boolean expectsNextPage) {
+	 * Page<InsuranceCompanyEntity> insuranceCompanyPage =
+	 * repository.findAll(nextPage); assertEquals(expectedInsuranceCompanyIds,
+	 * insuranceCompanyPage.getContent().stream().map(p ->
+	 * p.getInsuranceCompanyId()).collect(Collectors.toList()).toString());
+	 * assertEquals(expectsNextPage, insuranceCompanyPage.hasNext()); return
+	 * insuranceCompanyPage.nextPageable(); }
+	 */
 
-    @Test
-    public void paging() {
-
-        repository.deleteAll();
-
-        List<InsuranceCompanyEntity> newInsuranceCompanies = rangeClosed(1001, 1010)
-            .mapToObj(i -> new InsuranceCompanyEntity(i, "insuranceCompany"+i,"city"+i, "address"+i, "phone number"+i))
-            .collect(Collectors.toList());
-        repository.saveAll(newInsuranceCompanies);
-
-        Pageable nextPage = PageRequest.of(0, 4, ASC, "insuranceCompanyId");
-        nextPage = testNextPage(nextPage, "[1001, 1002, 1003, 1004]", true);
-        nextPage = testNextPage(nextPage, "[1005, 1006, 1007, 1008]", true);
-        nextPage = testNextPage(nextPage, "[1009, 1010]", false);
-    }
-
-    private Pageable testNextPage(Pageable nextPage, String expectedInsuranceCompanyIds, boolean expectsNextPage) {
-        Page<InsuranceCompanyEntity> insuranceCompanyPage = repository.findAll(nextPage);
-        assertEquals(expectedInsuranceCompanyIds, insuranceCompanyPage.getContent().stream().map(p -> p.getInsuranceCompanyId()).collect(Collectors.toList()).toString());
-        assertEquals(expectsNextPage, insuranceCompanyPage.hasNext());
-        return insuranceCompanyPage.nextPageable();
-    }
-
-    private void assertEqualsInsuranceCompany(InsuranceCompanyEntity expectedEntity, InsuranceCompanyEntity actualEntity) {
-        assertEquals(expectedEntity.getId(),               actualEntity.getId());
-        assertEquals(expectedEntity.getVersion(),          actualEntity.getVersion());
-        assertEquals(expectedEntity.getInsuranceCompanyId(),        actualEntity.getInsuranceCompanyId());
-        assertEquals(expectedEntity.getName(),           actualEntity.getName());
-        assertEquals(expectedEntity.getCity(),           actualEntity.getCity());
-        assertEquals(expectedEntity.getAddress(),           actualEntity.getAddress());
-        assertEquals(expectedEntity.getPhoneNumber(),           actualEntity.getPhoneNumber());
-    }
+	private void areInsuranceCompanyEqual(InsuranceCompanyEntity expectedEntity, InsuranceCompanyEntity actualEntity) {
+		return (expectedEntity.getId().equals(actualEntity.getId()))
+				&& (expectedEntity.getVersion() == actualEntity.getVersion())
+				&& (expectedEntity.getInsuranceCompanyId() == actualEntity.getInsuranceCompanyId())
+				&& (expectedEntity.getName().equals(actualEntity.getName()))
+				&& (expectedEntity.getCity() == actualEntity.getCity()
+				&& (expectedEntity.getAddress() == actualEntity.getAddress()
+				&& (expectedEntity.getPhoneNumber() == actualEntity.getPhoneNumber());
+	}
 }

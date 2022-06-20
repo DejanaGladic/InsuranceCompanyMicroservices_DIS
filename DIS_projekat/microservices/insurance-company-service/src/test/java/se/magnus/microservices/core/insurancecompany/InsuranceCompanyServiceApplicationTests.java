@@ -5,10 +5,16 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.http.HttpStatus;
+import org.springframework.integration.channel.AbstractMessageChannel;
+import org.springframework.messaging.MessagingException;
+import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import se.magnus.api.core.insuranceCompany.InsuranceCompany;
+import se.magnus.api.event.Event;
+import se.magnus.util.exceptions.InvalidInputException;
 import se.magnus.microservices.core.insurancecompany.persistence.InsuranceCompanyRepository;
 
 import static junit.framework.TestCase.assertTrue;
@@ -17,6 +23,8 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static reactor.core.publisher.Mono.just;
+import static se.magnus.api.event.Event.Type.CREATE;
+import static se.magnus.api.event.Event.Type.DELETE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT, properties = { "spring.data.mongodb.port: 0" })
@@ -27,10 +35,16 @@ public class InsuranceCompanyServiceApplicationTests {
 
 	@Autowired
 	private InsuranceCompanyRepository repository;
+	
+	@Autowired
+	private Sink channels;
+
+	private AbstractMessageChannel input = null;
 
 	@Before
 	public void setupDb() {
-		repository.deleteAll();
+		input = (AbstractMessageChannel) channels.input();
+		repository.deleteAll().block();
 	}
 
 	@Test
@@ -38,17 +52,16 @@ public class InsuranceCompanyServiceApplicationTests {
 
 		int insuranceCompanyId = 1;
 
-		postAndVerifyInsuranceCompany(insuranceCompanyId, OK);
+		assertNull(repository.findByInsuranceCompanyId(insuranceCompanyId).block());
+		assertEquals(0, (long)repository.count().block());
 
-		assertTrue(repository.findByInsuranceCompanyId(insuranceCompanyId).isPresent());
-	}
+		sendCreateInsuranceCompanyEvent(insuranceCompanyId);
 
-	@Test
-	public void postInsuranceCompany() {
+		assertNotNull(repository.findByInsuranceCompanyId(insuranceCompanyId).block());
+		assertEquals(1, (long)repository.count().block());
 
-		int insuranceCompanyId = 1;
-		postAndVerifyInsuranceCompany(insuranceCompanyId, OK);
-		assertTrue(repository.findByInsuranceCompanyId(insuranceCompanyId).isPresent());
+		getAndVerifyInsuranceCompany(insuranceCompanyId, OK)
+            .jsonPath("$.insuranceCompanyId").isEqualTo(insuranceCompanyId);
 	}
 
 	@Test
@@ -56,13 +69,14 @@ public class InsuranceCompanyServiceApplicationTests {
 
 		int insuranceCompanyId = 1;
 
-		postAndVerifyInsuranceCompany(insuranceCompanyId, OK);
-		assertTrue(repository.findByInsuranceCompanyId(insuranceCompanyId).isPresent());
+		sendCreateInsuranceCompanyEvent(insuranceCompanyId);
+		assertNotNull(repository.findByInsuranceCompanyId(insuranceCompanyId).block());
 
-		deleteAndVerifyInsuranceCompany(insuranceCompanyId, OK);
-		assertFalse(repository.findByInsuranceCompanyId(insuranceCompanyId).isPresent());
+		sendDeleteInsuranceCompanyEvent(insuranceCompanyId);
+		assertNull(repository.findByInsuranceCompanyId(insuranceCompanyId).block());
 
-		deleteAndVerifyInsuranceCompany(insuranceCompanyId, OK);
+		sendDeleteInsuranceCompanyEvent(insuranceCompanyId);
+		
 	}
 
 	@Test
@@ -102,7 +116,7 @@ public class InsuranceCompanyServiceApplicationTests {
 				.expectStatus().isEqualTo(expectedStatus).expectHeader().contentType(APPLICATION_JSON).expectBody();
 	}
 
-	private WebTestClient.BodyContentSpec postAndVerifyInsuranceCompany(int insuranceCompanyId,
+	/*private WebTestClient.BodyContentSpec postAndVerifyInsuranceCompany(int insuranceCompanyId,
 			HttpStatus expectedStatus) {
 
 		InsuranceCompany insuranceCompany = new InsuranceCompany(insuranceCompanyId, "insuranceCompany 1", "city 1",
@@ -117,6 +131,17 @@ public class InsuranceCompanyServiceApplicationTests {
 			HttpStatus expectedStatus) {
 		return client.delete().uri("/insuranceCompany/" + insuranceCompanyId).accept(APPLICATION_JSON).exchange()
 				.expectStatus().isEqualTo(expectedStatus).expectBody();
+	}*/
+	
+	private void sendCreateInsuranceCompanyEvent(int insuranceCompanyId) {
+		InsuranceCompany insuranceCompany = new InsuranceCompany(insuranceCompanyId, "Name " + insuranceCompanyId, "City " + insuranceCompanyId, "Address " + insuranceCompanyId, "PhoneNumber " + insuranceCompanyId, "SA");
+		Event<Integer, InsuranceCompany> event = new Event(CREATE, insuranceCompanyId, insuranceCompany);
+		input.send(new GenericMessage<>(event));
+	}
+
+	private void sendDeleteInsuranceCompanyEvent(int insuranceCompanyId) {
+		Event<Integer, InsuranceCompany> event = new Event(DELETE, insuranceCompanyId, null);
+		input.send(new GenericMessage<>(event));
 	}
 
 }

@@ -104,7 +104,7 @@ function setupTestdata() {
     recreateComposite 1 "$body"
 
     body=\
-'{"insuranceCompanyId":1,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "insuranceOffers":[
+'{"insuranceCompanyId":113,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "insuranceOffers":[
         {"insuranceOfferId":1,"offerName":"offerName 1","price":500.50,"currencyOffer":"currencyOffer 1"},
         {"insuranceOfferId":2,"offerName":"offerName 2","price":550.50,"currencyOffer":"currencyOffer 2"},
         {"insuranceOfferId":3,"offerName":"offerName 3","price":600.50,"currencyOffer":"currencyOffer 3"}
@@ -116,7 +116,7 @@ function setupTestdata() {
     recreateComposite 113 "$body"
 
     body=\
-'{"insuranceCompanyId":1,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "employees":[
+'{"insuranceCompanyId":213,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "employees":[
         {"employeeId":1,"name":"name 1","surname":"surname 1","specialization":"specialization 1"},
         {"employeeId":2,"name":"name 2","surname":"surname 2","specialization":"specialization 2"},
         {"employeeId":3,"name":"name 3","surname":"surname 3","specialization":"specialization 3"}
@@ -128,7 +128,7 @@ function setupTestdata() {
     recreateComposite 213 "$body"
 	
     body=\
-'{"insuranceCompanyId":1,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "employees":[
+'{"insuranceCompanyId":313,"name":"insurance company 1","city":"city 1","address":"address 1", "phoneNumber":"phoneNumber 1", "employees":[
         {"employeeId":1,"name":"name 1","surname":"surname 1","specialization":"specialization 1"},
         {"employeeId":2,"name":"name 2","surname":"surname 2","specialization":"specialization 2"},
         {"employeeId":3,"name":"name 3","surname":"surname 3","specialization":"specialization 3"}

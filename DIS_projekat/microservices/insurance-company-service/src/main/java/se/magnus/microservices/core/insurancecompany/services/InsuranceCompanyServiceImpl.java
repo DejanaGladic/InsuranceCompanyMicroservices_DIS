@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.*;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.*;
 import se.magnus.api.core.insuranceCompany.*;
+import reactor.core.publisher.Mono;
 import se.magnus.microservices.core.insurancecompany.persistence.*;
 import se.magnus.util.exceptions.InvalidInputException;
 import se.magnus.util.exceptions.NotFoundException;
 import se.magnus.util.http.ServiceUtil;
+import static reactor.core.publisher.Mono.error;
 
 @RestController
 public class InsuranceCompanyServiceImpl implements InsuranceCompanyService {
@@ -29,36 +31,35 @@ public class InsuranceCompanyServiceImpl implements InsuranceCompanyService {
     
     @Override
     public InsuranceCompany createInsuranceCompany(InsuranceCompany body) {
-    	try {
-    		InsuranceCompanyEntity entity = mapper.apiToEntity(body);
-    		InsuranceCompanyEntity newEntity = repository.save(entity);
+    	if (body.getInsuranceCompanyId() < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + body.getInsuranceCompanyId());
 
-            LOG.debug("createInsuranceCompany: entity created for insuranceCompanyId: {}", body.getInsuranceCompanyId());
-            return mapper.entityToApi(newEntity);
+    	InsuranceCompanyEntity entity = mapper.apiToEntity(body);
+        Mono<InsuranceCompany> newEntity = repository.save(entity)
+            .log()
+            .onErrorMap(
+                DuplicateKeyException.class,
+                ex -> new InvalidInputException("Duplicate key, insuranceCompanyId: " + body.getInsuranceCompanyId()))
+            .map(e -> mapper.entityToApi(e));
 
-        } catch (DuplicateKeyException dke) {
-            throw new InvalidInputException("Duplicate key, InsuranceCompany Id: " + body.getInsuranceCompanyId());
-        }
+        return newEntity.block();
     }
 
     @Override
-    public InsuranceCompany getInsuranceCompany(int insuranceCompanyId) {
+    public Mono<InsuranceCompany> getInsuranceCompany(int insuranceCompanyId) {
          if (insuranceCompanyId < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
-         InsuranceCompanyEntity entity = repository.findByInsuranceCompanyId(insuranceCompanyId)
-             .orElseThrow(() -> new NotFoundException("No insurance company found for insuranceCompanyId: " + insuranceCompanyId));
-
-         InsuranceCompany response = mapper.entityToApi(entity);
-         response.setServiceAddress(serviceUtil.getServiceAddress());
-
-         LOG.debug("getInsuranceCompany: found insuranceCompanyId: {}", response.getInsuranceCompanyId());
-
-         return response;
+         return repository.findByInsuranceCompanyId(insuranceCompanyId)
+                 .switchIfEmpty(error(new NotFoundException("No insurance company found for insuranceCompanyId: " + insuranceCompanyId)))
+                 .log()
+                 .map(e -> mapper.entityToApi(e))
+                 .map(e -> {e.setServiceAddress(serviceUtil.getServiceAddress()); return e;});       
     }
     
     @Override
     public void deleteInsuranceCompany(int insuranceCompanyId) {
-        LOG.debug("deleteInsuranceCompany: tries to delete an entity with insuranceCompanyId: {}", insuranceCompanyId);
-        repository.findByInsuranceCompanyId(insuranceCompanyId).ifPresent(e -> repository.delete(e));
+    	 if (insuranceCompanyId < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
+
+         LOG.debug("deleteInsuranceCompany: tries to delete an entity with insuranceCompanyId: {}", insuranceCompanyId);
+         repository.findByInsuranceCompanyId(insuranceCompanyId).log().map(e -> repository.delete(e)).flatMap(e -> e).block();        
     }
 }

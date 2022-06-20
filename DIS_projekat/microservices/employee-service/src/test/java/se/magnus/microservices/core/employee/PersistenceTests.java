@@ -14,7 +14,6 @@ import static org.hamcrest.Matchers.hasSize;
 
 import java.util.List;
 
-
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
@@ -28,10 +27,10 @@ public class PersistenceTests {
 
 	@Before
 	public void setupDb() {
-		repository.deleteAll();
+		repository.deleteAll().block();
 
 		EmployeeEntity entity = new EmployeeEntity(1, 1, "name1", "surname1", "education1", "specialization1");
-		savedEmployeeEntity = repository.save(entity);
+		savedEmployeeEntity = repository.save(entity).block();
 
 		assertEqualsEmployee(entity, savedEmployeeEntity);
 	}
@@ -40,63 +39,58 @@ public class PersistenceTests {
 	public void createEmployee() {
 
 		EmployeeEntity newEntity = new EmployeeEntity(1, 2, "name2", "surname2", "education2", "specialization2");
-		repository.save(newEntity);
+		repository.save(newEntity).block();
 
-		EmployeeEntity foundEntity = repository.findById(newEntity.getId()).get();
+		EmployeeEntity foundEntity = repository.findById(newEntity.getId()).block();
 		assertEqualsEmployee(newEntity, foundEntity);
 
-		assertEquals(2, repository.count());
+		assertEquals(2, (long) repository.count().block());
 	}
 
 	@Test
 	public void updateEmployee() {
 		savedEmployeeEntity.setName("name2");
-		repository.save(savedEmployeeEntity);
+		repository.save(savedEmployeeEntity).block();
 
-		EmployeeEntity foundEntity = repository.findById(savedEmployeeEntity.getId()).get();
+		EmployeeEntity foundEntity = repository.findById(savedEmployeeEntity.getId()).block();
 		assertEquals(1, (long) foundEntity.getVersion());
 		assertEquals("name2", foundEntity.getName());
 	}
 
 	@Test
 	public void deleteEmployee() {
-		repository.delete(savedEmployeeEntity);
-		assertFalse(repository.existsById(savedEmployeeEntity.getId()));
+		repository.delete(savedEmployeeEntity).block();
+		assertFalse(repository.existsById(savedEmployeeEntity.getId()).block());
 	}
 
 	@Test
 	public void getByInsuranceCompanyId() {
-		List<EmployeeEntity> entityList = repository.findByInsuranceCompanyId(savedEmployeeEntity.getInsuranceCompanyId());
-		
-        assertThat(entityList, hasSize(1));
-        assertEqualsEmployee(savedEmployeeEntity, entityList.get(0));
-	}
+		List<EmployeeEntity> entityList = repository
+				.findByInsuranceCompanyId(savedEmployeeEntity.getInsuranceCompanyId()).collectList().block();
 
-	/*@Test(expected = DuplicateKeyException.class)
-	public void duplicateError() {
-		EmployeeEntity entity = new EmployeeEntity(1, 1, "name1", "surname1", "education1", "specialization1");
-		repository.save(entity);
-	}*/
+		assertThat(entityList, hasSize(1));
+		assertEqualsEmployee(savedEmployeeEntity, entityList.get(0));
+	}
 
 	// proverava verziju promene pa ako neko zeli da menja staru verziju ne da mu
 	// (to je onaj property version iz persistence klasa)
 	@Test
 	public void optimisticLockError() {
 
-		EmployeeEntity entity1 = repository.findById(savedEmployeeEntity.getId()).get();
-		EmployeeEntity entity2 = repository.findById(savedEmployeeEntity.getId()).get();
+		EmployeeEntity entity1 = repository.findById(savedEmployeeEntity.getId()).block();
+		EmployeeEntity entity2 = repository.findById(savedEmployeeEntity.getId()).block();
 
 		entity1.setName("name2");
-		repository.save(entity1);
+		repository.save(entity1).block();
 
 		try {
 			entity2.setName("name3");
-			repository.save(entity2);
+			repository.save(entity2).block();
 
 			fail("Expected an OptimisticLockingFailureException");
 		} catch (OptimisticLockingFailureException e) {
 		}
-		EmployeeEntity updatedEntity = repository.findById(savedEmployeeEntity.getId()).get();
+		EmployeeEntity updatedEntity = repository.findById(savedEmployeeEntity.getId()).block();
 		assertEquals(1, (int) updatedEntity.getVersion());
 		assertEquals("name2", updatedEntity.getName());
 	}

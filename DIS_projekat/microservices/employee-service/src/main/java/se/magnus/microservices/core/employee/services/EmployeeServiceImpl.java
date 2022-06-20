@@ -5,6 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import se.magnus.api.core.employee.*;
 import se.magnus.microservices.core.employee.persistence.*;
 import se.magnus.util.exceptions.InvalidInputException;
@@ -32,39 +34,38 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee createEmployee(Employee body) {
-		try {
-			EmployeeEntity entity = mapper.apiToEntity(body);
-			EmployeeEntity newEntity = repository.save(entity);
+		if (body.getEmployeeId() < 1) throw new InvalidInputException("Invalid employeeId: " + body.getEmployeeId());
 
-			LOG.debug("createEmployee: created a employee entity: {}/{}", body.getInsuranceCompanyId(),
-					body.getEmployeeId());
-			return mapper.entityToApi(newEntity);
+		EmployeeEntity entity = mapper.apiToEntity(body);
+        Mono<Employee> newEntity = repository.save(entity)
+            .log()
+            .onErrorMap(
+                DuplicateKeyException.class,
+                ex -> new InvalidInputException("Duplicate key, Insurance Company Id: " + body.getInsuranceCompanyId() + ", Employee Id:" + body.getEmployeeId()))
+            .map(e -> mapper.entityToApi(e));
 
-		} catch (DuplicateKeyException dke) {
-			throw new InvalidInputException("Duplicate key, InsuranceCompanyId Id: " + body.getInsuranceCompanyId() + ", Employee Id:"
-					+ body.getEmployeeId());
-		}
+        return newEntity.block();
 	}
 
 	@Override
-	public List<Employee> getEmployees(int insuranceCompanyId) {
+	public Flux<Employee> getEmployees(int insuranceCompanyId) {
 
 		if (insuranceCompanyId < 1)
 			throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
-		List<EmployeeEntity> entityList = repository.findByInsuranceCompanyId(insuranceCompanyId);
-		List<Employee> list = mapper.entityListToApiList(entityList);
-		list.forEach(e -> e.setServiceAddress(serviceUtil.getServiceAddress()));
-
-		LOG.debug("getEmployees: response size: {}", list.size());
-
-		return list;
+		return repository.findByInsuranceCompanyId(insuranceCompanyId)
+	            .log()
+	            .map(e -> mapper.entityToApi(e))
+	            .map(e -> {e.setServiceAddress(serviceUtil.getServiceAddress()); return e;});		
 	}
 
 	@Override
 	public void deleteEmployees(int insuranceCompanyId) {
-		LOG.debug("deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: {}",
-				insuranceCompanyId);
-		repository.deleteAll(repository.findByInsuranceCompanyId(insuranceCompanyId));
+		
+		if (insuranceCompanyId < 1)
+			throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
+		
+        LOG.debug("deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: {}", insuranceCompanyId);
+        repository.deleteAll(repository.findByInsuranceCompanyId(insuranceCompanyId)).block();        
 	}
 }
