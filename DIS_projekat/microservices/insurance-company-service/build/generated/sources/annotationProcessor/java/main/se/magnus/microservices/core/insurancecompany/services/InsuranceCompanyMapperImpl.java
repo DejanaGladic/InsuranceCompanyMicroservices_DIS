@@ -7,7 +7,7 @@ import se.magnus.microservices.core.insurancecompany.persistence.InsuranceCompan
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-17T16:13:31+0200",
+    date = "2022-06-23T17:42:17+0200",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.9 (Oracle Corporation)"
 )
 @Component
@@ -20,6 +20,12 @@ public class InsuranceCompanyMapperImpl implements InsuranceCompanyMapper {
         }
 
         InsuranceCompany insuranceCompany = new InsuranceCompany();
+
+        insuranceCompany.setInsuranceCompanyId( entityInsuranceCompany.getInsuranceCompanyId() );
+        insuranceCompany.setName( entityInsuranceCompany.getName() );
+        insuranceCompany.setCity( entityInsuranceCompany.getCity() );
+        insuranceCompany.setAddress( entityInsuranceCompany.getAddress() );
+        insuranceCompany.setPhoneNumber( entityInsuranceCompany.getPhoneNumber() );
 
         return insuranceCompany;
     }

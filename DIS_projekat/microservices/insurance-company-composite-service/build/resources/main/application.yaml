@@ -79,11 +79,44 @@ app:
     host: localhost
     port: 7004
 
+spring.cloud.stream:
+  defaultBinder: rabbit
+  default.contentType: application/json
+  bindings:
+    output-insurance-companies:
+      destination: insuranceCompanies
+      producer:
+        required-groups: auditGroup
+    output-employees:
+      destination: employees
+      producer:
+        required-groups: auditGroup
+    output-insurance-offers:
+      destination: insuranceOffers
+      producer:
+        required-groups: auditGroup
+    output-transactions:
+      destination: transactions
+      producer:
+        required-groups: auditGroup
+
+spring.cloud.stream.kafka.binder:
+  brokers: 127.0.0.1
+  defaultBrokerPort: 9092
+
+spring.rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  username: guest
+  password: guest
+
 logging:
     level:
         root: INFO
         se.magnus: DEBUG
-        
+
+management.endpoint.health.show-details: "ALWAYS"
+management.endpoints.web.exposure.include: "*"
 ---
 spring.profiles: docker
 
@@ -102,3 +135,7 @@ app:
   transaction-service:
     host: transaction
     port: 8081
+
+spring.rabbitmq.host: rabbitmq
+
+spring.cloud.stream.kafka.binder.brokers: kafka

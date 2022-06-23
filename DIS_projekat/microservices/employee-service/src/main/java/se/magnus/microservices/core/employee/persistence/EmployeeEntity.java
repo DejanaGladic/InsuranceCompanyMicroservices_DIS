@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
+import static java.lang.String.format;
 
 @Document(collection="employees")
 @CompoundIndex(name = "incom-empl-id", unique = true, def = "{'insuranceCompanyId': 1, 'employeeId' : 1}")
@@ -34,6 +35,11 @@ public class EmployeeEntity {
 		this.education = education;
 		this.specialization = specialization;
 	}
+
+    @Override
+    public String toString() {
+        return format("EmployeeEntity: %s/%d", insuranceCompanyId, employeeId);
+    }
 
     public String getId() {
         return id;

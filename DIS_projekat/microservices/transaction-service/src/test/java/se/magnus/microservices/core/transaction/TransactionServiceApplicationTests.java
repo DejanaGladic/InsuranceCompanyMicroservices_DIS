@@ -5,10 +5,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.http.HttpStatus;
+import org.springframework.integration.channel.AbstractMessageChannel;
+import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import se.magnus.api.core.insuranceCompany.InsuranceCompany;
 import se.magnus.api.core.transaction.*;
+import se.magnus.api.event.Event;
 import se.magnus.microservices.core.transaction.persistence.*;
 import java.util.Date;
 
@@ -17,6 +22,8 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static reactor.core.publisher.Mono.just;
+import static se.magnus.api.event.Event.Type.CREATE;
+import static se.magnus.api.event.Event.Type.DELETE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT, properties = { "spring.datasource.url=jdbc:h2:mem:review-db" })
@@ -28,8 +35,14 @@ public class TransactionServiceApplicationTests {
 	@Autowired
 	private TransactionRepository repository;
 
+	@Autowired
+	private Sink channels;
+
+	private AbstractMessageChannel input = null;
+
 	@Before
 	public void setupDb() {
+		input = (AbstractMessageChannel) channels.input();
 		repository.deleteAll();
 	}
 
@@ -40,21 +53,16 @@ public class TransactionServiceApplicationTests {
 
 		assertEquals(0, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
 
-		postAndVerifyTransaction(insuranceCompanyId, 1, OK);
-		postAndVerifyTransaction(insuranceCompanyId, 2, OK);
-		postAndVerifyTransaction(insuranceCompanyId, 3, OK);
+		sendCreateTransactionEvent(insuranceCompanyId, 1);
+		sendCreateTransactionEvent(insuranceCompanyId, 2);
+		sendCreateTransactionEvent(insuranceCompanyId, 3);
 
 		assertEquals(3, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
-	}
 
-	@Test
-	public void postTransaction() {
-
-		int insuranceCompanyId = 1;
-		int transactionId = 1;
-
-		postAndVerifyTransaction(insuranceCompanyId, transactionId, OK);
-		assertNotNull(repository.findByTransactionId(transactionId));
+		getAndVerifyTransactionsByInsuranceCID(insuranceCompanyId, OK)
+				.jsonPath("$.length()").isEqualTo(3)
+				.jsonPath("$[2].insuranceCompanyId").isEqualTo(insuranceCompanyId)
+				.jsonPath("$[2].transactionId").isEqualTo(3);
 	}
 
 	@Test
@@ -63,13 +71,13 @@ public class TransactionServiceApplicationTests {
 		int insuranceCompanyId = 1;
 		int transactionId = 1;
 
-		postAndVerifyTransaction(insuranceCompanyId, transactionId, OK);
+		sendCreateTransactionEvent(insuranceCompanyId, transactionId);
 		assertEquals(1, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
 
-		deleteAndVerifyTransactionsByInsuranceCId(insuranceCompanyId, OK);
+		sendDeleteTransactionEvent(insuranceCompanyId);
 		assertEquals(0, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
 
-		deleteAndVerifyTransactionsByInsuranceCId(insuranceCompanyId, OK);
+		sendDeleteTransactionEvent(insuranceCompanyId);
 	}
 
 	@Test
@@ -115,18 +123,14 @@ public class TransactionServiceApplicationTests {
 			.expectBody();
 	}
 
-	private WebTestClient.BodyContentSpec postAndVerifyTransaction(int insuranceCompanyId, int transactionId,
-			HttpStatus expectedStatus) {
-		Transaction transaction = new Transaction(insuranceCompanyId, transactionId, "typeTransaction",
-				new Date(), 582.55, "currencyTransaction", "accountNumber", "policyNumber","SA");
-		return client.post().uri("/transaction").body(just(transaction), Transaction.class)
-				.accept(APPLICATION_JSON).exchange().expectStatus().isEqualTo(expectedStatus).expectHeader()
-				.contentType(APPLICATION_JSON).expectBody();
+	private void sendCreateTransactionEvent(int insuranceCompanyId, int transactionId) {
+		Transaction transaction = new Transaction(insuranceCompanyId, transactionId,"TypeTransaction"+transactionId, null, 505.65,"CurrencyTransaction"+transactionId, null,"Policy Number"+transactionId,"SA");
+		Event<Integer, InsuranceCompany> event = new Event(CREATE, insuranceCompanyId, transaction);
+		input.send(new GenericMessage<>(event));
 	}
 
-	private WebTestClient.BodyContentSpec deleteAndVerifyTransactionsByInsuranceCId(int insuranceCompanyId,
-			HttpStatus expectedStatus) {
-		return client.delete().uri("/transaction?insuranceCompanyId=" + insuranceCompanyId).accept(APPLICATION_JSON)
-				.exchange().expectStatus().isEqualTo(expectedStatus).expectBody();
+	private void sendDeleteTransactionEvent(int insuranceCompanyId) {
+		Event<Integer, InsuranceCompany> event = new Event(DELETE, insuranceCompanyId, null);
+		input.send(new GenericMessage<>(event));
 	}
 }

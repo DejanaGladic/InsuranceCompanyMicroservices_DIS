@@ -127,13 +127,13 @@ public class PersistenceTests {
 	 * insuranceCompanyPage.nextPageable(); }
 	 */
 
-	private void areInsuranceCompanyEqual(InsuranceCompanyEntity expectedEntity, InsuranceCompanyEntity actualEntity) {
-		return (expectedEntity.getId().equals(actualEntity.getId()))
+	private boolean areInsuranceCompanyEqual(InsuranceCompanyEntity expectedEntity, InsuranceCompanyEntity actualEntity) {
+		return ((expectedEntity.getId().equals(actualEntity.getId()))
 				&& (expectedEntity.getVersion() == actualEntity.getVersion())
 				&& (expectedEntity.getInsuranceCompanyId() == actualEntity.getInsuranceCompanyId())
 				&& (expectedEntity.getName().equals(actualEntity.getName()))
-				&& (expectedEntity.getCity() == actualEntity.getCity()
-				&& (expectedEntity.getAddress() == actualEntity.getAddress()
-				&& (expectedEntity.getPhoneNumber() == actualEntity.getPhoneNumber());
+				&& (expectedEntity.getCity().equals(actualEntity.getCity()))
+				&& (expectedEntity.getAddress().equals(actualEntity.getAddress()))
+				&& (expectedEntity.getPhoneNumber().equals(actualEntity.getPhoneNumber())));
 	}
 }

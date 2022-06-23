@@ -18,8 +18,6 @@ public interface InsuranceOfferMapper {
     @Mappings({
         @Mapping(target = "id", ignore = true),
         @Mapping(target = "version", ignore = true),
-        //ne vidim gde je problem ali sam ga ovako sredila
-        @Mapping(target = "insuranceOfferIdd", source = "insuranceOfferId")
     })
     InsuranceOfferEntity apiToEntity(InsuranceOffer apiInsuranceOffer);
     

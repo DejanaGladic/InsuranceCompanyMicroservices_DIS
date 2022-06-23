@@ -9,7 +9,7 @@ import se.magnus.microservices.core.transaction.persistence.TransactionEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-17T16:14:05+0200",
+    date = "2022-06-23T02:20:20+0200",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.9 (Oracle Corporation)"
 )
 @Component
@@ -22,6 +22,15 @@ public class TransactionMapperImpl implements TransactionMapper {
         }
 
         Transaction transaction = new Transaction();
+
+        transaction.setInsuranceCompanyId( entityTransaction.getInsuranceCompanyId() );
+        transaction.setTransactionId( entityTransaction.getTransactionId() );
+        transaction.setTypeTransaction( entityTransaction.getTypeTransaction() );
+        transaction.setDateTransaction( entityTransaction.getDateTransaction() );
+        transaction.setAmount( entityTransaction.getAmount() );
+        transaction.setCurrencyTransaction( entityTransaction.getCurrencyTransaction() );
+        transaction.setAccountNumber( entityTransaction.getAccountNumber() );
+        transaction.setPolicyNumber( entityTransaction.getPolicyNumber() );
 
         return transaction;
     }

@@ -72,15 +72,7 @@ public class PersistenceTests {
         assertThat(entityList, hasSize(1));
         assertEqualsInsuranceOffer(savedInsuranceOfferEntity, entityList.get(0));
 	}
-	
-	/*@Test(expected = DuplicateKeyException.class)
-	public void duplicateError() {
-		InsuranceOfferEntity entity = new InsuranceOfferEntity(1, 1, "name2", "typeOfferProgram2", "typeInsuranceCoverage2", 100.58, "currencyOffer2");
-		repository.save(entity);
-	}*/
 
-	// proverava verziju promene pa ako neko zeli da menja staru verziju ne da mu
-	// (to je onaj property version iz persistence klasa)
 	@Test
 	public void optimisticLockError() {
 

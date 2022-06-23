@@ -9,7 +9,7 @@ import se.magnus.microservices.core.insuranceoffer.persistence.InsuranceOfferEnt
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-17T16:13:46+0200",
+    date = "2022-06-23T17:42:40+0200",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.9 (Oracle Corporation)"
 )
 @Component
@@ -23,6 +23,14 @@ public class InsuranceOfferMapperImpl implements InsuranceOfferMapper {
 
         InsuranceOffer insuranceOffer = new InsuranceOffer();
 
+        insuranceOffer.setInsuranceCompanyId( entityInsuranceOffer.getInsuranceCompanyId() );
+        insuranceOffer.setInsuranceOfferId( entityInsuranceOffer.getInsuranceOfferId() );
+        insuranceOffer.setOfferName( entityInsuranceOffer.getOfferName() );
+        insuranceOffer.setTypeOfferProgram( entityInsuranceOffer.getTypeOfferProgram() );
+        insuranceOffer.setTypeInsuranceCoverage( entityInsuranceOffer.getTypeInsuranceCoverage() );
+        insuranceOffer.setPrice( entityInsuranceOffer.getPrice() );
+        insuranceOffer.setCurrencyOffer( entityInsuranceOffer.getCurrencyOffer() );
+
         return insuranceOffer;
     }
 
@@ -34,8 +42,8 @@ public class InsuranceOfferMapperImpl implements InsuranceOfferMapper {
 
         InsuranceOfferEntity insuranceOfferEntity = new InsuranceOfferEntity();
 
-        insuranceOfferEntity.setInsuranceOfferIdd( apiInsuranceOffer.getInsuranceOfferId() );
         insuranceOfferEntity.setInsuranceCompanyId( apiInsuranceOffer.getInsuranceCompanyId() );
+        insuranceOfferEntity.setInsuranceOfferId( apiInsuranceOffer.getInsuranceOfferId() );
         insuranceOfferEntity.setOfferName( apiInsuranceOffer.getOfferName() );
         insuranceOfferEntity.setTypeOfferProgram( apiInsuranceOffer.getTypeOfferProgram() );
         insuranceOfferEntity.setTypeInsuranceCoverage( apiInsuranceOffer.getTypeInsuranceCoverage() );

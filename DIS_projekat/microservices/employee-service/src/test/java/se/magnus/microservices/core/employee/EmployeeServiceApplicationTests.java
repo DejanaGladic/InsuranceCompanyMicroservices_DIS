@@ -59,12 +59,11 @@ public class EmployeeServiceApplicationTests {
 
 		assertEquals(3, (long)repository.findByInsuranceCompanyId(insuranceCompanyId).count().block());
 		assertEquals(1, (long)repository.findByName("Name 3").count().block());
-		
-		//ono gore mi je provera jer ovaj kod ispod ne daje rezultat kako treba, proveriti zahtev nekako kasnije
-		/*getAndVerifyEmployeesByInsuranceCompanyId(insuranceCompanyId, OK)
+
+		getAndVerifyEmployeesByInsuranceCompanyId(insuranceCompanyId, OK)
 			.jsonPath("$.length()").isEqualTo(3)
 			.jsonPath("$[2].insuranceCompanyId").isEqualTo(insuranceCompanyId)
-			.jsonPath("$[2].employeeId").isEqualTo(3);*/
+			.jsonPath("$[2].employeeId").isEqualTo(3);
 	}
 
 	@Test
@@ -126,29 +125,15 @@ public class EmployeeServiceApplicationTests {
 				.expectStatus().isEqualTo(expectedStatus).expectHeader().contentType(APPLICATION_JSON).expectBody();
 	}
 
-	/*private WebTestClient.BodyContentSpec postAndVerifyEmployee(int insuranceCompanyId, int employeeId,
-			HttpStatus expectedStatus) {
-		Employee employee = new Employee(insuranceCompanyId, employeeId, "name 1", "surname 1", "education 1",
-				"specialization 1", "SA");
-		return client.post().uri("/employee").body(just(employee), Employee.class).accept(APPLICATION_JSON).exchange()
-				.expectStatus().isEqualTo(expectedStatus).expectHeader().contentType(APPLICATION_JSON).expectBody();
-	}
-
-	private WebTestClient.BodyContentSpec deleteAndVerifyEmployeesByInsuranceCompanyId(int insuranceCompanyId,
-			HttpStatus expectedStatus) {
-		return client.delete().uri("/employee?insuranceCompanyId=" + insuranceCompanyId).accept(APPLICATION_JSON)
-				.exchange().expectStatus().isEqualTo(expectedStatus).expectBody();
-	}*/
-	
-	//ove dve metode mi se malo razlikuju od onog u knjizi jer mi je ovo nekako logicnije bilo - proveriti
+	//proveriti ove metode, nije mi bas logicno ovo
 	private void sendCreateEmployeeEvent(int insuranceCompanyId, int employeeId) {
 		Employee employee = new Employee(insuranceCompanyId, employeeId, "Name " + employeeId, "Surname " + employeeId, "Education " + employeeId,"Specialization " + employeeId, "SA");
-		Event<Integer, Employee> event = new Event(CREATE, null, employee);
+		Event<Integer, InsuranceCompany> event = new Event(CREATE, null, employee);
 		input.send(new GenericMessage<>(event));
 	}
 
 	private void sendDeleteEmployeeEvent(int insuranceCompanyId) {
-		Event<Integer, Employee> event = new Event(DELETE, insuranceCompanyId, null);
+		Event<Integer, InsuranceCompany> event = new Event(DELETE, insuranceCompanyId, null);
 		input.send(new GenericMessage<>(event));
 	}
 }

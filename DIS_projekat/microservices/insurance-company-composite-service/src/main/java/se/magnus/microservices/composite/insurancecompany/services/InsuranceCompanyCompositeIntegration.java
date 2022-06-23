@@ -5,27 +5,37 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.annotation.Output;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import se.magnus.api.core.employee.EmployeeService;
+import se.magnus.api.event.Event;
 import se.magnus.api.core.employee.Employee;
+import se.magnus.api.core.employee.EmployeeService;
 import se.magnus.api.core.insuranceCompany.InsuranceCompany;
 import se.magnus.api.core.insuranceCompany.InsuranceCompanyService;
 import se.magnus.api.core.insuranceOffer.InsuranceOffer;
 import se.magnus.api.core.insuranceOffer.InsuranceOfferService;
 import se.magnus.api.core.transaction.Transaction;
 import se.magnus.api.core.transaction.TransactionService;
-import se.magnus.util.exceptions.*;
+import se.magnus.util.exceptions.InvalidInputException;
+import se.magnus.util.exceptions.NotFoundException;
 import se.magnus.util.http.HttpErrorInfo;
 
 import java.io.IOException;
-import static reactor.core.publisher.Flux.empty;
 
+import static reactor.core.publisher.Flux.empty;
+import static se.magnus.api.event.Event.Type.CREATE;
+import static se.magnus.api.event.Event.Type.DELETE;
+
+@EnableBinding(InsuranceCompanyCompositeIntegration.MessageSources.class)
 @Component
 public class InsuranceCompanyCompositeIntegration
 		implements EmployeeService, InsuranceCompanyService, InsuranceOfferService, TransactionService {
@@ -33,7 +43,6 @@ public class InsuranceCompanyCompositeIntegration
 	private static final Logger LOG = LoggerFactory.getLogger(InsuranceCompanyCompositeIntegration.class);
 
 	private final WebClient webClient;
-	private final RestTemplate restTemplate;
 	private final ObjectMapper mapper;
 
 	private final String insuranceCompanyServiceUrl;
@@ -41,8 +50,31 @@ public class InsuranceCompanyCompositeIntegration
 	private final String insuranceOfferServiceUrl;
 	private final String transactionServiceUrl;
 
+	private MessageSources messageSources;
+
+	public interface MessageSources {
+
+		String OUTPUT_INSURANCE_COMPANY = "output-insurance-companies";
+		String OUTPUT_EMPLOYEES = "output-employees";
+		String OUTPUT_INSURANCE_OFFER = "output-insurance-offers";
+		String OUTPUT_TRANSACTIONS = "output-transactions";
+
+		@Output(OUTPUT_INSURANCE_COMPANY)
+		MessageChannel outputInsuranceCompanies();
+
+		@Output(OUTPUT_EMPLOYEES)
+		MessageChannel outputEmployees();
+
+		@Output(OUTPUT_INSURANCE_OFFER)
+		MessageChannel outputInsuranceOffers();
+
+		@Output(OUTPUT_TRANSACTIONS)
+		MessageChannel outputTransactions();
+	}
+
 	@Autowired
-	public InsuranceCompanyCompositeIntegration(RestTemplate restTemplate, WebClient.Builder webClient, ObjectMapper mapper,
+	public InsuranceCompanyCompositeIntegration(WebClient.Builder webClient, ObjectMapper mapper,
+												MessageSources messageSources,
 
 			@Value("${app.insurance-company-service.host}") String insuranceCompanyServiceHost,
 			@Value("${app.insurance-company-service.port}") int insuranceCompanyServicePort,
@@ -57,8 +89,8 @@ public class InsuranceCompanyCompositeIntegration
 			@Value("${app.transaction-service.port}") int transactionServicePort) {
 
 		this.webClient = webClient.build();
-		this.restTemplate = restTemplate;
 		this.mapper = mapper;
+		this.messageSources = messageSources;
 
 		insuranceCompanyServiceUrl = "http://" + insuranceCompanyServiceHost + ":" + insuranceCompanyServicePort;
 		employeeServiceUrl = "http://" + employeeServiceHost + ":" + employeeServicePort;
@@ -69,62 +101,34 @@ public class InsuranceCompanyCompositeIntegration
 	@Override
 	public InsuranceCompany createInsuranceCompany(InsuranceCompany body) {
 
-		try {
-			String url = insuranceCompanyServiceUrl;
-			LOG.debug("Will post a new insurance company to URL: {}", url);
-
-			InsuranceCompany insuranceCompany = restTemplate.postForObject(url, body, InsuranceCompany.class);
-			LOG.debug("Created a insurance company with id: {}", insuranceCompany.getInsuranceCompanyId());
-
-			return insuranceCompany;
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputInsuranceCompanies().send(MessageBuilder.withPayload(new Event(CREATE, body.getInsuranceCompanyId(), body)).build());
+		return body;
 	}
 
 	public Mono<InsuranceCompany> getInsuranceCompany(int insuranceCompanyId) {
-		String url = insuranceCompanyServiceUrl + "/product/" + insuranceCompanyId;
-		LOG.debug("Will call the getProduct API on URL: {}", url);
+		String url = insuranceCompanyServiceUrl + "/insuranceCompany/" + insuranceCompanyId;
+		LOG.debug("Will call the getInsuranceCompany API on URL: {}", url);
 
 		return webClient.get().uri(url).retrieve().bodyToMono(InsuranceCompany.class).log().onErrorMap(WebClientResponseException.class, ex -> handleException(ex));
 	}
 
 	@Override
 	public void deleteInsuranceCompany(int insuranceCompanyId) {
-		try {
-			String url = insuranceCompanyServiceUrl + "/" + insuranceCompanyId;
-			LOG.debug("Will call the deleteInsuranceCompany API on URL: {}", url);
-
-			restTemplate.delete(url);
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputInsuranceCompanies().send(MessageBuilder.withPayload(new Event(DELETE, insuranceCompanyId, null)).build());
 	}
 
 	@Override
 	public Employee createEmployee(Employee body) {
 
-		try {
-			String url = employeeServiceUrl;
-			LOG.debug("Will post a new employee to URL: {}", url);
-
-			Employee employee = restTemplate.postForObject(url, body, Employee.class);
-			LOG.debug("Created a employee with id: {}", employee.getEmployeeId());
-
-			return employee;
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputEmployees().send(MessageBuilder.withPayload(new Event(CREATE, body.getInsuranceCompanyId(), body)).build());
+		return body;
 	}
 
 	public Flux<Employee> getEmployees(int insuranceCompanyId) {
 
 		String url = employeeServiceUrl + "/employee?insuranceCompanyId=" + insuranceCompanyId;
 
-		LOG.debug("Will call the getRecommendations API on URL: {}", url);
+		LOG.debug("Will call the getEmployees API on URL: {}", url);
 
 		// Return an empty result if something goes wrong to make it possible for the composite service to return partial responses
 		return webClient.get().uri(url).retrieve().bodyToFlux(Employee.class).log().onErrorResume(error -> empty());
@@ -132,37 +136,18 @@ public class InsuranceCompanyCompositeIntegration
 
 	@Override
 	public void deleteEmployees(int insuranceCompanyId) {
-		try {
-			String url = employeeServiceUrl + "?insuranceCompanyId=" + insuranceCompanyId;
-			LOG.debug("Will call the deleteEmployees API on URL: {}", url);
-
-			restTemplate.delete(url);
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputEmployees().send(MessageBuilder.withPayload(new Event(DELETE, insuranceCompanyId, null)).build());
 	}
 
 	@Override
 	public Transaction createTransaction(Transaction body) {
-
-		try {
-			String url = transactionServiceUrl;
-			LOG.debug("Will post a new transaction to URL: {}", url);
-
-			Transaction transaction = restTemplate.postForObject(url, body, Transaction.class);
-			LOG.debug("Created a transaction with id: {}", transaction.getTransactionId());
-
-			return transaction;
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputTransactions().send(MessageBuilder.withPayload(new Event(CREATE, body.getInsuranceCompanyId(), body)).build());
+		return body;
 	}
 
 	public Flux<Transaction> getTransactions(int insuranceCompanyId) {
 
-		String url = transactionServiceUrl + "/employee?insuranceCompanyId=" + insuranceCompanyId;
+		String url = transactionServiceUrl + "/transaction?insuranceCompanyId=" + insuranceCompanyId;
 
 		LOG.debug("Will call the getTransactions API on URL: {}", url);
 
@@ -172,31 +157,12 @@ public class InsuranceCompanyCompositeIntegration
 
 	@Override
 	public void deleteTransactions(int insuranceCompanyId) {
-		try {
-			String url = transactionServiceUrl + "?insuranceCompanyId=" + insuranceCompanyId;
-			LOG.debug("Will call the deleteTransactions API on URL: {}", url);
-
-			restTemplate.delete(url);
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputTransactions().send(MessageBuilder.withPayload(new Event(DELETE, insuranceCompanyId, null)).build());
 	}
 	@Override
 	public InsuranceOffer createInsuranceOffer(InsuranceOffer body) {
-
-		try {
-			String url = insuranceOfferServiceUrl;
-			LOG.debug("Will post a new insurance offer to URL: {}", url);
-
-			InsuranceOffer insuranceOffer = restTemplate.postForObject(url, body, InsuranceOffer.class);
-			LOG.debug("Created a insurance offer with id: {}", insuranceOffer.getInsuranceOfferId());
-
-			return insuranceOffer;
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputInsuranceOffers().send(MessageBuilder.withPayload(new Event(CREATE, body.getInsuranceCompanyId(), body)).build());
+		return body;
 	}
 
 	public Flux<InsuranceOffer> getInsuranceOffers(int insuranceCompanyId) {
@@ -211,32 +177,33 @@ public class InsuranceCompanyCompositeIntegration
 
 	@Override
 	public void deleteInsuranceOffers(int insuranceCompanyId) {
-		try {
-			String url = insuranceOfferServiceUrl + "?insuranceCompanyId=" + insuranceCompanyId;
-			LOG.debug("Will call the deleteInsuranceOffers API on URL: {}", url);
-
-			restTemplate.delete(url);
-
-		} catch (HttpClientErrorException ex) {
-			throw handleHttpClientException(ex);
-		}
+		messageSources.outputInsuranceOffers().send(MessageBuilder.withPayload(new Event(DELETE, insuranceCompanyId, null)).build());
 	}
-	
-	private RuntimeException handleHttpClientException(HttpClientErrorException ex) {
-        switch (ex.getStatusCode()) {
 
-        case NOT_FOUND:
-            return new NotFoundException(getErrorMessage0(ex));
+	public Mono<Health> getInsuranceCompanyHealth() {
+		return getHealth(insuranceCompanyServiceUrl);
+	}
 
-        case UNPROCESSABLE_ENTITY :
-            return new InvalidInputException(getErrorMessage0(ex));
+	public Mono<Health> getEmployeeHealth() {
+		return getHealth(employeeServiceUrl);
+	}
 
-        default:
-            LOG.warn("Got a unexpected HTTP error: {}, will rethrow it", ex.getStatusCode());
-            LOG.warn("Error body: {}", ex.getResponseBodyAsString());
-            return ex;
-        }
-    }
+	public Mono<Health> getInsuranceOfferHealth() {
+		return getHealth(insuranceOfferServiceUrl);
+	}
+
+	public Mono<Health> getTransactionHealth() {
+		return getHealth(transactionServiceUrl);
+	}
+
+	private Mono<Health> getHealth(String url) {
+		url += "/actuator/health";
+		LOG.debug("Will call the Health API on URL: {}", url);
+		return webClient.get().uri(url).retrieve().bodyToMono(String.class)
+				.map(s -> new Health.Builder().up().build())
+				.onErrorResume(ex -> Mono.just(new Health.Builder().down(ex).build()))
+				.log();
+	}
 
 	private Throwable handleException(Throwable ex) {
 
@@ -269,13 +236,5 @@ public class InsuranceCompanyCompositeIntegration
             return ex.getMessage();
         }
     }
-
-	private String getErrorMessage0(HttpClientErrorException ex) {
-		try {
-			return mapper.readValue(ex.getResponseBodyAsString(), HttpErrorInfo.class).getMessage();
-		} catch (IOException ioex) {
-			return ex.getMessage();
-		}
-	}
 
 }

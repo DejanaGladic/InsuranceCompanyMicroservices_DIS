@@ -69,42 +69,9 @@ public class InsuranceCompanyCompositeServiceApplicationTests {
 	@Test
 	public void contextLoads() {
 	}
-	
-	@Test
-	public void createCompositeInsuranceCompany1() {
-
-		InsuranceCompanyAggregate compositeInsuranceCompany = new InsuranceCompanyAggregate(1, "name", "city","address","phoneNumber", null, null, null, null);
-
-		postAndVerifyInsuranceCompany(compositeInsuranceCompany, OK);
-	}
-
-	@Test
-	public void createCompositeInsuranceCompany2() {
-		InsuranceCompanyAggregate compositeInsuranceCompany = new InsuranceCompanyAggregate(1, "name","city","address","phoneNumber",
-				singletonList(new EmployeeSummary(1, "Name", "Surname", "Specialization")),
-				singletonList(new InsuranceOfferSummary(1, "OfferName",  505.00, "CurrencyOffer")),
-				singletonList(new TransactionSummary(1, "TypeTransaction",  505.00, "CurrencyTransaction", "PolicyNumber")), null);
-
-		postAndVerifyInsuranceCompany(compositeInsuranceCompany, OK);
-	}
-
-	@Test
-	public void deleteCompositeProduct() {
-		InsuranceCompanyAggregate compositeInsuranceCompany = new InsuranceCompanyAggregate(1, "name","city","address","phoneNumber",
-				singletonList(new EmployeeSummary(1, "Name", "Surname", "Specialization")),
-				singletonList(new InsuranceOfferSummary(1, "OfferName", 505.00, "CurrencyOffer")),
-				singletonList(new TransactionSummary(1, "TypeTransaction", 505.00, "CurrencyTransaction", "PolicyNumber")), null);
-
-
-		postAndVerifyInsuranceCompany(compositeInsuranceCompany, OK);
-
-		deleteAndVerifyInsuranceCompany(compositeInsuranceCompany.getInsuranceCompanyId(), OK);
-		deleteAndVerifyInsuranceCompany(compositeInsuranceCompany.getInsuranceCompanyId(), OK);
-	}
 
 	@Test
 	public void getInsuranceCompanyById() {
-
 		getAndVerifyInsuranceCompany(INSURANCE_COMPANY_ID_OK, OK)
         .jsonPath("$.insuranceCompanyId").isEqualTo(INSURANCE_COMPANY_ID_OK)
         .jsonPath("$.employees.length()").isEqualTo(1)
@@ -114,7 +81,6 @@ public class InsuranceCompanyCompositeServiceApplicationTests {
 
 	@Test
 	public void getInsuranceCompanyNotFound() {
-
 		getAndVerifyInsuranceCompany(INSURANCE_COMPANY_ID_NOT_FOUND, NOT_FOUND)
         .jsonPath("$.path").isEqualTo("/insurance-company-composite/" + INSURANCE_COMPANY_ID_NOT_FOUND)
         .jsonPath("$.message").isEqualTo("NOT FOUND: " + INSURANCE_COMPANY_ID_NOT_FOUND);
@@ -123,35 +89,19 @@ public class InsuranceCompanyCompositeServiceApplicationTests {
 
 	@Test
 	public void getInsuranceCompanyInvalidInput() {
-
 		getAndVerifyInsuranceCompany(INSURANCE_COMPANY_ID_INVALID, UNPROCESSABLE_ENTITY)
         .jsonPath("$.path").isEqualTo("/insurance-company-composite/" + INSURANCE_COMPANY_ID_INVALID)
         .jsonPath("$.message").isEqualTo("INVALID: " + INSURANCE_COMPANY_ID_INVALID);
 		
 	}
 	
-	private WebTestClient.BodyContentSpec getAndVerifyInsuranceCompany(int isuranceCompanyId, HttpStatus expectedStatus) {
+	private WebTestClient.BodyContentSpec getAndVerifyInsuranceCompany(int insuranceCompanyId, HttpStatus expectedStatus) {
 		return client.get()
-			.uri("/insurance-company-composite/" + isuranceCompanyId)
+			.uri("/insurance-company-composite/" + insuranceCompanyId)
 			.accept(APPLICATION_JSON)
 			.exchange()
 			.expectStatus().isEqualTo(expectedStatus)
 			.expectHeader().contentType(APPLICATION_JSON)
 			.expectBody();
-	}
-
-	private void postAndVerifyInsuranceCompany(InsuranceCompanyAggregate compositeInsuranceCompany, HttpStatus expectedStatus) {
-		client.post()
-			.uri("/insurance-company-composite")
-			.body(just(compositeInsuranceCompany), InsuranceCompanyAggregate.class)
-			.exchange()
-			.expectStatus().isEqualTo(expectedStatus);
-	}
-
-	private void deleteAndVerifyInsuranceCompany(int isuranceCompanyId, HttpStatus expectedStatus) {
-		client.delete()
-			.uri("/insurance-company-composite/" + isuranceCompanyId)
-			.exchange()
-			.expectStatus().isEqualTo(expectedStatus);
 	}
 }

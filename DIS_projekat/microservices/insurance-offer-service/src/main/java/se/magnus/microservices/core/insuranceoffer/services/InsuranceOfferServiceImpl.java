@@ -1,5 +1,6 @@
 package se.magnus.microservices.core.insuranceoffer.services;
 
+import jdk.internal.org.jline.utils.Log;
 import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +41,7 @@ public class InsuranceOfferServiceImpl implements InsuranceOfferService {
 
     @Override
 	public InsuranceOffer createInsuranceOffer(InsuranceOffer body) {
-		if (body.getInsuranceOfferId() < 1) throw new InvalidInputException("Invalid insuranceOfferId: " + body.getInsuranceOfferId());
+		if (body.getInsuranceCompanyId() < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + body.getInsuranceCompanyId());
 
 		try {
 			InsuranceOfferEntity entity = mapper.apiToEntity(body);

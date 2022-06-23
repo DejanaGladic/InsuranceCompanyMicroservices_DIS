@@ -75,14 +75,6 @@ public class PersistenceTests {
         assertEqualsTransaction(savedTransactionEntity, entityList.get(0));
 	}
 
-	/*@Test(expected = DuplicateKeyException.class)
-	public void duplicateError() {
-		TransactionEntity entity = new TransactionEntity(1, 1, "typeTransaction 1",new Date(), 570.67, "currencyOffer 1", "accountNumber 1","policeNumber 1");
-		repository.save(entity);
-	}*/
-
-	// proverava verziju promene pa ako neko zeli da menja staru verziju ne da mu
-	// (to je onaj property version iz persistence klasa)
 	@Test
 	public void optimisticLockError() {
 

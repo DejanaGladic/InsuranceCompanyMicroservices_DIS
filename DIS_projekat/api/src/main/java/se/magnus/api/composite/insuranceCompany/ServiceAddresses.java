@@ -1,11 +1,11 @@
 package se.magnus.api.composite.insuranceCompany;
 
 public class ServiceAddresses {
-	private final String cmp;
-	private final String incom;
-	private final String emp;
-	private final String inoff;
-	private final String trans;
+	private String cmp;
+	private String incom;
+	private String emp;
+	private String inoff;
+	private String trans;
 
 	public ServiceAddresses() {
 		cmp = null;

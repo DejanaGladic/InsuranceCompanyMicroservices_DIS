@@ -34,7 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee createEmployee(Employee body) {
-		if (body.getEmployeeId() < 1) throw new InvalidInputException("Invalid employeeId: " + body.getEmployeeId());
+		if (body.getInsuranceCompanyId() < 1) throw new InvalidInputException("Invalid insuranceCompanyId: " + body.getInsuranceCompanyId());
 
 		EmployeeEntity entity = mapper.apiToEntity(body);
         Mono<Employee> newEntity = repository.save(entity)
@@ -43,7 +43,6 @@ public class EmployeeServiceImpl implements EmployeeService {
                 DuplicateKeyException.class,
                 ex -> new InvalidInputException("Duplicate key, Insurance Company Id: " + body.getInsuranceCompanyId() + ", Employee Id:" + body.getEmployeeId()))
             .map(e -> mapper.entityToApi(e));
-
         return newEntity.block();
 	}
 

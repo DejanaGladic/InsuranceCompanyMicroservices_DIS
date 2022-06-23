@@ -1,10 +1,10 @@
 package se.magnus.api.composite.insuranceCompany;
 
 public class InsuranceOfferSummary {
-	private final int insuranceOfferId;
-	private final String offerName;
-	private final double price;
-	private final String currencyOffer;
+	private int insuranceOfferId;
+	private String offerName;
+	private double price;
+	private String currencyOffer;
 
 	public InsuranceOfferSummary() {
 		this.insuranceOfferId = 0;

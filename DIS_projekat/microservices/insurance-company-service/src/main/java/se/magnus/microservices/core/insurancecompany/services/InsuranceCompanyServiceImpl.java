@@ -1,5 +1,6 @@
 package se.magnus.microservices.core.insurancecompany.services;
 
+import se.magnus.microservices.core.insurancecompany.persistence.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.*;
@@ -7,7 +8,6 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.*;
 import se.magnus.api.core.insuranceCompany.*;
 import reactor.core.publisher.Mono;
-import se.magnus.microservices.core.insurancecompany.persistence.*;
 import se.magnus.util.exceptions.InvalidInputException;
 import se.magnus.util.exceptions.NotFoundException;
 import se.magnus.util.http.ServiceUtil;

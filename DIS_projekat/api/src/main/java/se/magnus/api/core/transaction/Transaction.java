@@ -3,14 +3,14 @@ package se.magnus.api.core.transaction;
 import java.util.Date;
 
 public class Transaction {
-	private final int insuranceCompanyId;
-	private final int transactionId;
-	private final String typeTransaction;
-	private final Date dateTransaction;
-	private final double amount;
-	private final String currencyTransaction;
-	private final String accountNumber;
-	private final String policyNumber;
+	private int insuranceCompanyId;
+	private int transactionId;
+	private String typeTransaction;
+	private Date dateTransaction;
+	private double amount;
+	private String currencyTransaction;
+	private String accountNumber;
+	private String policyNumber;
 	private String serviceAddress;
 
 	public Transaction() {
@@ -77,5 +77,37 @@ public class Transaction {
 
 	public void setServiceAddress(String serviceAddress) {
 		this.serviceAddress = serviceAddress;
+	}
+
+	public void setInsuranceCompanyId(int insuranceCompanyId) {
+		this.insuranceCompanyId = insuranceCompanyId;
+	}
+
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
+	}
+
+	public void setTypeTransaction(String typeTransaction) {
+		this.typeTransaction = typeTransaction;
+	}
+
+	public void setDateTransaction(Date dateTransaction) {
+		this.dateTransaction = dateTransaction;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public void setCurrencyTransaction(String currencyTransaction) {
+		this.currencyTransaction = currencyTransaction;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public void setPolicyNumber(String policyNumber) {
+		this.policyNumber = policyNumber;
 	}
 }

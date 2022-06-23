@@ -5,10 +5,15 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.http.HttpStatus;
+import org.springframework.integration.channel.AbstractMessageChannel;
+import org.springframework.messaging.support.GenericMessage;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
+import se.magnus.api.core.insuranceCompany.InsuranceCompany;
 import se.magnus.api.core.insuranceOffer.*;
+import se.magnus.api.event.Event;
 import se.magnus.microservices.core.insuranceoffer.persistence.*;
 
 import static org.junit.Assert.*;
@@ -16,6 +21,8 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static reactor.core.publisher.Mono.just;
+import static se.magnus.api.event.Event.Type.CREATE;
+import static se.magnus.api.event.Event.Type.DELETE;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT, properties = { "spring.datasource.url=jdbc:h2:mem:review-db" })
@@ -27,8 +34,14 @@ public class InsuranceOfferServiceApplicationTests {
 	@Autowired
 	private InsuranceOfferRepository repository;
 
+	@Autowired
+	private Sink channels;
+
+	private AbstractMessageChannel input = null;
+
 	@Before
 	public void setupDb() {
+		input = (AbstractMessageChannel) channels.input();
 		repository.deleteAll();
 	}
 
@@ -39,21 +52,16 @@ public class InsuranceOfferServiceApplicationTests {
 
 		assertEquals(0, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
 
-		postAndVerifyInsuranceOffer(insuranceCompanyId, 1, OK);
-		postAndVerifyInsuranceOffer(insuranceCompanyId, 2, OK);
-		postAndVerifyInsuranceOffer(insuranceCompanyId, 3, OK);
+		sendCreateInsuranceOfferEvent(insuranceCompanyId, 1);
+		sendCreateInsuranceOfferEvent(insuranceCompanyId, 2);
+		sendCreateInsuranceOfferEvent(insuranceCompanyId, 3);
 
 		assertEquals(3, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
-	}
 
-	@Test
-	public void postInsuranceOffer() {
-
-		int insuranceCompanyId = 1;
-		int insuranceOfferId = 1;
-
-		postAndVerifyInsuranceOffer(insuranceCompanyId, insuranceOfferId, OK);
-		assertNotNull(repository.findByInsuranceOfferId(insuranceOfferId));
+		getAndVerifyInsuranceOffersByInsuranceCID("?insuranceCompanyId="+ insuranceCompanyId, OK)
+				.jsonPath("$.length()").isEqualTo(3)
+				.jsonPath("$[2].insuranceCompanyId").isEqualTo(insuranceCompanyId)
+				.jsonPath("$[2].insuranceOfferId").isEqualTo(3);
 	}
 
 	@Test
@@ -62,13 +70,13 @@ public class InsuranceOfferServiceApplicationTests {
 		int insuranceCompanyId = 1;
 		int insuranceOfferId = 1;
 
-		postAndVerifyInsuranceOffer(insuranceCompanyId, insuranceOfferId, OK);
+		sendCreateInsuranceOfferEvent(insuranceCompanyId, insuranceOfferId);
 		assertEquals(1, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
 
-		deleteAndVerifyInsuranceOfferByInsuranceCId(insuranceCompanyId, OK);
+		sendDeleteInsuranceOfferEvent(insuranceCompanyId);
 		assertEquals(0, repository.findByInsuranceCompanyId(insuranceCompanyId).size());
 
-		deleteAndVerifyInsuranceOfferByInsuranceCId(insuranceCompanyId, OK);
+		sendDeleteInsuranceOfferEvent(insuranceCompanyId);
 	}
 
 	@Test
@@ -100,9 +108,9 @@ public class InsuranceOfferServiceApplicationTests {
 						.isEqualTo("Invalid insuranceCompanyId: " + insuranceCompanyIdInvalid);
 	}
 	
-	private WebTestClient.BodyContentSpec getAndVerifyInsuranceOffersByInsuranceCID(int insuranceCompanyId, HttpStatus expectedStatus) {
+	/*private WebTestClient.BodyContentSpec getAndVerifyInsuranceOffersByInsuranceCID(int insuranceCompanyId, HttpStatus expectedStatus) {
 		return getAndVerifyInsuranceOffersByInsuranceCID("?insuranceCompanyId=" + insuranceCompanyId, expectedStatus);
-	}
+	}*/
 
 	private WebTestClient.BodyContentSpec getAndVerifyInsuranceOffersByInsuranceCID(String insuranceCompanyIdQuery, HttpStatus expectedStatus) {
 		return client.get()
@@ -114,18 +122,14 @@ public class InsuranceOfferServiceApplicationTests {
 			.expectBody();
 	}
 
-	private WebTestClient.BodyContentSpec postAndVerifyInsuranceOffer(int insuranceCompanyId, int insuranceOfferId,
-			HttpStatus expectedStatus) {
-		InsuranceOffer insuranceOffer = new InsuranceOffer(insuranceCompanyId, insuranceOfferId, "offername",
-				"typeofferpr", "typeInsuranceCoverage", 582.75, "currencyOffer", "SA");
-		return client.post().uri("/insuranceOffer").body(just(insuranceOffer), InsuranceOffer.class)
-				.accept(APPLICATION_JSON).exchange().expectStatus().isEqualTo(expectedStatus).expectHeader()
-				.contentType(APPLICATION_JSON).expectBody();
+	private void sendCreateInsuranceOfferEvent(int insuranceCompanyId, int insuranceOfferId) {
+		InsuranceOffer insuranceOffer = new InsuranceOffer(insuranceCompanyId, insuranceOfferId, "OfferName " + insuranceOfferId,null, null, 505.52,"CurrencyOffer " + insuranceOfferId, "SA");
+		Event<Integer, InsuranceCompany> event = new Event(CREATE, insuranceCompanyId, insuranceOffer);
+		input.send(new GenericMessage<>(event));
 	}
 
-	private WebTestClient.BodyContentSpec deleteAndVerifyInsuranceOfferByInsuranceCId(int insuranceCompanyId,
-			HttpStatus expectedStatus) {
-		return client.delete().uri("/insuranceOffer?insuranceCompanyId=" + insuranceCompanyId).accept(APPLICATION_JSON)
-				.exchange().expectStatus().isEqualTo(expectedStatus).expectBody();
+	private void sendDeleteInsuranceOfferEvent(int insuranceCompanyId) {
+		Event<Integer, InsuranceCompany> event = new Event(DELETE, insuranceCompanyId, null);
+		input.send(new GenericMessage<>(event));
 	}
 }

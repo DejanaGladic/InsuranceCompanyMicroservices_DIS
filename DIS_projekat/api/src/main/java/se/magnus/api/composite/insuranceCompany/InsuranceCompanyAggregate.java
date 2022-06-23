@@ -3,15 +3,15 @@ package se.magnus.api.composite.insuranceCompany;
 import java.util.List;
 
 public class InsuranceCompanyAggregate {
-	private final int insuranceCompanyId;
-	private final String name;
-	private final String city;
-	private final String address;
-	private final String phoneNumber;
-	private final List<EmployeeSummary> employees;
-	private final List<InsuranceOfferSummary> insuranceOffers;
-	private final List<TransactionSummary> transactions;
-	private final ServiceAddresses serviceAddresses;
+	private int insuranceCompanyId;
+	private String name;
+	private String city;
+	private String address;
+	private String phoneNumber;
+	private List<EmployeeSummary> employees;
+	private List<InsuranceOfferSummary> insuranceOffers;
+	private List<TransactionSummary> transactions;
+	private ServiceAddresses serviceAddresses;
 
 	public InsuranceCompanyAggregate() {
 		this.insuranceCompanyId = 0;

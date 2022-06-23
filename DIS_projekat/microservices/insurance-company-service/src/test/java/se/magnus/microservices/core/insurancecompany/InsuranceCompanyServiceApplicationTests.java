@@ -115,23 +115,6 @@ public class InsuranceCompanyServiceApplicationTests {
 		return client.get().uri("/insuranceCompany/" + insuranceCompanyIdPath).accept(APPLICATION_JSON).exchange()
 				.expectStatus().isEqualTo(expectedStatus).expectHeader().contentType(APPLICATION_JSON).expectBody();
 	}
-
-	/*private WebTestClient.BodyContentSpec postAndVerifyInsuranceCompany(int insuranceCompanyId,
-			HttpStatus expectedStatus) {
-
-		InsuranceCompany insuranceCompany = new InsuranceCompany(insuranceCompanyId, "insuranceCompany 1", "city 1",
-				"address 1", "phone number 1", "SA");
-
-		return client.post().uri("/insuranceCompany").body(just(insuranceCompany), InsuranceCompany.class)
-				.accept(APPLICATION_JSON).exchange().expectStatus().isEqualTo(expectedStatus).expectHeader()
-				.contentType(APPLICATION_JSON).expectBody();
-	}
-
-	private WebTestClient.BodyContentSpec deleteAndVerifyInsuranceCompany(int insuranceCompanyId,
-			HttpStatus expectedStatus) {
-		return client.delete().uri("/insuranceCompany/" + insuranceCompanyId).accept(APPLICATION_JSON).exchange()
-				.expectStatus().isEqualTo(expectedStatus).expectBody();
-	}*/
 	
 	private void sendCreateInsuranceCompanyEvent(int insuranceCompanyId) {
 		InsuranceCompany insuranceCompany = new InsuranceCompany(insuranceCompanyId, "Name " + insuranceCompanyId, "City " + insuranceCompanyId, "Address " + insuranceCompanyId, "PhoneNumber " + insuranceCompanyId, "SA");

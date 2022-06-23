@@ -9,7 +9,7 @@ import se.magnus.microservices.core.employee.persistence.EmployeeEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-20T16:42:09+0200",
+    date = "2022-06-23T17:41:32+0200",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.9 (Oracle Corporation)"
 )
 @Component
@@ -22,6 +22,13 @@ public class EmployeeMapperImpl implements EmployeeMapper {
         }
 
         Employee employee = new Employee();
+
+        employee.setInsuranceCompanyId( entityEmployee.getInsuranceCompanyId() );
+        employee.setEmployeeId( entityEmployee.getEmployeeId() );
+        employee.setName( entityEmployee.getName() );
+        employee.setSurname( entityEmployee.getSurname() );
+        employee.setEducation( entityEmployee.getEducation() );
+        employee.setSpecialization( entityEmployee.getSpecialization() );
 
         return employee;
     }

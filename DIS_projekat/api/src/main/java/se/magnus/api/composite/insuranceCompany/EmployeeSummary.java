@@ -1,10 +1,10 @@
 package se.magnus.api.composite.insuranceCompany;
 
 public class EmployeeSummary {
-	private final int employeeId;
-	private final String name;
-	private final String surname;
-	private final String specialization;
+	private int employeeId;
+	private String name;
+	private String surname;
+	private String specialization;
 
 	public EmployeeSummary() {
 		this.employeeId = 0;

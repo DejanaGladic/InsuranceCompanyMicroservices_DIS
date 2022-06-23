@@ -2,11 +2,11 @@ package se.magnus.api.core.insuranceCompany;
 
 public class InsuranceCompany{
 
-	private final int insuranceCompanyId;
-	private final String name;
-	private final String city;
-	private final String address;
-	private final String phoneNumber;
+	private int insuranceCompanyId;
+	private String name;
+	private String city;
+	private String address;
+	private String phoneNumber;
 	private String serviceAddress;
 
 	public InsuranceCompany() {
@@ -54,5 +54,25 @@ public class InsuranceCompany{
 	
 	public void setServiceAddress(String serviceAddress) {
 		 this.serviceAddress = serviceAddress;
+	}
+
+	public void setInsuranceCompanyId(int insuranceCompanyId) {
+		this.insuranceCompanyId = insuranceCompanyId;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 }

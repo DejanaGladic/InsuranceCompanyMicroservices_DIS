@@ -15,7 +15,6 @@ public class InsuranceCompanyEntity {
     @Version
     private Integer version;
 
-    //kreiranje indexa za insComId
     @Indexed(unique = true)
     private int insuranceCompanyId;
 	
@@ -23,7 +22,6 @@ public class InsuranceCompanyEntity {
 	private String city;
 	private String address;
 	private String phoneNumber;
-	private String serviceAddress;
 
 	public InsuranceCompanyEntity() {
 	}

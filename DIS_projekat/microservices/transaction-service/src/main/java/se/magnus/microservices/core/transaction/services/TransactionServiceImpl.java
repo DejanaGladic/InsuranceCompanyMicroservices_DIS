@@ -58,7 +58,7 @@ public class TransactionServiceImpl implements TransactionService {
    		if (insuranceCompanyId < 1)
    			throw new InvalidInputException("Invalid insuranceCompanyId: " + insuranceCompanyId);
 
-		LOG.info("Will get reviews for insurance company with id={}", insuranceCompanyId);
+		LOG.info("Will get transactions for insurance company with id={}", insuranceCompanyId);
 
 		return asyncFlux(() -> Flux.fromIterable(getByInsuranceCompanyId(insuranceCompanyId))).log(null, FINE);
    	}

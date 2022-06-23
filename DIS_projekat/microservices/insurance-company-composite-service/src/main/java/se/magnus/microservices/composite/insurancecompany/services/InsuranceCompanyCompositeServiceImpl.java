@@ -10,7 +10,6 @@ import se.magnus.api.core.insuranceCompany.InsuranceCompany;
 import se.magnus.api.core.insuranceOffer.InsuranceOffer;
 import se.magnus.api.core.employee.Employee;
 import se.magnus.api.core.transaction.Transaction;
-import se.magnus.util.exceptions.NotFoundException;
 import se.magnus.util.http.ServiceUtil;
 
 import java.util.List;
@@ -36,7 +35,6 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
         try {
 
             LOG.debug("createCompositeInsuranceCompany: creates a new composite entity for insuranceCompanyId: {}", body.getInsuranceCompanyId());
-
             InsuranceCompany insuranceCompany = new InsuranceCompany(body.getInsuranceCompanyId(), body.getName(), body.getCity(),
             		body.getAddress(),body.getPhoneNumber(),  null);
             integration.createInsuranceCompany(insuranceCompany);
@@ -79,7 +77,8 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
 						integration.getInsuranceCompany(insuranceCompanyId),
 						integration.getEmployees(insuranceCompanyId).collectList(),
 						integration.getInsuranceOffers(insuranceCompanyId).collectList(),
-						integration.getTransactions(insuranceCompanyId).collectList())
+						integration.getTransactions(insuranceCompanyId).collectList()
+				)
 				.doOnError(ex -> LOG.warn("getCompositeInsuranceCompany failed: {}", ex.toString()))
 				.log();
 	}
@@ -97,31 +96,31 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
         
         integration.deleteTransactions(insuranceCompanyId);
 
-        LOG.debug("getCompositeInsuranceCompanyt: aggregate entities deleted for insuranceCompanyId: {}", insuranceCompanyId);
+        LOG.debug("getCompositeInsuranceCompany: aggregate entities deleted for insuranceCompanyId: {}", insuranceCompanyId);
     }
 	
 	private InsuranceCompanyAggregate createInsuranceCompanyAggregate(InsuranceCompany insuranceCompany,
 			List<Employee> employees, List<InsuranceOffer> insuranceOffers, List<Transaction> transactions,
 			String serviceAddress) {
 
-		// 1. Setup product info
+		// 1. Setup insuranceCompany info
 		int insuranceCompanyId = insuranceCompany.getInsuranceCompanyId();
 		String name = insuranceCompany.getName();
 		String city = insuranceCompany.getCity();
 		String address = insuranceCompany.getAddress();
 		String phoneNumber = insuranceCompany.getPhoneNumber();
 
-		// 2. Copy summary recommendation info, if available
+		// 2. Copy summary employee info, if available
 		List<EmployeeSummary> employeesSummaries = (employees == null) ? null
 				: employees.stream().map(r -> new EmployeeSummary(r.getEmployeeId(), r.getName(), r.getSurname(),
 						r.getSpecialization())).collect(Collectors.toList());
 
-		// 3. Copy summary review info, if available
+		// 3. Copy summary insuranceOffer info, if available
 		List<InsuranceOfferSummary> insuranceOffersSummaries = (insuranceOffers == null) ? null
 				: insuranceOffers.stream().map(r -> new InsuranceOfferSummary(r.getInsuranceOfferId(), r.getOfferName(),
 						r.getPrice(), r.getCurrencyOffer())).collect(Collectors.toList());
 
-		// 4. Copy summary transactions info, if available
+		// 4. Copy summary transaction info, if available
 		List<TransactionSummary> transactionsSummaries = (transactions == null) ? null
 				: transactions.stream()
 						.map(r -> new TransactionSummary(r.getTransactionId(), r.getTypeTransaction(), r.getAmount(),

@@ -1,12 +1,12 @@
 package se.magnus.api.core.employee;
 
 public class Employee {
-	private final int insuranceCompanyId;
-	private final int employeeId;
-	private final String name;
-	private final String surname;
-	private final String education;
-	private final String specialization;
+	private int insuranceCompanyId;
+	private int employeeId;
+	private String name;
+	private String surname;
+	private String education;
+	private String specialization;
 	private String serviceAddress;
 
 	public Employee() {
@@ -60,5 +60,29 @@ public class Employee {
 	
 	public void setServiceAddress(String serviceAddress) {
 		this.serviceAddress = serviceAddress;
+	}
+
+	public void setInsuranceCompanyId(int insuranceCompanyId) {
+		this.insuranceCompanyId = insuranceCompanyId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+
+	public void setSpecialization(String specialization) {
+		this.specialization = specialization;
 	}
 }

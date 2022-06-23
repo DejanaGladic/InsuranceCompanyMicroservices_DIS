@@ -1,13 +1,13 @@
 package se.magnus.api.core.insuranceOffer;
 
 public class InsuranceOffer {
-	private final int insuranceCompanyId;
-	private final int insuranceOfferId;
-	private final String offerName;
-	private final String typeOfferProgram;
-	private final String typeInsuranceCoverage;
-	private final double price;
-	private final String currencyOffer;
+	private int insuranceCompanyId;
+	private int insuranceOfferId;
+	private String offerName;
+	private String typeOfferProgram;
+	private String typeInsuranceCoverage;
+	private double price;
+	private String currencyOffer;
 	private String serviceAddress;
 
 	public InsuranceOffer() {
@@ -67,5 +67,33 @@ public class InsuranceOffer {
 	
 	public void setServiceAddress(String serviceAddress) {
 		this.serviceAddress = serviceAddress;
+	}
+
+	public void setInsuranceCompanyId(int insuranceCompanyId) {
+		this.insuranceCompanyId = insuranceCompanyId;
+	}
+
+	public void setInsuranceOfferId(int insuranceOfferId) {
+		this.insuranceOfferId = insuranceOfferId;
+	}
+
+	public void setOfferName(String offerName) {
+		this.offerName = offerName;
+	}
+
+	public void setTypeOfferProgram(String typeOfferProgram) {
+		this.typeOfferProgram = typeOfferProgram;
+	}
+
+	public void setTypeInsuranceCoverage(String typeInsuranceCoverage) {
+		this.typeInsuranceCoverage = typeInsuranceCoverage;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setCurrencyOffer(String currencyOffer) {
+		this.currencyOffer = currencyOffer;
 	}
 }

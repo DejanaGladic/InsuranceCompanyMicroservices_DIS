@@ -3,11 +3,11 @@ package se.magnus.api.composite.insuranceCompany;
 import java.util.Date;
 
 public class TransactionSummary {
-	private final int transactionId;
-	private final String typeTransaction;
-	private final double amount;
-	private final String currencyTransaction;
-	private final String policyNumber;
+	private int transactionId;
+	private String typeTransaction;
+	private double amount;
+	private String currencyTransaction;
+	private String policyNumber;
 
 	public TransactionSummary() {
 		this.transactionId = 0;

@@ -84,7 +84,7 @@ public class InsuranceOfferEntity {
 		this.insuranceCompanyId = insuranceCompanyId;
 	}
 
-	public void setInsuranceOfferIdd(int insuranceOfferId) {
+	public void setInsuranceOfferId(int insuranceOfferId) {
 		this.insuranceOfferId = insuranceOfferId;
 	}
 

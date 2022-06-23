@@ -6,6 +6,5 @@ import reactor.core.publisher.Flux;
 
 public interface EmployeeRepository extends ReactiveCrudRepository<EmployeeEntity, String> {
     Flux<EmployeeEntity> findByInsuranceCompanyId(int insuranceCompanyId);
-    Mono<EmployeeEntity> findByEmployeeId(int employeeId);
     Flux<EmployeeEntity> findByName(String name);
 }
