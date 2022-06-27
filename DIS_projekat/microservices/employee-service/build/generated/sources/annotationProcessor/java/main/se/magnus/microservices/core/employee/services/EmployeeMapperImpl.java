@@ -9,8 +9,8 @@ import se.magnus.microservices.core.employee.persistence.EmployeeEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-06-23T17:41:32+0200",
-    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.9 (Oracle Corporation)"
+    date = "2022-06-27T23:11:21+0200",
+    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_271 (Oracle Corporation)"
 )
 @Component
 public class EmployeeMapperImpl implements EmployeeMapper {

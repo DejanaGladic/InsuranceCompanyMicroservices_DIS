@@ -1,6 +1,5 @@
 package se.magnus.microservices.core.insuranceoffer.services;
 
-import jdk.internal.org.jline.utils.Log;
 import org.reactivestreams.Publisher;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
