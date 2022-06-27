@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.226s</div>
+<div class="counter">0.264s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,17 +79,17 @@
 </thead>
 <tr>
 <td class="success">createCompositeInsuranceCompany1</td>
-<td class="success">0.064s</td>
+<td class="success">0.087s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">createCompositeInsuranceCompany2</td>
-<td class="success">0.046s</td>
+<td class="success">0.064s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">deleteCompositeInsuranceCompany</td>
-<td class="success">0.116s</td>
+<td class="success">0.113s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -106,33 +106,33 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2022-06-23 17:42:10.471  INFO 3168 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : Starting MessagingTests on DESKTOP-HJGV6OB with PID 3168 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-company-composite-service)
-2022-06-23 17:42:10.471 DEBUG 3168 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
-2022-06-23 17:42:10.471  INFO 3168 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : No active profile set, falling back to default profiles: default
-2022-06-23 17:42:11.136  INFO 3168 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-06-23 17:42:11.136  INFO 3168 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
-2022-06-23 17:42:11.152  INFO 3168 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2022-06-23 17:42:11.200  INFO 3168 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-23 17:42:11.200  INFO 3168 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-23 17:42:11.232  INFO 3168 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-23 17:42:12.368  INFO 3168 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2022-06-23 17:42:12.433  INFO 3168 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
-2022-06-23 17:42:12.983  INFO 3168 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
-2022-06-23 17:42:13.409  INFO 3168 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2022-06-23 17:42:13.409  INFO 3168 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
-2022-06-23 17:42:13.416  INFO 3168 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2022-06-23 17:42:13.417  INFO 3168 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-employees' has 1 subscriber(s).
-2022-06-23 17:42:13.417  INFO 3168 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-transactions' has 1 subscriber(s).
-2022-06-23 17:42:13.427  INFO 3168 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-insurance-offers' has 1 subscriber(s).
-2022-06-23 17:42:13.427  INFO 3168 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-insurance-companies' has 1 subscriber(s).
-2022-06-23 17:42:13.431  INFO 3168 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 64673
-2022-06-23 17:42:13.527  INFO 3168 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : Started MessagingTests in 3.111 seconds (JVM running for 14.885)
-2022-06-23 17:42:13.560 DEBUG 3168 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : deleteCompositeInsuranceCompany: Deletes a insurance company aggregate for insuranceCompanyId: 1
-2022-06-23 17:42:13.576 DEBUG 3168 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : getCompositeInsuranceCompany: aggregate entities deleted for insuranceCompanyId: 1
-2022-06-23 17:42:13.711 DEBUG 3168 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: creates a new composite entity for insuranceCompanyId: 1
-2022-06-23 17:42:13.711 DEBUG 3168 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: composite entites created for insuranceCompanyId: 1
-2022-06-23 17:42:13.746 DEBUG 3168 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: creates a new composite entity for insuranceCompanyId: 1
-2022-06-23 17:42:13.746 DEBUG 3168 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: composite entites created for insuranceCompanyId: 1
+2022-06-27 23:12:03.372  INFO 656 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : Starting MessagingTests on DESKTOP-HJGV6OB with PID 656 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-company-composite-service)
+2022-06-27 23:12:03.372 DEBUG 656 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2022-06-27 23:12:03.372  INFO 656 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : No active profile set, falling back to default profiles: default
+2022-06-27 23:12:04.074  INFO 656 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-06-27 23:12:04.074  INFO 656 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-06-27 23:12:04.089  INFO 656 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-06-27 23:12:04.153  INFO 656 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-27 23:12:04.153  INFO 656 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-27 23:12:04.184  INFO 656 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-27 23:12:05.369  INFO 656 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-06-27 23:12:05.428  INFO 656 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
+2022-06-27 23:12:06.015  INFO 656 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-employees' has 1 subscriber(s).
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-insurance-companies' has 1 subscriber(s).
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-transactions' has 1 subscriber(s).
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.output-insurance-offers' has 1 subscriber(s).
+2022-06-27 23:12:06.492  INFO 656 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 65523
+2022-06-27 23:12:06.602  INFO 656 --- [    Test worker] s.m.m.c.insurancecompany.MessagingTests  : Started MessagingTests in 3.291 seconds (JVM running for 15.917)
+2022-06-27 23:12:06.618 DEBUG 656 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : deleteCompositeInsuranceCompany: Deletes a insurance company aggregate for insuranceCompanyId: 1
+2022-06-27 23:12:06.640 DEBUG 656 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : getCompositeInsuranceCompany: aggregate entities deleted for insuranceCompanyId: 1
+2022-06-27 23:12:06.801 DEBUG 656 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: creates a new composite entity for insuranceCompanyId: 1
+2022-06-27 23:12:06.801 DEBUG 656 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: composite entites created for insuranceCompanyId: 1
+2022-06-27 23:12:06.833 DEBUG 656 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: creates a new composite entity for insuranceCompanyId: 1
+2022-06-27 23:12:06.849 DEBUG 656 --- [ctor-http-nio-6] i.s.InsuranceCompanyCompositeServiceImpl : createCompositeInsuranceCompany: composite entites created for insuranceCompanyId: 1
 </pre>
 </span>
 </div>
@@ -144,7 +144,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 23 Jun 2022, 17:42:16</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 27-Jun-2022 23:12:09</p>
 </div>
 </div>
 </body>
