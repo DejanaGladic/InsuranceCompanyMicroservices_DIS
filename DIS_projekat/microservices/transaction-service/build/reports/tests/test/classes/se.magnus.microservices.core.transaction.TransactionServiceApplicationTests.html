@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.801s</div>
+<div class="counter">1.471s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,32 +79,32 @@
 </thead>
 <tr>
 <td class="success">deleteTransactions</td>
-<td class="success">0.047s</td>
+<td class="success">0.060s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getTransactionsByInsuranceCompanyId</td>
-<td class="success">0.057s</td>
+<td class="success">0.070s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getTransactionsInvalidParameter</td>
-<td class="success">0.024s</td>
+<td class="success">0.029s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getTransactionsInvalidParameterNegativeValue</td>
-<td class="success">0.564s</td>
+<td class="success">1.113s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getTransactionsMissingParameter</td>
-<td class="success">0.047s</td>
+<td class="success">0.091s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getTransactionsNotFound</td>
-<td class="success">0.062s</td>
+<td class="success">0.108s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -121,153 +121,161 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2022-06-27 23:13:47.991  INFO 1956 --- [    Test worker] m.c.t.TransactionServiceApplicationTests : Starting TransactionServiceApplicationTests on DESKTOP-HJGV6OB with PID 1956 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\transaction-service)
-2022-06-27 23:13:47.991 DEBUG 1956 --- [    Test worker] m.c.t.TransactionServiceApplicationTests : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
-2022-06-27 23:13:47.991  INFO 1956 --- [    Test worker] m.c.t.TransactionServiceApplicationTests : No active profile set, falling back to default profiles: default
-2022-06-27 23:13:48.929  INFO 1956 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2022-06-27 23:13:48.946  INFO 1956 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23ms. Found 1 JPA repository interfaces.
-2022-06-27 23:13:49.158  INFO 1956 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-06-27 23:13:49.158  INFO 1956 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
-2022-06-27 23:13:49.158  INFO 1956 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2022-06-27 23:13:49.350  INFO 1956 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:13:49.366  INFO 1956 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:13:49.397  INFO 1956 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:13:49.921  INFO 1956 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2022-06-27 23:13:49.953  INFO 1956 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2022-06-27 23:13:49.985  INFO 1956 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-06-27 23:13:49.985  INFO 1956 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-06-27 23:13:50.001  INFO 1956 --- [    Test worker] s.m.m.c.t.TransactionServiceApplication  : Creates a jdbcScheduler with connectionPoolSize = 10
-2022-06-27 23:13:50.018  INFO 1956 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-06-27 23:13:50.034  INFO 1956 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-06-27 23:13:50.137 DEBUG 1956 --- [         task-1] org.hibernate.SQL                        : create table transactions (id integer not null, account_number varchar(255), amount double not null, currency_transaction varchar(255), date_transaction timestamp, insurance_company_id integer not null, policy_number varchar(255), transaction_id integer not null, type_transaction varchar(255), version integer not null, primary key (id))
-2022-06-27 23:13:50.137 DEBUG 1956 --- [         task-1] org.hibernate.SQL                        : alter table transactions drop constraint if exists transactions_unique_idx
-2022-06-27 23:13:50.137 DEBUG 1956 --- [         task-1] org.hibernate.SQL                        : alter table transactions add constraint transactions_unique_idx unique (insurance_company_id, transaction_id)
-2022-06-27 23:13:50.137 DEBUG 1956 --- [         task-1] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
-2022-06-27 23:13:50.137  INFO 1956 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-06-27 23:13:50.137  INFO 1956 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-06-27 23:13:52.216  INFO 1956 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
-2022-06-27 23:13:52.710  INFO 1956 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
-2022-06-27 23:13:53.587  INFO 1956 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.input' has 1 subscriber(s).
-2022-06-27 23:13:53.625  INFO 1956 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2022-06-27 23:13:53.625  INFO 1956 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
-2022-06-27 23:13:53.625  INFO 1956 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2022-06-27 23:13:54.614  INFO 1956 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 49328
-2022-06-27 23:13:54.614  INFO 1956 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
-2022-06-27 23:13:54.645  INFO 1956 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
-2022-06-27 23:13:54.694  INFO 1956 --- [    Test worker] m.c.t.TransactionServiceApplicationTests : Started TransactionServiceApplicationTests in 6.78 seconds (JVM running for 14.472)
-2022-06-27 23:13:54.772 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
-2022-06-27 23:13:55.164 DEBUG 1956 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /transaction, message: Invalid insuranceCompanyId: -1
-2022-06-27 23:13:55.341 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
-2022-06-27 23:13:55.341  INFO 1956 --- [ctor-http-nio-3] s.m.m.c.t.s.TransactionServiceImpl       : Will get transactions for insurance company with id=213
-2022-06-27 23:13:55.372 DEBUG 1956 --- [pool-2-thread-1] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.372 TRACE 1956 --- [pool-2-thread-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [213]
-2022-06-27 23:13:55.372 DEBUG 1956 --- [pool-2-thread-1] s.m.m.c.t.s.TransactionServiceImpl       : getTransactions: response size: 0
-2022-06-27 23:13:55.404 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
-2022-06-27 23:13:55.444 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
-2022-06-27 23:13:55.461  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-27T23:13:55.444...
-2022-06-27 23:13:55.461  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
-2022-06-27 23:13:55.461 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-06-27 23:13:55.461 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction1]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number1]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [1]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction1]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
-2022-06-27 23:13:55.461 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [1]
-2022-06-27 23:13:55.461 DEBUG 1956 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/1
-2022-06-27 23:13:55.461  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
-2022-06-27 23:13:55.477 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.477 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.477  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-27T23:13:55.477...
-2022-06-27 23:13:55.477  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Delete transactions with insuranceCompanyId: 1
-2022-06-27 23:13:55.477 DEBUG 1956 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : deleteTransactions: tries to delete transactions for the insurance company with insuranceCompanyId: 1
-2022-06-27 23:13:55.477 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.477 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.477 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_0_, transactio0_.account_number as account_2_0_0_, transactio0_.amount as amount3_0_0_, transactio0_.currency_transaction as currency4_0_0_, transactio0_.date_transaction as date_tra5_0_0_, transactio0_.insurance_company_id as insuranc6_0_0_, transactio0_.policy_number as policy_n7_0_0_, transactio0_.transaction_id as transact8_0_0_, transactio0_.type_transaction as type_tra9_0_0_, transactio0_.version as version10_0_0_ from transactions transactio0_ where transactio0_.id=?
-2022-06-27 23:13:55.477 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.477 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
-2022-06-27 23:13:55.477 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.477 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-06-27 23:13:55.477  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
-2022-06-27 23:13:55.477 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.477 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.477  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-27T23:13:55.477...
-2022-06-27 23:13:55.477  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Delete transactions with insuranceCompanyId: 1
-2022-06-27 23:13:55.492 DEBUG 1956 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : deleteTransactions: tries to delete transactions for the insurance company with insuranceCompanyId: 1
-2022-06-27 23:13:55.493 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.493 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.493  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
-2022-06-27 23:13:55.493 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
-2022-06-27 23:13:55.493 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.493 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.493  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-27T23:13:55.493...
-2022-06-27 23:13:55.493  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
-2022-06-27 23:13:55.493 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-06-27 23:13:55.493 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-06-27 23:13:55.493 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
-2022-06-27 23:13:55.493 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
-2022-06-27 23:13:55.493 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction1]
-2022-06-27 23:13:55.493 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
-2022-06-27 23:13:55.493 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
-2022-06-27 23:13:55.509 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number1]
-2022-06-27 23:13:55.509 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [1]
-2022-06-27 23:13:55.509 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction1]
-2022-06-27 23:13:55.509 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [2]
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/1
-2022-06-27 23:13:55.511  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
-2022-06-27 23:13:55.511  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-27T23:13:55.511...
-2022-06-27 23:13:55.511  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction2]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number2]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [2]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction2]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [3]
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/2
-2022-06-27 23:13:55.511  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
-2022-06-27 23:13:55.511  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-27T23:13:55.511...
-2022-06-27 23:13:55.511  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction3]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number3]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [3]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction3]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [4]
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/3
-2022-06-27 23:13:55.511  INFO 1956 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
-2022-06-27 23:13:55.511 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.511 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.528  INFO 1956 --- [ctor-http-nio-3] s.m.m.c.t.s.TransactionServiceImpl       : Will get transactions for insurance company with id=1
-2022-06-27 23:13:55.528 DEBUG 1956 --- [pool-2-thread-2] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
-2022-06-27 23:13:55.528 TRACE 1956 --- [pool-2-thread-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
-2022-06-27 23:13:55.528 DEBUG 1956 --- [pool-2-thread-2] s.m.m.c.t.s.TransactionServiceImpl       : getTransactions: response size: 3
-2022-06-27 23:13:55.559 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
-2022-06-27 23:13:55.559 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
-2022-06-27 23:13:55.559 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
-2022-06-27 23:13:55.559 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-06-27 23:13:55.559 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
-2022-06-27 23:13:55.559 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
-2022-06-27 23:13:55.559 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
-2022-06-27 23:13:55.559 DEBUG 1956 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
-2022-06-27 23:13:55.559 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
-2022-06-27 23:13:55.559 TRACE 1956 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-29 01:13:38.856  INFO 13544 --- [    Test worker] m.c.t.TransactionServiceApplicationTests : No active profile set, falling back to default profiles: default
+2022-06-29 01:13:39.842  INFO 13544 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-06-29 01:13:39.857  INFO 13544 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 1 JPA repository interfaces.
+2022-06-29 01:13:40.190  INFO 13544 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d76cf2eb-3e33-362a-817a-1c3e5b4ffb8d
+2022-06-29 01:13:40.239  INFO 13544 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-06-29 01:13:40.239  INFO 13544 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-06-29 01:13:40.254  INFO 13544 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-06-29 01:13:40.460  INFO 13544 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:13:40.460  INFO 13544 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:13:40.492  INFO 13544 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:13:40.524  INFO 13544 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:13:40.524  INFO 13544 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:13:40.524  INFO 13544 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:13:41.038  INFO 13544 --- [    Test worker] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2022-06-29 01:13:41.070  INFO 13544 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-06-29 01:13:41.119  INFO 13544 --- [         task-1] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-06-29 01:13:41.128  INFO 13544 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-06-29 01:13:41.128  INFO 13544 --- [    Test worker] s.m.m.c.t.TransactionServiceApplication  : Creates a jdbcScheduler with connectionPoolSize = 10
+2022-06-29 01:13:41.144  INFO 13544 --- [         task-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-06-29 01:13:41.161  INFO 13544 --- [         task-1] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-06-29 01:13:41.265 DEBUG 13544 --- [         task-1] org.hibernate.SQL                        : create table transactions (id integer not null, account_number varchar(255), amount double not null, currency_transaction varchar(255), date_transaction timestamp, insurance_company_id integer not null, policy_number varchar(255), transaction_id integer not null, type_transaction varchar(255), version integer not null, primary key (id))
+2022-06-29 01:13:41.265 DEBUG 13544 --- [         task-1] org.hibernate.SQL                        : alter table transactions drop constraint if exists transactions_unique_idx
+2022-06-29 01:13:41.265 DEBUG 13544 --- [         task-1] org.hibernate.SQL                        : alter table transactions add constraint transactions_unique_idx unique (insurance_company_id, transaction_id)
+2022-06-29 01:13:41.265 DEBUG 13544 --- [         task-1] org.hibernate.SQL                        : create sequence hibernate_sequence start with 1 increment by 1
+2022-06-29 01:13:41.265  INFO 13544 --- [         task-1] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-06-29 01:13:41.265  INFO 13544 --- [         task-1] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-06-29 01:13:41.574  WARN 13544 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-06-29 01:13:41.574  INFO 13544 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-06-29 01:13:41.576  WARN 13544 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-06-29 01:13:41.592  INFO 13544 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-06-29 01:13:43.842  INFO 13544 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2022-06-29 01:13:44.386  INFO 13544 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2022-06-29 01:13:45.757  WARN 13544 --- [    Test worker] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-06-29 01:13:45.805  WARN 13544 --- [    Test worker] eactorLoadBalancerClientRibbonWarnLogger : You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-06-29 01:13:46.299  INFO 13544 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.input' has 1 subscriber(s).
+2022-06-29 01:13:46.331  INFO 13544 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-06-29 01:13:46.331  INFO 13544 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
+2022-06-29 01:13:46.331  INFO 13544 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-06-29 01:13:47.152  INFO 13544 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 58326
+2022-06-29 01:13:47.854  INFO 13544 --- [    Test worker] DeferredRepositoryInitializationListener : Triggering deferred initialization of Spring Data repositories…
+2022-06-29 01:13:47.927  INFO 13544 --- [    Test worker] DeferredRepositoryInitializationListener : Spring Data repositories initialized!
+2022-06-29 01:13:47.977  INFO 13544 --- [    Test worker] m.c.t.TransactionServiceApplicationTests : Started TransactionServiceApplicationTests in 10.064 seconds (JVM running for 17.917)
+2022-06-29 01:13:48.073 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
+2022-06-29 01:13:48.788 DEBUG 13544 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /transaction, message: Invalid insuranceCompanyId: -1
+2022-06-29 01:13:49.182 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
+2022-06-29 01:13:49.198  INFO 13544 --- [ctor-http-nio-3] s.m.m.c.t.s.TransactionServiceImpl       : Will get transactions for insurance company with id=213
+2022-06-29 01:13:49.231 DEBUG 13544 --- [pool-2-thread-1] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.231 TRACE 13544 --- [pool-2-thread-1] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [213]
+2022-06-29 01:13:49.231 DEBUG 13544 --- [pool-2-thread-1] s.m.m.c.t.s.TransactionServiceImpl       : getTransactions: response size: 0
+2022-06-29 01:13:49.295 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
+2022-06-29 01:13:49.392 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
+2022-06-29 01:13:49.392  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-29T01:13:49.392...
+2022-06-29 01:13:49.392  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
+2022-06-29 01:13:49.409 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-29 01:13:49.409 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction1]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number1]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [1]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction1]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [1]
+2022-06-29 01:13:49.409 DEBUG 13544 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/1
+2022-06-29 01:13:49.409  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
+2022-06-29 01:13:49.409 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.409 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.425  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-29T01:13:49.425...
+2022-06-29 01:13:49.425  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Delete transactions with insuranceCompanyId: 1
+2022-06-29 01:13:49.425 DEBUG 13544 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : deleteTransactions: tries to delete transactions for the insurance company with insuranceCompanyId: 1
+2022-06-29 01:13:49.425 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.425 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.425 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_0_, transactio0_.account_number as account_2_0_0_, transactio0_.amount as amount3_0_0_, transactio0_.currency_transaction as currency4_0_0_, transactio0_.date_transaction as date_tra5_0_0_, transactio0_.insurance_company_id as insuranc6_0_0_, transactio0_.policy_number as policy_n7_0_0_, transactio0_.transaction_id as transact8_0_0_, transactio0_.type_transaction as type_tra9_0_0_, transactio0_.version as version10_0_0_ from transactions transactio0_ where transactio0_.id=?
+2022-06-29 01:13:49.425 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.425 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
+2022-06-29 01:13:49.425 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.425 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-29 01:13:49.425  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
+2022-06-29 01:13:49.425 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.425 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.425  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-29T01:13:49.425...
+2022-06-29 01:13:49.425  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Delete transactions with insuranceCompanyId: 1
+2022-06-29 01:13:49.425 DEBUG 13544 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : deleteTransactions: tries to delete transactions for the insurance company with insuranceCompanyId: 1
+2022-06-29 01:13:49.440 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.440 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.440  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
+2022-06-29 01:13:49.440 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
+2022-06-29 01:13:49.456 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-29T01:13:49.456...
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
+2022-06-29 01:13:49.456 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-29 01:13:49.456 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction1]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number1]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [1]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction1]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [2]
+2022-06-29 01:13:49.456 DEBUG 13544 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/1
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-29T01:13:49.456...
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
+2022-06-29 01:13:49.456 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-29 01:13:49.456 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction2]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number2]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [2]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction2]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
+2022-06-29 01:13:49.456 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [3]
+2022-06-29 01:13:49.456 DEBUG 13544 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/2
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Process message created at 2022-06-29T01:13:49.456...
+2022-06-29 01:13:49.456  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Create transaction with ID: 1
+2022-06-29 01:13:49.472 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : call next value for hibernate_sequence
+2022-06-29 01:13:49.474 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : insert into transactions (account_number, amount, currency_transaction, date_transaction, insurance_company_id, policy_number, transaction_id, type_transaction, version, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [DOUBLE] - [505.65]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [VARCHAR] - [CurrencyTransaction3]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [4] as [TIMESTAMP] - [null]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [5] as [INTEGER] - [1]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [6] as [VARCHAR] - [Policy Number3]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [7] as [INTEGER] - [3]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [8] as [VARCHAR] - [TypeTransaction3]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [9] as [INTEGER] - [0]
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [10] as [INTEGER] - [4]
+2022-06-29 01:13:49.474 DEBUG 13544 --- [    Test worker] s.m.m.c.t.s.TransactionServiceImpl       : createTransaction: created a insurance transaction entity: 1/3
+2022-06-29 01:13:49.474  INFO 13544 --- [    Test worker] s.m.m.c.t.services.MessageProcessor      : Message processing done!
+2022-06-29 01:13:49.474 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.474 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.474  INFO 13544 --- [ctor-http-nio-3] s.m.m.c.t.s.TransactionServiceImpl       : Will get transactions for insurance company with id=1
+2022-06-29 01:13:49.490 DEBUG 13544 --- [pool-2-thread-2] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_ where transactio0_.insurance_company_id=?
+2022-06-29 01:13:49.490 TRACE 13544 --- [pool-2-thread-2] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [1]
+2022-06-29 01:13:49.490 DEBUG 13544 --- [pool-2-thread-2] s.m.m.c.t.s.TransactionServiceImpl       : getTransactions: response size: 3
+2022-06-29 01:13:49.522 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : select transactio0_.id as id1_0_, transactio0_.account_number as account_2_0_, transactio0_.amount as amount3_0_, transactio0_.currency_transaction as currency4_0_, transactio0_.date_transaction as date_tra5_0_, transactio0_.insurance_company_id as insuranc6_0_, transactio0_.policy_number as policy_n7_0_, transactio0_.transaction_id as transact8_0_, transactio0_.type_transaction as type_tra9_0_, transactio0_.version as version10_0_ from transactions transactio0_
+2022-06-29 01:13:49.522 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
+2022-06-29 01:13:49.522 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [2]
+2022-06-29 01:13:49.522 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-29 01:13:49.522 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
+2022-06-29 01:13:49.522 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [3]
+2022-06-29 01:13:49.522 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
+2022-06-29 01:13:49.522 DEBUG 13544 --- [    Test worker] org.hibernate.SQL                        : delete from transactions where id=? and version=?
+2022-06-29 01:13:49.522 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [INTEGER] - [4]
+2022-06-29 01:13:49.522 TRACE 13544 --- [    Test worker] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [INTEGER] - [0]
 </pre>
 </span>
 </div>
@@ -279,7 +287,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 27-Jun-2022 23:13:57</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 29-Jun-2022 01:13:51</p>
 </div>
 </div>
 </body>

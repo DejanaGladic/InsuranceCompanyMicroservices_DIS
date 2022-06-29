@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.182s</div>
+<div class="counter">0.178s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,27 +79,27 @@
 </thead>
 <tr>
 <td class="success">createEmployee</td>
-<td class="success">0.034s</td>
+<td class="success">0.031s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">deleteEmployee</td>
-<td class="success">0.019s</td>
+<td class="success">0.022s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getByInsuranceCompanyId</td>
-<td class="success">0.021s</td>
+<td class="success">0.022s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">optimisticLockError</td>
-<td class="success">0.094s</td>
+<td class="success">0.090s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">updateEmployee</td>
-<td class="success">0.014s</td>
+<td class="success">0.013s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -116,53 +116,53 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2022-06-27 23:11:40.333  INFO 7792 --- [    Test worker] s.m.m.core.employee.PersistenceTests     : Starting PersistenceTests on DESKTOP-HJGV6OB with PID 7792 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\employee-service)
-2022-06-27 23:11:40.334 DEBUG 7792 --- [    Test worker] s.m.m.core.employee.PersistenceTests     : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
-2022-06-27 23:11:40.335  INFO 7792 --- [    Test worker] s.m.m.core.employee.PersistenceTests     : No active profile set, falling back to default profiles: default
-2022-06-27 23:11:40.517  INFO 7792 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
-2022-06-27 23:11:40.536  INFO 7792 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 1 Reactive MongoDB repository interfaces.
-2022-06-27 23:11:40.546  INFO 7792 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-06-27 23:11:40.546  INFO 7792 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
-2022-06-27 23:11:40.549  INFO 7792 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2022-06-27 23:11:40.566  INFO 7792 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:11:40.574  INFO 7792 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:11:41.428  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
-2022-06-27 23:11:41.498  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.497+0200 I CONTROL  [initandlisten] MongoDB starting : pid=4416 port=27017 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-b6b45f1d-11ef-42a7-a745-d3899e73d8f0 64-bit host=DESKTOP-HJGV6OB
-2022-06-27 23:11:41.498  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
-2022-06-27 23:11:41.498  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten] db version v3.5.5
-2022-06-27 23:11:41.498  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
-2022-06-27 23:11:41.498  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten] allocator: tcmalloc
-2022-06-27 23:11:41.499  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten] modules: none
-2022-06-27 23:11:41.499  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten] build environment:
-2022-06-27 23:11:41.499  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten]     distarch: x86_64
-2022-06-27 23:11:41.499  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten]     target_arch: x86_64
-2022-06-27 23:11:41.499  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.498+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 27017 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-b6b45f1d-11ef-42a7-a745-d3899e73d8f0&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
-2022-06-27 23:11:41.501  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.501+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
-2022-06-27 23:11:41.577  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.577+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
-2022-06-27 23:11:41.577  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.577+0200 I CONTROL  [initandlisten] 
-2022-06-27 23:11:41.577  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.577+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
-2022-06-27 23:11:41.577  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.577+0200 I CONTROL  [initandlisten] **       Not recommended for production.
-2022-06-27 23:11:41.578  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.577+0200 I CONTROL  [initandlisten] 
-2022-06-27 23:11:41.886  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.886+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-b6b45f1d-11ef-42a7-a745-d3899e73d8f0/diagnostic.data'
-2022-06-27 23:11:41.922  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.922+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
-2022-06-27 23:11:41.922  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.922+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
-2022-06-27 23:11:41.927  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.927+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
-2022-06-27 23:11:41.929  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.929+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
-2022-06-27 23:11:41.931  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.931+0200 I NETWORK  [thread1] waiting for connections on port 27017
-2022-06-27 23:11:41.931  INFO 7792 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@111f8b9c
-2022-06-27 23:11:41.954  INFO 7792 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-27 23:11:41.958  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.958+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:65491 #1 (1 connection now open)
-2022-06-27 23:11:41.961  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:41.961+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:65491 conn1: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
-2022-06-27 23:11:41.966  INFO 7792 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:1}] to localhost:27017
-2022-06-27 23:11:41.969  INFO 7792 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=2581700}
-2022-06-27 23:11:42.311  INFO 7792 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2022-06-27 23:11:42.362  INFO 7792 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2022-06-27 23:11:42.363  INFO 7792 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
-2022-06-27 23:11:42.363  INFO 7792 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2022-06-27 23:11:42.365  INFO 7792 --- [    Test worker] s.m.m.core.employee.PersistenceTests     : Started PersistenceTests in 2.108 seconds (JVM running for 17.491)
-2022-06-27 23:11:42.374  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:42.374+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:65492 #2 (2 connections now open)
-2022-06-27 23:11:42.375  INFO 7792 --- [      Thread-16] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:11:42.376+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:65492 conn2: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
-2022-06-27 23:11:42.378  INFO 7792 --- [ntLoopGroup-4-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:2}] to localhost:27017
+2022-06-29 01:08:21.557  INFO 15572 --- [    Test worker] s.m.m.core.employee.PersistenceTests     : No active profile set, falling back to default profiles: default
+2022-06-29 01:08:21.686  INFO 15572 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2022-06-29 01:08:21.700  INFO 15572 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 1 Reactive MongoDB repository interfaces.
+2022-06-29 01:08:21.710  INFO 15572 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-06-29 01:08:21.710  INFO 15572 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-06-29 01:08:21.712  INFO 15572 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-06-29 01:08:21.730  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:08:21.740  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:08:22.572  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2022-06-29 01:08:22.646  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.645+0200 I CONTROL  [initandlisten] MongoDB starting : pid=10620 port=27017 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-c4f34c42-ec2f-4cd9-b1d7-9cdcf5f5f6aa 64-bit host=DESKTOP-HJGV6OB
+2022-06-29 01:08:22.646  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2022-06-29 01:08:22.646  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten] db version v3.5.5
+2022-06-29 01:08:22.646  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2022-06-29 01:08:22.647  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2022-06-29 01:08:22.647  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten] modules: none
+2022-06-29 01:08:22.647  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten] build environment:
+2022-06-29 01:08:22.647  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2022-06-29 01:08:22.647  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2022-06-29 01:08:22.647  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.646+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 27017 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-c4f34c42-ec2f-4cd9-b1d7-9cdcf5f5f6aa&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2022-06-29 01:08:22.647  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.647+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2022-06-29 01:08:22.738  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.738+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2022-06-29 01:08:22.739  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.738+0200 I CONTROL  [initandlisten] 
+2022-06-29 01:08:22.739  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.738+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2022-06-29 01:08:22.739  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.738+0200 I CONTROL  [initandlisten] **       Not recommended for production.
+2022-06-29 01:08:22.739  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:22.738+0200 I CONTROL  [initandlisten] 
+2022-06-29 01:08:23.036  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.037+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-c4f34c42-ec2f-4cd9-b1d7-9cdcf5f5f6aa/diagnostic.data'
+2022-06-29 01:08:23.072  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.072+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
+2022-06-29 01:08:23.072  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.072+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2022-06-29 01:08:23.076  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.076+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2022-06-29 01:08:23.078  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.078+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2022-06-29 01:08:23.079  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.079+0200 I NETWORK  [thread1] waiting for connections on port 27017
+2022-06-29 01:08:23.079  INFO 15572 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@22f2d333
+2022-06-29 01:08:23.101  INFO 15572 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-29 01:08:23.106  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.106+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:57232 #1 (1 connection now open)
+2022-06-29 01:08:23.108  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.108+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:57232 conn1: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
+2022-06-29 01:08:23.112  INFO 15572 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:3, serverValue:1}] to localhost:27017
+2022-06-29 01:08:23.115  INFO 15572 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=2589700}
+2022-06-29 01:08:23.121  WARN 15572 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-06-29 01:08:23.143  WARN 15572 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-06-29 01:08:23.505  INFO 15572 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-06-29 01:08:23.560  INFO 15572 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-06-29 01:08:23.560  INFO 15572 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
+2022-06-29 01:08:23.560  INFO 15572 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-06-29 01:08:23.563  INFO 15572 --- [    Test worker] s.m.m.core.employee.PersistenceTests     : Started PersistenceTests in 2.881 seconds (JVM running for 19.625)
+2022-06-29 01:08:23.574  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.574+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:57233 #2 (2 connections now open)
+2022-06-29 01:08:23.575  INFO 15572 --- [      Thread-21] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:23.575+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:57233 conn2: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
+2022-06-29 01:08:23.576  INFO 15572 --- [ntLoopGroup-4-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:4, serverValue:2}] to localhost:27017
 </pre>
 </span>
 </div>
@@ -174,7 +174,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 27-Jun-2022 23:11:47</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 29-Jun-2022 01:08:28</p>
 </div>
 </div>
 </body>

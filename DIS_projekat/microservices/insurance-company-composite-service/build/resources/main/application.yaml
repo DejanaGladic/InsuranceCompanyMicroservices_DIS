@@ -65,19 +65,36 @@ api:
 server.port: 7000
 server.error.include-message: always
 
-app:
-  insurance-company-service:
-    host: localhost
-    port: 7001
-  employee-service:
-    host: localhost
-    port: 7002
-  insurance-offer-service:
-    host: localhost
-    port: 7003
-  transaction-service:
-    host: localhost
-    port: 7004
+spring.application.name: insurance-company-composite
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    registryFetchIntervalSeconds: 5
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+
+ribbon.ServerListRefreshInterval: 5000
+
+ribbon.NFLoadBalancerPingInterval: 5
+
+
+#app:
+#  insurance-company-service:
+#    host: localhost
+#    port: 7001
+#  employee-service:
+#    host: localhost
+#    port: 7002
+#  insurance-offer-service:
+#    host: localhost
+#    port: 7003
+#  transaction-service:
+#    host: localhost
+#    port: 7004
 
 spring.cloud.stream:
   defaultBinder: rabbit
@@ -122,19 +139,21 @@ spring.profiles: docker
 
 server.port: 8081
 
-app:
-  employee-service:
-    host: employee
-    port: 8081
-  insurance-company-service:
-    host: insurance-company
-    port: 8081
-  insurance-offer-service:
-    host: insurance-offer
-    port: 8081
-  transaction-service:
-    host: transaction
-    port: 8081
+#app:
+#  employee-service:
+#    host: employee
+#    port: 8081
+#  insurance-company-service:
+#    host: insurance-company
+#    port: 8081
+#  insurance-offer-service:
+#    host: insurance-offer
+#    port: 8081
+#  transaction-service:
+#    host: transaction
+#    port: 8081
+
+eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka/
 
 spring.rabbitmq.host: rabbitmq
 

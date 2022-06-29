@@ -1,6 +1,20 @@
 server.port: 7001
 server.error.include-message: always
 
+spring.application.name: insuranceCompany
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    initialInstanceInfoReplicationIntervalSeconds: 5
+    registryFetchIntervalSeconds: 5
+  instance:
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 5
+
+#spring.data.mongodb.uri: mongodb://localhost:27017/insurance-company-db
+
 spring.data.mongodb:
   host: localhost
   port: 27017
@@ -47,9 +61,11 @@ management.endpoints.web.exposure.include: "*"
 ---
 spring.profiles: docker
 
-spring.data.mongodb.host: mongodb
-
 server.port: 8081
+
+eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka/
+
+spring.data.mongodb.host: mongodb
 
 spring.rabbitmq.host: rabbitmq
 

@@ -5,6 +5,8 @@ import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import static java.lang.String.format;
+
 //mapiramo Entity klasu u kolekciju u MongoDB-u
 @Document(collection="insuranceCompanys")
 public class InsuranceCompanyEntity {
@@ -33,6 +35,11 @@ public class InsuranceCompanyEntity {
 		this.address = address;
 		this.phoneNumber = phoneNumber;
 	}
+
+    @Override
+    public String toString() {
+        return format("InsuranceCompanyEntity: %s", insuranceCompanyId);
+    }
 
     public String getId() {
         return id;

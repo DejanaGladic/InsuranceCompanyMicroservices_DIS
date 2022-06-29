@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.805s</div>
+<div class="counter">1.211s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,27 +79,27 @@
 </thead>
 <tr>
 <td class="success">deleteInsuranceCompany</td>
-<td class="success">0.039s</td>
+<td class="success">0.044s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceCompanyById</td>
-<td class="success">0.190s</td>
+<td class="success">0.152s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceCompanyInvalidParameter</td>
-<td class="success">0.067s</td>
+<td class="success">0.051s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceCompanyInvalidParameterNegativeValue</td>
-<td class="success">0.015s</td>
+<td class="success">0.016s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getInsuranceCompanyNotFound</td>
-<td class="success">1.494s</td>
+<td class="success">0.948s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -107,15 +107,15 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>23:12:14.600 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-23:12:14.600 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-23:12:14.600 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-23:12:14.600 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-23:12:14.600 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@469b7083 testClass = InsuranceCompanyServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@21060dc3 testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@56b03ef, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5a5403c2, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@36099919, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3287647c, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@53ee9e5f, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
-23:12:14.600 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-23:12:14.600 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
-23:12:14.616 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@469b7083 testClass = InsuranceCompanyServiceApplicationTests, testInstance = se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests@380345e9, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@21060dc3 testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@56b03ef, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@5a5403c2, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@36099919, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@3287647c, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@53ee9e5f, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
-23:12:14.631 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+<pre>01:12:39.170 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+01:12:39.170 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+01:12:39.170 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+01:12:39.170 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+01:12:39.186 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@4813e007 testClass = InsuranceCompanyServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@3fbb708e testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@39695fee, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@d19b606, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2771becc, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@14076926, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@61f0d6e8, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+01:12:39.186 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+01:12:39.186 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests]
+01:12:39.202 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@4813e007 testClass = InsuranceCompanyServiceApplicationTests, testInstance = se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplicationTests@774f7a66, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@3fbb708e testClass = InsuranceCompanyServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.insurancecompany.InsuranceCompanyServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@39695fee, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@d19b606, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2771becc, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@14076926, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@61f0d6e8, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
+01:12:39.234 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -125,62 +125,72 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2022-06-27 23:12:15.125  INFO 8280 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Starting InsuranceCompanyServiceApplicationTests on DESKTOP-HJGV6OB with PID 8280 (started by user in C:\Users\user\git\InsuranceCompanyMicroservices_DIS\DIS_projekat\microservices\insurance-company-service)
-2022-06-27 23:12:15.125 DEBUG 8280 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
-2022-06-27 23:12:15.125  INFO 8280 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : No active profile set, falling back to default profiles: default
-2022-06-27 23:12:16.441  INFO 8280 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
-2022-06-27 23:12:16.584  INFO 8280 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 139ms. Found 1 Reactive MongoDB repository interfaces.
-2022-06-27 23:12:16.898  INFO 8280 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-06-27 23:12:16.914  INFO 8280 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
-2022-06-27 23:12:16.914  INFO 8280 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2022-06-27 23:12:17.047  INFO 8280 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:12:17.063  INFO 8280 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:12:17.095  INFO 8280 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-27 23:12:18.239  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
-2022-06-27 23:12:18.292  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.292+0200 I CONTROL  [initandlisten] MongoDB starting : pid=5932 port=49162 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-05a5881b-3728-49c4-bd6f-c5a62cf70c93 64-bit host=DESKTOP-HJGV6OB
-2022-06-27 23:12:18.293  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
-2022-06-27 23:12:18.293  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten] db version v3.5.5
-2022-06-27 23:12:18.293  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
-2022-06-27 23:12:18.293  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten] allocator: tcmalloc
-2022-06-27 23:12:18.294  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten] modules: none
-2022-06-27 23:12:18.294  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten] build environment:
-2022-06-27 23:12:18.294  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten]     distarch: x86_64
-2022-06-27 23:12:18.294  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten]     target_arch: x86_64
-2022-06-27 23:12:18.294  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.293+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 49162 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-05a5881b-3728-49c4-bd6f-c5a62cf70c93&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
-2022-06-27 23:12:18.295  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.294+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
-2022-06-27 23:12:18.371  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.371+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
-2022-06-27 23:12:18.371  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.371+0200 I CONTROL  [initandlisten] 
-2022-06-27 23:12:18.371  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.371+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
-2022-06-27 23:12:18.372  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.371+0200 I CONTROL  [initandlisten] **       Not recommended for production.
-2022-06-27 23:12:18.372  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.371+0200 I CONTROL  [initandlisten] 
-2022-06-27 23:12:18.658  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.658+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-05a5881b-3728-49c4-bd6f-c5a62cf70c93/diagnostic.data'
-2022-06-27 23:12:18.698  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.698+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
-2022-06-27 23:12:18.698  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.698+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
-2022-06-27 23:12:18.701  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.701+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
-2022-06-27 23:12:18.703  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.703+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
-2022-06-27 23:12:18.705  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:18.705+0200 I NETWORK  [thread1] waiting for connections on port 49162
-2022-06-27 23:12:18.705  INFO 8280 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@447093a2
-2022-06-27 23:12:18.858  INFO 8280 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:49162], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-27 23:12:19.775  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:19.775+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:49200 #1 (1 connection now open)
-2022-06-27 23:12:19.874  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:19.873+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:49200 conn1: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
-2022-06-27 23:12:19.913  INFO 8280 --- [localhost:49162] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:49162
-2022-06-27 23:12:19.920  INFO 8280 --- [localhost:49162] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:49162, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=3456200}
-2022-06-27 23:12:22.147  INFO 8280 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2022-06-27 23:12:22.228  INFO 8280 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 16 endpoint(s) beneath base path '/actuator'
-2022-06-27 23:12:22.651  INFO 8280 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
-2022-06-27 23:12:23.654  INFO 8280 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application.input' has 1 subscriber(s).
-2022-06-27 23:12:23.675  INFO 8280 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2022-06-27 23:12:23.676  INFO 8280 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application.errorChannel' has 1 subscriber(s).
-2022-06-27 23:12:23.676  INFO 8280 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2022-06-27 23:12:23.877  INFO 8280 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 49220
-2022-06-27 23:12:23.976  INFO 8280 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Started InsuranceCompanyServiceApplicationTests in 9.335 seconds (JVM running for 11.159)
-2022-06-27 23:12:24.532  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:24.532+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:49221 #2 (2 connections now open)
-2022-06-27 23:12:24.541  INFO 8280 --- [       Thread-5] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-27T23:12:24.541+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:49221 conn2: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
-2022-06-27 23:12:24.551  INFO 8280 --- [ntLoopGroup-3-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:49162
-2022-06-27 23:12:25.213  INFO 8280 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.1             : onSubscribe(FluxSwitchIfEmpty.SwitchIfEmptySubscriber)
-2022-06-27 23:12:25.215  INFO 8280 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.1             : request(unbounded)
-2022-06-27 23:12:25.280 ERROR 8280 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.1             : onError(se.magnus.util.exceptions.NotFoundException: No insurance company found for insuranceCompanyId: 13)
-2022-06-27 23:12:25.289 ERROR 8280 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.1             : 
+2022-06-29 01:12:41.102  INFO 11780 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : No active profile set, falling back to default profiles: default
+2022-06-29 01:12:42.237  INFO 11780 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2022-06-29 01:12:42.395  INFO 11780 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 150ms. Found 1 Reactive MongoDB repository interfaces.
+2022-06-29 01:12:42.775  INFO 11780 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9c57241b-8745-317e-806e-903ef0da5633
+2022-06-29 01:12:42.823  INFO 11780 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-06-29 01:12:42.839  INFO 11780 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-06-29 01:12:42.854  INFO 11780 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-06-29 01:12:43.073  INFO 11780 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:12:43.089  INFO 11780 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:12:43.135  INFO 11780 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:12:43.150  INFO 11780 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:12:43.166  INFO 11780 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:12:43.166  INFO 11780 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-06-29 01:12:44.320  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2022-06-29 01:12:44.417  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.416+0200 I CONTROL  [initandlisten] MongoDB starting : pid=17096 port=58006 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-0f79efb5-b59b-4caa-843b-b9a642285795 64-bit host=DESKTOP-HJGV6OB
+2022-06-29 01:12:44.417  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2022-06-29 01:12:44.417  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten] db version v3.5.5
+2022-06-29 01:12:44.417  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2022-06-29 01:12:44.418  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2022-06-29 01:12:44.418  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten] modules: none
+2022-06-29 01:12:44.419  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten] build environment:
+2022-06-29 01:12:44.419  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2022-06-29 01:12:44.419  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2022-06-29 01:12:44.419  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.417+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 58006 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-0f79efb5-b59b-4caa-843b-b9a642285795&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2022-06-29 01:12:44.419  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.419+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2022-06-29 01:12:44.547  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.547+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2022-06-29 01:12:44.548  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.548+0200 I CONTROL  [initandlisten] 
+2022-06-29 01:12:44.548  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.548+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2022-06-29 01:12:44.549  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.548+0200 I CONTROL  [initandlisten] **       Not recommended for production.
+2022-06-29 01:12:44.549  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.548+0200 I CONTROL  [initandlisten] 
+2022-06-29 01:12:44.955  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.955+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-0f79efb5-b59b-4caa-843b-b9a642285795/diagnostic.data'
+2022-06-29 01:12:44.990  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.990+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
+2022-06-29 01:12:44.990  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.990+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2022-06-29 01:12:44.994  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.994+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2022-06-29 01:12:44.997  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.997+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2022-06-29 01:12:44.998  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:44.998+0200 I NETWORK  [thread1] waiting for connections on port 58006
+2022-06-29 01:12:44.998  INFO 11780 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@4ab6aad2
+2022-06-29 01:12:45.205  INFO 11780 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:58006], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-06-29 01:12:45.466  WARN 11780 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-06-29 01:12:45.625  WARN 11780 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-06-29 01:12:46.173  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:46.173+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:58046 #1 (1 connection now open)
+2022-06-29 01:12:46.276  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:46.276+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:58046 conn1: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
+2022-06-29 01:12:46.317  INFO 11780 --- [localhost:58006] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:58006
+2022-06-29 01:12:46.324  INFO 11780 --- [localhost:58006] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:58006, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=3992900}
+2022-06-29 01:12:46.634  WARN 11780 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-06-29 01:12:46.634  INFO 11780 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-06-29 01:12:46.644  WARN 11780 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-06-29 01:12:46.644  INFO 11780 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-06-29 01:12:49.225  INFO 11780 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-06-29 01:12:49.297  INFO 11780 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2022-06-29 01:12:49.801  INFO 11780 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2022-06-29 01:12:51.205  WARN 11780 --- [    Test worker] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-06-29 01:12:51.274  WARN 11780 --- [    Test worker] eactorLoadBalancerClientRibbonWarnLogger : You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-06-29 01:12:51.868  INFO 11780 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.input' has 1 subscriber(s).
+2022-06-29 01:12:51.893  INFO 11780 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-06-29 01:12:51.893  INFO 11780 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
+2022-06-29 01:12:51.893  INFO 11780 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-06-29 01:12:52.112  INFO 11780 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 58081
+2022-06-29 01:12:52.891  INFO 11780 --- [    Test worker] .InsuranceCompanyServiceApplicationTests : Started InsuranceCompanyServiceApplicationTests in 13.652 seconds (JVM running for 15.735)
+2022-06-29 01:12:53.380  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:53.381+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:58085 #2 (2 connections now open)
+2022-06-29 01:12:53.387  INFO 11780 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:12:53.388+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:58085 conn2: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
+2022-06-29 01:12:53.394  INFO 11780 --- [ntLoopGroup-3-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:58006
+2022-06-29 01:12:53.760  INFO 11780 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.1             : onSubscribe(FluxSwitchIfEmpty.SwitchIfEmptySubscriber)
+2022-06-29 01:12:53.761  INFO 11780 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.1             : request(unbounded)
+2022-06-29 01:12:53.789 ERROR 11780 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.1             : onError(se.magnus.util.exceptions.NotFoundException: No insurance company found for insuranceCompanyId: 13)
+2022-06-29 01:12:53.795 ERROR 11780 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.1             : 
 
 se.magnus.util.exceptions.NotFoundException: No insurance company found for insuranceCompanyId: 13
 	at se.magnus.microservices.core.insurancecompany.services.InsuranceCompanyServiceImpl.getInsuranceCompany(InsuranceCompanyServiceImpl.java:51) ~[main/:na]
@@ -271,41 +281,41 @@ se.magnus.util.exceptions.NotFoundException: No insurance company found for insu
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
 	at java.lang.Thread.run(Thread.java:748) ~[na:1.8.0_271]
 
-2022-06-27 23:12:25.309 DEBUG 8280 --- [ntLoopGroup-3-2] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 404 NOT_FOUND for path: /insuranceCompany/13, message: No insurance company found for insuranceCompanyId: 13
-2022-06-27 23:12:25.677  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-27T23:12:25.673...
-2022-06-27 23:12:25.679  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Create insuranceCompany with ID: 1
-2022-06-27 23:12:25.716  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.2                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-27 23:12:25.717  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.2                   : | request(unbounded)
-2022-06-27 23:12:25.779  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onNext(se.magnus.microservices.core.insurancecompany.persistence.InsuranceCompanyEntity@6a26c7a)
-2022-06-27 23:12:25.780  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
-2022-06-27 23:12:25.780  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onComplete()
-2022-06-27 23:12:25.818  INFO 8280 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.3             : onSubscribe(FluxSwitchIfEmpty.SwitchIfEmptySubscriber)
-2022-06-27 23:12:25.818  INFO 8280 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.3             : request(unbounded)
-2022-06-27 23:12:25.822  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.3             : onNext(se.magnus.microservices.core.insurancecompany.persistence.InsuranceCompanyEntity@654fded5)
-2022-06-27 23:12:25.823  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.3             : onComplete()
-2022-06-27 23:12:25.835  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-27T23:12:25.835...
-2022-06-27 23:12:25.835  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Create insuranceCompany with ID: 1
-2022-06-27 23:12:25.836  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.4                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-27 23:12:25.836  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.4                   : | request(unbounded)
-2022-06-27 23:12:25.840  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.4                   : | onNext(se.magnus.microservices.core.insurancecompany.persistence.InsuranceCompanyEntity@2855ca0)
-2022-06-27 23:12:25.840  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.4                   : | onComplete()
-2022-06-27 23:12:25.840  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
-2022-06-27 23:12:25.844  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-27T23:12:25.844...
-2022-06-27 23:12:25.844  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Delete insurance companies with insuranceCompanyId: 1
-2022-06-27 23:12:25.844 DEBUG 8280 --- [    Test worker] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : deleteInsuranceCompany: tries to delete an entity with insuranceCompanyId: 1
-2022-06-27 23:12:25.846  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.5                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-27 23:12:25.847  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.5                   : | request(unbounded)
-2022-06-27 23:12:25.849  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onNext(se.magnus.microservices.core.insurancecompany.persistence.InsuranceCompanyEntity@64fcc85e)
-2022-06-27 23:12:25.854  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onComplete()
-2022-06-27 23:12:25.858  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
-2022-06-27 23:12:25.862  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-27T23:12:25.862...
-2022-06-27 23:12:25.862  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Delete insurance companies with insuranceCompanyId: 1
-2022-06-27 23:12:25.862 DEBUG 8280 --- [    Test worker] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : deleteInsuranceCompany: tries to delete an entity with insuranceCompanyId: 1
-2022-06-27 23:12:25.862  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.6                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-27 23:12:25.863  INFO 8280 --- [    Test worker] reactor.Mono.FlatMap.6                   : | request(unbounded)
-2022-06-27 23:12:25.866  INFO 8280 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.6                   : | onComplete()
-2022-06-27 23:12:25.866  INFO 8280 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
-2022-06-27 23:12:25.878 DEBUG 8280 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /insuranceCompany/-1, message: Invalid insuranceCompanyId: -1
+2022-06-29 01:12:53.805 DEBUG 11780 --- [ntLoopGroup-3-2] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 404 NOT_FOUND for path: /insuranceCompany/13, message: No insurance company found for insuranceCompanyId: 13
+2022-06-29 01:12:54.014  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-29T01:12:54.010...
+2022-06-29 01:12:54.016  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Create insuranceCompany with ID: 1
+2022-06-29 01:12:54.040  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.2                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-06-29 01:12:54.040  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.2                   : | request(unbounded)
+2022-06-29 01:12:54.087  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onNext(InsuranceCompanyEntity: 1)
+2022-06-29 01:12:54.088  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
+2022-06-29 01:12:54.088  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onComplete()
+2022-06-29 01:12:54.121  INFO 11780 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.3             : onSubscribe(FluxSwitchIfEmpty.SwitchIfEmptySubscriber)
+2022-06-29 01:12:54.122  INFO 11780 --- [ctor-http-nio-3] reactor.Mono.SwitchIfEmpty.3             : request(unbounded)
+2022-06-29 01:12:54.125  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.3             : onNext(InsuranceCompanyEntity: 1)
+2022-06-29 01:12:54.127  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.SwitchIfEmpty.3             : onComplete()
+2022-06-29 01:12:54.138  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-29T01:12:54.138...
+2022-06-29 01:12:54.139  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Create insuranceCompany with ID: 1
+2022-06-29 01:12:54.139  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.4                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-06-29 01:12:54.139  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.4                   : | request(unbounded)
+2022-06-29 01:12:54.142  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.4                   : | onNext(InsuranceCompanyEntity: 1)
+2022-06-29 01:12:54.143  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.4                   : | onComplete()
+2022-06-29 01:12:54.143  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
+2022-06-29 01:12:54.147  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-29T01:12:54.147...
+2022-06-29 01:12:54.147  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Delete insurance companies with insuranceCompanyId: 1
+2022-06-29 01:12:54.147 DEBUG 11780 --- [    Test worker] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : deleteInsuranceCompany: tries to delete an entity with insuranceCompanyId: 1
+2022-06-29 01:12:54.149  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.5                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-06-29 01:12:54.149  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.5                   : | request(unbounded)
+2022-06-29 01:12:54.153  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onNext(InsuranceCompanyEntity: 1)
+2022-06-29 01:12:54.158  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onComplete()
+2022-06-29 01:12:54.163  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
+2022-06-29 01:12:54.167  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Process message created at 2022-06-29T01:12:54.167...
+2022-06-29 01:12:54.167  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Delete insurance companies with insuranceCompanyId: 1
+2022-06-29 01:12:54.167 DEBUG 11780 --- [    Test worker] s.m.m.c.i.s.InsuranceCompanyServiceImpl  : deleteInsuranceCompany: tries to delete an entity with insuranceCompanyId: 1
+2022-06-29 01:12:54.168  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.6                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-06-29 01:12:54.169  INFO 11780 --- [    Test worker] reactor.Mono.FlatMap.6                   : | request(unbounded)
+2022-06-29 01:12:54.172  INFO 11780 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.6                   : | onComplete()
+2022-06-29 01:12:54.172  INFO 11780 --- [    Test worker] s.m.m.c.i.services.MessageProcessor      : Message processing done!
+2022-06-29 01:12:54.188 DEBUG 11780 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /insuranceCompany/-1, message: Invalid insuranceCompanyId: -1
 </pre>
 </span>
 </div>
@@ -317,7 +327,7 @@ se.magnus.util.exceptions.NotFoundException: No insurance company found for insu
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 27-Jun-2022 23:12:32</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 29-Jun-2022 01:13:01</p>
 </div>
 </div>
 </body>

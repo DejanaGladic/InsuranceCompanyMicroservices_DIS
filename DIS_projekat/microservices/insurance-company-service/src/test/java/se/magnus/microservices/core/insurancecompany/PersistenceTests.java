@@ -5,22 +5,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.OptimisticLockingFailureException;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+
 import org.springframework.test.context.junit4.SpringRunner;
 import reactor.test.StepVerifier;
 import se.magnus.microservices.core.insurancecompany.persistence.*;
-
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import static java.util.stream.IntStream.rangeClosed;
-import static org.junit.Assert.*;
-import static org.springframework.data.domain.Sort.Direction.ASC;
 
 @RunWith(SpringRunner.class)
 @DataMongoTest
@@ -101,31 +90,6 @@ public class PersistenceTests {
 				.expectNextMatches(foundEntity -> foundEntity.getVersion() == 1 && foundEntity.getName().equals("n1"))
 				.verifyComplete();
 	}
-
-	/*
-	 * @Test public void paging() {
-	 * 
-	 * repository.deleteAll();
-	 * 
-	 * List<InsuranceCompanyEntity> newInsuranceCompanies = rangeClosed(1001, 1010)
-	 * .mapToObj(i -> new InsuranceCompanyEntity(i, "insuranceCompany"+i,"city"+i,
-	 * "address"+i, "phone number"+i)) .collect(Collectors.toList());
-	 * repository.saveAll(newInsuranceCompanies);
-	 * 
-	 * Pageable nextPage = PageRequest.of(0, 4, ASC, "insuranceCompanyId"); nextPage
-	 * = testNextPage(nextPage, "[1001, 1002, 1003, 1004]", true); nextPage =
-	 * testNextPage(nextPage, "[1005, 1006, 1007, 1008]", true); nextPage =
-	 * testNextPage(nextPage, "[1009, 1010]", false); }
-	 * 
-	 * private Pageable testNextPage(Pageable nextPage, String
-	 * expectedInsuranceCompanyIds, boolean expectsNextPage) {
-	 * Page<InsuranceCompanyEntity> insuranceCompanyPage =
-	 * repository.findAll(nextPage); assertEquals(expectedInsuranceCompanyIds,
-	 * insuranceCompanyPage.getContent().stream().map(p ->
-	 * p.getInsuranceCompanyId()).collect(Collectors.toList()).toString());
-	 * assertEquals(expectsNextPage, insuranceCompanyPage.hasNext()); return
-	 * insuranceCompanyPage.nextPageable(); }
-	 */
 
 	private boolean areInsuranceCompanyEqual(InsuranceCompanyEntity expectedEntity, InsuranceCompanyEntity actualEntity) {
 		return ((expectedEntity.getId().equals(actualEntity.getId()))

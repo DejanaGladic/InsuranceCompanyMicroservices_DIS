@@ -5,14 +5,17 @@ import org.springframework.beans.factory.annotation.Value;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.health.*;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.reactive.function.client.WebClient;
 import se.magnus.microservices.composite.insurancecompany.services.InsuranceCompanyCompositeIntegration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spring.web.plugins.Docket;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 
 
 import java.util.LinkedHashMap;
@@ -81,6 +84,13 @@ public class InsuranceCompanyCompositeServiceApplication {
 		registry.register("transactions", () -> integration.getTransactionHealth());
 
 		return new CompositeReactiveHealthIndicator(healthAggregator, registry);
+	}
+
+	@Bean
+	@LoadBalanced
+	public WebClient.Builder loadBalancedWebClientBuilder() {
+		final WebClient.Builder builder = WebClient.builder();
+		return builder;
 	}
 	
 	public static void main(String[] args) {

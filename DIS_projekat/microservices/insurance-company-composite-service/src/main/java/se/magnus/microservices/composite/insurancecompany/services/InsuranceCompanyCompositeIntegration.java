@@ -4,14 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Output;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Flux;
@@ -42,13 +40,14 @@ public class InsuranceCompanyCompositeIntegration
 
 	private static final Logger LOG = LoggerFactory.getLogger(InsuranceCompanyCompositeIntegration.class);
 
-	private final WebClient webClient;
+	private WebClient webClient;
 	private final ObjectMapper mapper;
+	private final WebClient.Builder webClientBuilder;
 
-	private final String insuranceCompanyServiceUrl;
-	private final String employeeServiceUrl;
-	private final String insuranceOfferServiceUrl;
-	private final String transactionServiceUrl;
+	private final String insuranceCompanyServiceUrl= "http://insuranceCompany";
+	private final String employeeServiceUrl= "http://employee";
+	private final String insuranceOfferServiceUrl= "http://insuranceOffer";
+	private final String transactionServiceUrl= "http://transaction";
 
 	private MessageSources messageSources;
 
@@ -73,10 +72,10 @@ public class InsuranceCompanyCompositeIntegration
 	}
 
 	@Autowired
-	public InsuranceCompanyCompositeIntegration(WebClient.Builder webClient, ObjectMapper mapper,
-												MessageSources messageSources,
+	public InsuranceCompanyCompositeIntegration(WebClient.Builder webClientBuilder, ObjectMapper mapper,
+												MessageSources messageSources
 
-			@Value("${app.insurance-company-service.host}") String insuranceCompanyServiceHost,
+			/*,@Value("${app.insurance-company-service.host}") String insuranceCompanyServiceHost,
 			@Value("${app.insurance-company-service.port}") int insuranceCompanyServicePort,
 
 			@Value("${app.employee-service.host}") String employeeServiceHost,
@@ -86,16 +85,16 @@ public class InsuranceCompanyCompositeIntegration
 			@Value("${app.insurance-offer-service.port}") int insuranceOfferServicePort,
 
 			@Value("${app.transaction-service.host}") String transactionServiceHost,
-			@Value("${app.transaction-service.port}") int transactionServicePort) {
+			@Value("${app.transaction-service.port}") int transactionServicePort*/) {
 
-		this.webClient = webClient.build();
+		this.webClientBuilder = webClientBuilder;
 		this.mapper = mapper;
 		this.messageSources = messageSources;
 
-		insuranceCompanyServiceUrl = "http://" + insuranceCompanyServiceHost + ":" + insuranceCompanyServicePort;
+		/*insuranceCompanyServiceUrl = "http://" + insuranceCompanyServiceHost + ":" + insuranceCompanyServicePort;
 		employeeServiceUrl = "http://" + employeeServiceHost + ":" + employeeServicePort;
 		insuranceOfferServiceUrl = "http://" + insuranceOfferServiceHost + ":" + insuranceOfferServicePort;
-		transactionServiceUrl = "http://" + transactionServiceHost + ":" + transactionServicePort;
+		transactionServiceUrl = "http://" + transactionServiceHost + ":" + transactionServicePort;*/
 	}
 
 	@Override
@@ -109,7 +108,7 @@ public class InsuranceCompanyCompositeIntegration
 		String url = insuranceCompanyServiceUrl + "/insuranceCompany/" + insuranceCompanyId;
 		LOG.debug("Will call the getInsuranceCompany API on URL: {}", url);
 
-		return webClient.get().uri(url).retrieve().bodyToMono(InsuranceCompany.class).log().onErrorMap(WebClientResponseException.class, ex -> handleException(ex));
+		return getWebClient().get().uri(url).retrieve().bodyToMono(InsuranceCompany.class).log().onErrorMap(WebClientResponseException.class, ex -> handleException(ex));
 	}
 
 	@Override
@@ -131,7 +130,7 @@ public class InsuranceCompanyCompositeIntegration
 		LOG.debug("Will call the getEmployees API on URL: {}", url);
 
 		// Return an empty result if something goes wrong to make it possible for the composite service to return partial responses
-		return webClient.get().uri(url).retrieve().bodyToFlux(Employee.class).log().onErrorResume(error -> empty());
+		return getWebClient().get().uri(url).retrieve().bodyToFlux(Employee.class).log().onErrorResume(error -> empty());
 	}
 
 	@Override
@@ -152,7 +151,7 @@ public class InsuranceCompanyCompositeIntegration
 		LOG.debug("Will call the getTransactions API on URL: {}", url);
 
 		// Return an empty result if something goes wrong to make it possible for the composite service to return partial responses
-		return webClient.get().uri(url).retrieve().bodyToFlux(Transaction.class).log().onErrorResume(error -> empty());
+		return getWebClient().get().uri(url).retrieve().bodyToFlux(Transaction.class).log().onErrorResume(error -> empty());
 	}
 
 	@Override
@@ -172,7 +171,7 @@ public class InsuranceCompanyCompositeIntegration
 		LOG.debug("Will call the getInsuranceOffers API on URL: {}", url);
 
 		// Return an empty result if something goes wrong to make it possible for the composite service to return partial responses
-		return webClient.get().uri(url).retrieve().bodyToFlux(InsuranceOffer.class).log().onErrorResume(error -> empty());
+		return getWebClient().get().uri(url).retrieve().bodyToFlux(InsuranceOffer.class).log().onErrorResume(error -> empty());
 	}
 
 	@Override
@@ -199,10 +198,17 @@ public class InsuranceCompanyCompositeIntegration
 	private Mono<Health> getHealth(String url) {
 		url += "/actuator/health";
 		LOG.debug("Will call the Health API on URL: {}", url);
-		return webClient.get().uri(url).retrieve().bodyToMono(String.class)
+		return getWebClient().get().uri(url).retrieve().bodyToMono(String.class)
 				.map(s -> new Health.Builder().up().build())
 				.onErrorResume(ex -> Mono.just(new Health.Builder().down(ex).build()))
 				.log();
+	}
+
+	private WebClient getWebClient() {
+		if (webClient == null) {
+			webClient = webClientBuilder.build();
+		}
+		return webClient;
 	}
 
 	private Throwable handleException(Throwable ex) {

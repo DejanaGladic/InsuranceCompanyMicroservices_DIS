@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.0.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+	id 'java'
+}
+
+group = 'se.magnus.spring-cloud.eureka-server'
+version = '1.0.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+ext {
+	set('springCloudVersion', 'Hoxton.SR6')
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+	implementation 'org.glassfish.jaxb:jaxb-runtime'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
