@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.313s</div>
+<div class="counter">1.699s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,32 +79,32 @@
 </thead>
 <tr>
 <td class="success">deleteEmployees</td>
-<td class="success">0.041s</td>
+<td class="success">0.046s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesByInsuranceCompanyId</td>
-<td class="success">1.138s</td>
+<td class="success">1.507s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesInvalidParameter</td>
-<td class="success">0.016s</td>
+<td class="success">0.019s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesInvalidParameterNegativeValue</td>
-<td class="success">0.033s</td>
+<td class="success">0.039s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesMissingParameter</td>
-<td class="success">0.066s</td>
+<td class="success">0.068s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">getEmployeesNotFound</td>
-<td class="success">0.019s</td>
+<td class="success">0.020s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -112,15 +112,15 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>01:08:05.577 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-01:08:05.577 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-01:08:05.577 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-01:08:05.577 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-01:08:05.577 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@101af487 testClass = EmployeeServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@7a564122 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7bd78335, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@61964e32, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6eb5169, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@27ee4138, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@b4f1edc, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
-01:08:05.577 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-01:08:05.577 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
-01:08:05.593 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@101af487 testClass = EmployeeServiceApplicationTests, testInstance = se.magnus.microservices.core.employee.EmployeeServiceApplicationTests@36609c40, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@7a564122 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7bd78335, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@61964e32, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6eb5169, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@27ee4138, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@b4f1edc, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
-01:08:05.608 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+<pre>13:58:10.491 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+13:58:10.491 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+13:58:10.491 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+13:58:10.491 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+13:58:10.498 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@101af487 testClass = EmployeeServiceApplicationTests, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@7a564122 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7bd78335, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@61964e32, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6eb5169, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@27ee4138, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@b4f1edc, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+13:58:10.498 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved @ProfileValueSourceConfiguration [null] for test class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+13:58:10.498 [Test worker] DEBUG org.springframework.test.annotation.ProfileValueUtils - Retrieved ProfileValueSource type [class org.springframework.test.annotation.SystemProfileValueSource] for class [se.magnus.microservices.core.employee.EmployeeServiceApplicationTests]
+13:58:10.498 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@101af487 testClass = EmployeeServiceApplicationTests, testInstance = se.magnus.microservices.core.employee.EmployeeServiceApplicationTests@36609c40, testMethod = [null], testException = [null], mergedContextConfiguration = [ReactiveWebMergedContextConfiguration@7a564122 testClass = EmployeeServiceApplicationTests, locations = '{}', classes = '{class se.magnus.microservices.core.employee.EmployeeServiceApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@7bd78335, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@61964e32, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6eb5169, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@27ee4138, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@b4f1edc, org.springframework.boot.test.context.SpringBootTestArgs@1], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]]].
+13:58:10.530 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, eureka.client.enabled=false, spring.data.mongodb.port: 0, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -130,114 +130,114 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.3.2.RELEASE)
 
-2022-06-29 01:08:07.328  INFO 15572 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : No active profile set, falling back to default profiles: default
-2022-06-29 01:08:08.432  INFO 15572 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
-2022-06-29 01:08:08.620  INFO 15572 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 179ms. Found 1 Reactive MongoDB repository interfaces.
-2022-06-29 01:08:08.981  INFO 15572 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5103b050-5855-3860-b17d-9a4aaf25b821
-2022-06-29 01:08:09.020  INFO 15572 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
-2022-06-29 01:08:09.020  INFO 15572 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
-2022-06-29 01:08:09.036  INFO 15572 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
-2022-06-29 01:08:09.243  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-29 01:08:09.243  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-29 01:08:09.307  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-29 01:08:09.323  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-29 01:08:09.323  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-29 01:08:09.338  INFO 15572 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2022-06-29 01:08:10.549  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
-2022-06-29 01:08:10.645  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.644+0200 I CONTROL  [initandlisten] MongoDB starting : pid=1900 port=57093 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-bd1d35c7-a33b-4e83-9275-57ee374d2220 64-bit host=DESKTOP-HJGV6OB
-2022-06-29 01:08:10.645  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.645+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
-2022-06-29 01:08:10.645  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten] db version v3.5.5
-2022-06-29 01:08:10.646  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
-2022-06-29 01:08:10.646  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten] allocator: tcmalloc
-2022-06-29 01:08:10.646  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten] modules: none
-2022-06-29 01:08:10.646  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten] build environment:
-2022-06-29 01:08:10.647  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten]     distarch: x86_64
-2022-06-29 01:08:10.647  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten]     target_arch: x86_64
-2022-06-29 01:08:10.648  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.646+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 57093 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-bd1d35c7-a33b-4e83-9275-57ee374d2220&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
-2022-06-29 01:08:10.648  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.647+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
-2022-06-29 01:08:10.757  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.757+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
-2022-06-29 01:08:10.757  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.757+0200 I CONTROL  [initandlisten] 
-2022-06-29 01:08:10.758  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.757+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
-2022-06-29 01:08:10.758  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.757+0200 I CONTROL  [initandlisten] **       Not recommended for production.
-2022-06-29 01:08:10.758  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:10.757+0200 I CONTROL  [initandlisten] 
-2022-06-29 01:08:11.194  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:11.194+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-bd1d35c7-a33b-4e83-9275-57ee374d2220/diagnostic.data'
-2022-06-29 01:08:11.227  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:11.228+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
-2022-06-29 01:08:11.228  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:11.228+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
-2022-06-29 01:08:11.232  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:11.232+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
-2022-06-29 01:08:11.234  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:11.234+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
-2022-06-29 01:08:11.235  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:11.236+0200 I NETWORK  [thread1] waiting for connections on port 57093
-2022-06-29 01:08:11.236  INFO 15572 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@13856bcf
-2022-06-29 01:08:11.440  INFO 15572 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:57093], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
-2022-06-29 01:08:11.683  WARN 15572 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2022-06-29 01:08:11.848  WARN 15572 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
-2022-06-29 01:08:12.372  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:12.372+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:57139 #1 (1 connection now open)
-2022-06-29 01:08:12.474  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:12.474+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:57139 conn1: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
-2022-06-29 01:08:12.527  INFO 15572 --- [localhost:57093] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:57093
-2022-06-29 01:08:12.536  INFO 15572 --- [localhost:57093] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:57093, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=4272100}
-2022-06-29 01:08:12.954  WARN 15572 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2022-06-29 01:08:12.955  INFO 15572 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2022-06-29 01:08:12.965  WARN 15572 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2022-06-29 01:08:12.965  INFO 15572 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2022-06-29 01:08:15.733  INFO 15572 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
-2022-06-29 01:08:15.805  INFO 15572 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
-2022-06-29 01:08:16.265  INFO 15572 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
-2022-06-29 01:08:17.621  WARN 15572 --- [    Test worker] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-06-29 01:08:17.673  WARN 15572 --- [    Test worker] eactorLoadBalancerClientRibbonWarnLogger : You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
-2022-06-29 01:08:18.239  INFO 15572 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.input' has 1 subscriber(s).
-2022-06-29 01:08:18.262  INFO 15572 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
-2022-06-29 01:08:18.263  INFO 15572 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
-2022-06-29 01:08:18.263  INFO 15572 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
-2022-06-29 01:08:18.410  INFO 15572 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 57174
-2022-06-29 01:08:19.248  INFO 15572 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Started EmployeeServiceApplicationTests in 13.627 seconds (JVM running for 15.31)
-2022-06-29 01:08:19.789  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:19.789+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:57179 #2 (2 connections now open)
-2022-06-29 01:08:19.796  INFO 15572 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-06-29T01:08:19.796+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:57179 conn2: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
-2022-06-29 01:08:19.804  INFO 15572 --- [ntLoopGroup-3-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:57093
-2022-06-29 01:08:19.849  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-06-29T01:08:19.844...
-2022-06-29 01:08:19.851  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 1
-2022-06-29 01:08:19.879  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.1                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-29 01:08:19.881  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.1                   : | request(unbounded)
-2022-06-29 01:08:19.943  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.1                   : | onNext(EmployeeEntity: 1/1)
-2022-06-29 01:08:19.943  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
-2022-06-29 01:08:19.943  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.1                   : | onComplete()
-2022-06-29 01:08:19.946  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-06-29T01:08:19.946...
-2022-06-29 01:08:19.946  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 2
-2022-06-29 01:08:19.947  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.2                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-29 01:08:19.947  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.2                   : | request(unbounded)
-2022-06-29 01:08:19.951  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onNext(EmployeeEntity: 1/2)
-2022-06-29 01:08:19.951  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onComplete()
-2022-06-29 01:08:19.951  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
-2022-06-29 01:08:19.953  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-06-29T01:08:19.953...
-2022-06-29 01:08:19.953  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 3
-2022-06-29 01:08:19.953  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.3                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-29 01:08:19.953  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.3                   : | request(unbounded)
-2022-06-29 01:08:19.957  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.3                   : | onNext(EmployeeEntity: 1/3)
-2022-06-29 01:08:19.957  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.3                   : | onComplete()
-2022-06-29 01:08:19.957  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
-2022-06-29 01:08:20.339  INFO 15572 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.4             : onSubscribe(FluxOnErrorResume.ResumeSubscriber)
-2022-06-29 01:08:20.339  INFO 15572 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.4             : request(unbounded)
-2022-06-29 01:08:20.343  INFO 15572 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onNext(EmployeeEntity: 1/1)
-2022-06-29 01:08:20.344  INFO 15572 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onNext(EmployeeEntity: 1/2)
-2022-06-29 01:08:20.345  INFO 15572 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onNext(EmployeeEntity: 1/3)
-2022-06-29 01:08:20.345  INFO 15572 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onComplete()
-2022-06-29 01:08:20.501  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-06-29T01:08:20.501...
-2022-06-29 01:08:20.501  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 1
-2022-06-29 01:08:20.502  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.5                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
-2022-06-29 01:08:20.502  INFO 15572 --- [    Test worker] reactor.Mono.FlatMap.5                   : | request(unbounded)
-2022-06-29 01:08:20.505  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onNext(EmployeeEntity: 1/1)
-2022-06-29 01:08:20.505  INFO 15572 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onComplete()
-2022-06-29 01:08:20.505  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
-2022-06-29 01:08:20.509  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-06-29T01:08:20.509...
-2022-06-29 01:08:20.509  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Delete employees with insuranceCompanyId: 1
-2022-06-29 01:08:20.510 DEBUG 15572 --- [    Test worker] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
-2022-06-29 01:08:20.521  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
-2022-06-29 01:08:20.524  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-06-29T01:08:20.524...
-2022-06-29 01:08:20.525  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Delete employees with insuranceCompanyId: 1
-2022-06-29 01:08:20.525 DEBUG 15572 --- [    Test worker] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
-2022-06-29 01:08:20.528  INFO 15572 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
-2022-06-29 01:08:20.543  INFO 15572 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.6             : onSubscribe(FluxOnErrorResume.ResumeSubscriber)
-2022-06-29 01:08:20.543  INFO 15572 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.6             : request(unbounded)
-2022-06-29 01:08:20.546  INFO 15572 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.6             : onComplete()
-2022-06-29 01:08:20.639 DEBUG 15572 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /employee, message: Invalid insuranceCompanyId: -1
+2022-07-04 13:58:12.274  INFO 12464 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : No active profile set, falling back to default profiles: default
+2022-07-04 13:58:13.481  INFO 12464 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Reactive MongoDB repositories in DEFAULT mode.
+2022-07-04 13:58:13.692  INFO 12464 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 205ms. Found 1 Reactive MongoDB repository interfaces.
+2022-07-04 13:58:14.149  INFO 12464 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=5103b050-5855-3860-b17d-9a4aaf25b821
+2022-07-04 13:58:14.222  INFO 12464 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'errorChannel' has been explicitly defined. Therefore, a default PublishSubscribeChannel will be created.
+2022-07-04 13:58:14.238  INFO 12464 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'taskScheduler' has been explicitly defined. Therefore, a default ThreadPoolTaskScheduler will be created.
+2022-07-04 13:58:14.238  INFO 12464 --- [    Test worker] faultConfiguringBeanFactoryPostProcessor : No bean named 'integrationHeaderChannelRegistry' has been explicitly defined. Therefore, a default DefaultHeaderChannelRegistry will be created.
+2022-07-04 13:58:14.522  INFO 12464 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationChannelResolver' of type [org.springframework.integration.support.channel.BeanFactoryChannelResolver] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-04 13:58:14.554  INFO 12464 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'integrationDisposableAutoCreatedBeans' of type [org.springframework.integration.config.annotation.Disposables] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-04 13:58:14.627  INFO 12464 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.integration.config.IntegrationManagementConfiguration' of type [org.springframework.integration.config.IntegrationManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-04 13:58:14.643  INFO 12464 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-04 13:58:14.659  INFO 12464 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig' of type [org.springframework.cloud.client.loadbalancer.reactive.LoadBalancerBeanPostProcessorAutoConfiguration$ReactiveLoadBalancerConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-04 13:58:14.659  INFO 12464 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerExchangeFilterFunction' of type [org.springframework.cloud.client.loadbalancer.reactive.DeferringLoadBalancerExchangeFilterFunction] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2022-07-04 13:58:16.066  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : note: noprealloc may hurt performance in many applications
+2022-07-04 13:58:16.144  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.144+0200 I CONTROL  [initandlisten] MongoDB starting : pid=14044 port=59500 dbpath=C:\Users\user\AppData\Local\Temp\embedmongo-db-19616454-e43d-4259-b173-cd6a55b60467 64-bit host=DESKTOP-HJGV6OB
+2022-07-04 13:58:16.145  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten] targetMinOS: Windows Vista/Windows Server 2008
+2022-07-04 13:58:16.146  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten] db version v3.5.5
+2022-07-04 13:58:16.146  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten] git version: 98515c812b6fa893613f063dae568ff8319cbfbd
+2022-07-04 13:58:16.146  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten] allocator: tcmalloc
+2022-07-04 13:58:16.147  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten] modules: none
+2022-07-04 13:58:16.147  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten] build environment:
+2022-07-04 13:58:16.147  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten]     distarch: x86_64
+2022-07-04 13:58:16.147  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten]     target_arch: x86_64
+2022-07-04 13:58:16.147  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.145+0200 I CONTROL  [initandlisten] options: { net: { bindIp: &quot;127.0.0.1&quot;, http: { enabled: false }, port: 59500 }, security: { authorization: &quot;disabled&quot; }, storage: { dbPath: &quot;C:\Users\user\AppData\Local\Temp\embedmongo-db-19616454-e43d-4259-b173-cd6a55b60467&quot;, journal: { enabled: false }, mmapv1: { preallocDataFiles: false, smallFiles: true }, syncPeriodSecs: 0.0 } }
+2022-07-04 13:58:16.148  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.146+0200 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=3474M,session_max=20000,eviction=(threads_min=4,threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=0,log_size=2GB),statistics_log=(wait=0),verbose=(recovery_progress),,log=(enabled=false),
+2022-07-04 13:58:16.214  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.213+0200 W STORAGE  [initandlisten] Detected configuration for non-active storage engine mmapv1 when current storage engine is wiredTiger
+2022-07-04 13:58:16.214  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.213+0200 I CONTROL  [initandlisten] 
+2022-07-04 13:58:16.214  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.213+0200 I CONTROL  [initandlisten] ** NOTE: This is a development version (3.5.5) of MongoDB.
+2022-07-04 13:58:16.215  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.213+0200 I CONTROL  [initandlisten] **       Not recommended for production.
+2022-07-04 13:58:16.215  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.214+0200 I CONTROL  [initandlisten] 
+2022-07-04 13:58:16.597  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.597+0200 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/Users/user/AppData/Local/Temp/embedmongo-db-19616454-e43d-4259-b173-cd6a55b60467/diagnostic.data'
+2022-07-04 13:58:16.625  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.625+0200 I INDEX    [initandlisten] build index on: admin.system.version properties: { v: 2, key: { version: 1 }, name: &quot;incompatible_with_version_32&quot;, ns: &quot;admin.system.version&quot; }
+2022-07-04 13:58:16.625  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.625+0200 I INDEX    [initandlisten] 	 building index using bulk method; build may temporarily use up to 500 megabytes of RAM
+2022-07-04 13:58:16.629  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.628+0200 I INDEX    [initandlisten] build index done.  scanned 0 total records. 0 secs
+2022-07-04 13:58:16.630  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.630+0200 I COMMAND  [initandlisten] setting featureCompatibilityVersion to 3.4
+2022-07-04 13:58:16.631  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:16.631+0200 I NETWORK  [thread1] waiting for connections on port 59500
+2022-07-04 13:58:16.631  INFO 12464 --- [    Test worker] d.f.embed.mongo.MongodExecutable         : start de.flapdoodle.embed.mongo.config.MongodConfigBuilder$ImmutableMongodConfig@646e980d
+2022-07-04 13:58:16.871  INFO 12464 --- [    Test worker] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:59500], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2022-07-04 13:58:17.144  WARN 12464 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-07-04 13:58:17.298  WARN 12464 --- [    Test worker] o.s.data.convert.CustomConversions       : Registering converter from class java.time.LocalDateTime to class org.joda.time.LocalDateTime as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+2022-07-04 13:58:17.806  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:17.807+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:59535 #1 (1 connection now open)
+2022-07-04 13:58:17.900  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:17.900+0200 I NETWORK  [conn1] received client metadata from 127.0.0.1:59535 conn1: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
+2022-07-04 13:58:17.945  INFO 12464 --- [localhost:59500] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:1}] to localhost:59500
+2022-07-04 13:58:17.953  INFO 12464 --- [localhost:59500] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:59500, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=5, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=null, roundTripTimeNanos=4623500}
+2022-07-04 13:58:18.418  WARN 12464 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-07-04 13:58:18.418  INFO 12464 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-07-04 13:58:18.428  WARN 12464 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2022-07-04 13:58:18.428  INFO 12464 --- [    Test worker] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2022-07-04 13:58:21.410  INFO 12464 --- [    Test worker] o.s.s.c.ThreadPoolTaskScheduler          : Initializing ExecutorService 'taskScheduler'
+2022-07-04 13:58:21.497  INFO 12464 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 19 endpoint(s) beneath base path '/actuator'
+2022-07-04 13:58:22.012  INFO 12464 --- [    Test worker] onConfiguration$FunctionBindingRegistrar : Functional binding is disabled due to the presense of @EnableBinding annotation in your configuration
+2022-07-04 13:58:23.663  WARN 12464 --- [    Test worker] ockingLoadBalancerClientRibbonWarnLogger : You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-07-04 13:58:23.732  WARN 12464 --- [    Test worker] eactorLoadBalancerClientRibbonWarnLogger : You have RibbonLoadBalancerClient on your classpath. LoadBalancerExchangeFilterFunction that uses it under the hood will be used by default. Spring Cloud Ribbon is now in maintenance mode, so we suggest switching to ReactorLoadBalancerExchangeFilterFunction instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+2022-07-04 13:58:24.408  INFO 12464 --- [    Test worker] o.s.c.s.m.DirectWithAttributesChannel    : Channel 'application-1.input' has 1 subscriber(s).
+2022-07-04 13:58:24.436  INFO 12464 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : Adding {logging-channel-adapter:_org.springframework.integration.errorLogger} as a subscriber to the 'errorChannel' channel
+2022-07-04 13:58:24.436  INFO 12464 --- [    Test worker] o.s.i.channel.PublishSubscribeChannel    : Channel 'application-1.errorChannel' has 1 subscriber(s).
+2022-07-04 13:58:24.436  INFO 12464 --- [    Test worker] o.s.i.endpoint.EventDrivenConsumer       : started bean '_org.springframework.integration.errorLogger'
+2022-07-04 13:58:24.690  INFO 12464 --- [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port(s): 59554
+2022-07-04 13:58:25.576  INFO 12464 --- [    Test worker] .m.m.c.e.EmployeeServiceApplicationTests : Started EmployeeServiceApplicationTests in 15.037 seconds (JVM running for 16.748)
+2022-07-04 13:58:26.222  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:26.222+0200 I NETWORK  [thread1] connection accepted from 127.0.0.1:59555 #2 (2 connections now open)
+2022-07-04 13:58:26.228  INFO 12464 --- [       Thread-7] o.s.b.a.mongo.embedded.EmbeddedMongo     : 2022-07-04T13:58:26.229+0200 I NETWORK  [conn2] received client metadata from 127.0.0.1:59555 conn2: { driver: { name: &quot;mongo-java-driver|reactive-streams|spring-boot&quot;, version: &quot;4.0.5&quot; }, os: { type: &quot;Windows&quot;, name: &quot;Windows 10&quot;, architecture: &quot;amd64&quot;, version: &quot;10.0&quot; }, platform: &quot;Java/Oracle Corporation/1.8.0_271-b09&quot; }
+2022-07-04 13:58:26.234  INFO 12464 --- [ntLoopGroup-3-2] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:2}] to localhost:59500
+2022-07-04 13:58:26.287  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-07-04T13:58:26.281...
+2022-07-04 13:58:26.289  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 1
+2022-07-04 13:58:26.327  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.1                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-07-04 13:58:26.329  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.1                   : | request(unbounded)
+2022-07-04 13:58:26.397  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.1                   : | onNext(EmployeeEntity: 1/1)
+2022-07-04 13:58:26.398  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
+2022-07-04 13:58:26.399  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.1                   : | onComplete()
+2022-07-04 13:58:26.402  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-07-04T13:58:26.401...
+2022-07-04 13:58:26.402  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 2
+2022-07-04 13:58:26.403  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.2                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-07-04 13:58:26.403  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.2                   : | request(unbounded)
+2022-07-04 13:58:26.407  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onNext(EmployeeEntity: 1/2)
+2022-07-04 13:58:26.408  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.2                   : | onComplete()
+2022-07-04 13:58:26.408  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
+2022-07-04 13:58:26.409  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-07-04T13:58:26.409...
+2022-07-04 13:58:26.409  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 3
+2022-07-04 13:58:26.410  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.3                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-07-04 13:58:26.410  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.3                   : | request(unbounded)
+2022-07-04 13:58:26.416  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.3                   : | onNext(EmployeeEntity: 1/3)
+2022-07-04 13:58:26.416  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.3                   : | onComplete()
+2022-07-04 13:58:26.417  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
+2022-07-04 13:58:26.978  INFO 12464 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.4             : onSubscribe(FluxOnErrorResume.ResumeSubscriber)
+2022-07-04 13:58:26.979  INFO 12464 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.4             : request(unbounded)
+2022-07-04 13:58:26.983  INFO 12464 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onNext(EmployeeEntity: 1/1)
+2022-07-04 13:58:26.985  INFO 12464 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onNext(EmployeeEntity: 1/2)
+2022-07-04 13:58:26.985  INFO 12464 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onNext(EmployeeEntity: 1/3)
+2022-07-04 13:58:26.986  INFO 12464 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.4             : onComplete()
+2022-07-04 13:58:27.198  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-07-04T13:58:27.197...
+2022-07-04 13:58:27.198  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Create employee with ID: 1
+2022-07-04 13:58:27.198  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.5                   : | onSubscribe([Fuseable] MonoFlatMap.FlatMapMain)
+2022-07-04 13:58:27.199  INFO 12464 --- [    Test worker] reactor.Mono.FlatMap.5                   : | request(unbounded)
+2022-07-04 13:58:27.206  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onNext(EmployeeEntity: 1/1)
+2022-07-04 13:58:27.206  INFO 12464 --- [ntLoopGroup-3-2] reactor.Mono.FlatMap.5                   : | onComplete()
+2022-07-04 13:58:27.206  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
+2022-07-04 13:58:27.210  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-07-04T13:58:27.210...
+2022-07-04 13:58:27.211  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Delete employees with insuranceCompanyId: 1
+2022-07-04 13:58:27.211 DEBUG 12464 --- [    Test worker] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
+2022-07-04 13:58:27.224  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
+2022-07-04 13:58:27.228  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Process message created at 2022-07-04T13:58:27.227...
+2022-07-04 13:58:27.228  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Delete employees with insuranceCompanyId: 1
+2022-07-04 13:58:27.228 DEBUG 12464 --- [    Test worker] s.m.m.c.e.services.EmployeeServiceImpl   : deleteEmployees: tries to delete employees for the insurance company with insuranceCompanyId: 1
+2022-07-04 13:58:27.231  INFO 12464 --- [    Test worker] s.m.m.c.e.services.MessageProcessor      : Message processing done!
+2022-07-04 13:58:27.247  INFO 12464 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.6             : onSubscribe(FluxOnErrorResume.ResumeSubscriber)
+2022-07-04 13:58:27.248  INFO 12464 --- [ctor-http-nio-3] reactor.Flux.OnErrorResume.6             : request(unbounded)
+2022-07-04 13:58:27.250  INFO 12464 --- [ntLoopGroup-3-2] reactor.Flux.OnErrorResume.6             : onComplete()
+2022-07-04 13:58:27.353 DEBUG 12464 --- [ctor-http-nio-3] s.m.u.h.GlobalControllerExceptionHandler : Returning HTTP status: 422 UNPROCESSABLE_ENTITY for path: /employee, message: Invalid insuranceCompanyId: -1
 </pre>
 </span>
 </div>
@@ -249,7 +249,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 5.6.4</a> at 29-Jun-2022 01:08:28</p>
+<a href="http://www.gradle.org">Gradle 5.6.4</a> at 04-Jul-2022 13:58:35</p>
 </div>
 </div>
 </body>

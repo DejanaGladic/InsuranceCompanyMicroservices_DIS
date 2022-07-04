@@ -1,10 +1,11 @@
 server.port: 7002
 spring.application.name: employee
+app.eureka-server: localhost
 server.error.include-message: always
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://${app.eureka-server}:8761/eureka/
     initialInstanceInfoReplicationIntervalSeconds: 5
     registryFetchIntervalSeconds: 5
   instance:
@@ -64,7 +65,6 @@ server.port: 8081
 
 spring.rabbitmq.host: rabbitmq
 
-eureka.client.serviceUrl.defaultZone: http://eureka:8761/eureka/
-
+app.eureka-server: eureka
 
 spring.cloud.stream.kafka.binder.brokers: kafka

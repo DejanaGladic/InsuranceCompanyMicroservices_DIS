@@ -124,8 +124,6 @@ services:
   insurance-company-composite:
     build: microservices/insurance-company-composite-service
     mem_limit: 600m
-    ports:
-      - "8081:8081"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
       - MANAGEMENT_HEALTH_RABBIT_ENABLED=false
@@ -143,8 +141,15 @@ services:
 
   eureka:
     build: spring-cloud/eureka-server
+    mem_limit: 350m
+
+  gateway:
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    build: spring-cloud/gateway
+    mem_limit: 350m
     ports:
-      - "8761:8761"
+      - "8081:8081"
 
   # $ mongo
   mongodb:
@@ -153,6 +158,11 @@ services:
     ports:
       - "27017:27017"
     command: mongod --smallfiles
+    healthcheck:
+      test: "mongo --eval 'db.stats().ok'"
+      interval: 20s
+      timeout: 5s
+      retries: 10
 
   mysql1:
     image: mysql:5.7

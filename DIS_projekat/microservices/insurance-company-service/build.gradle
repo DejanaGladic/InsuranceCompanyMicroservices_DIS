@@ -49,10 +49,6 @@ dependencies {
 	testImplementation('de.flapdoodle.embed:de.flapdoodle.embed.mongo')
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
-
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud" +

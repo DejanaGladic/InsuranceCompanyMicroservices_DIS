@@ -2,9 +2,7 @@ package se.magnus.microservices.composite.insurancecompany;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.health.*;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,11 +13,6 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spring.web.plugins.Docket;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-
-
-import java.util.LinkedHashMap;
-
 import static java.util.Collections.emptyList;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 import static springfox.documentation.builders.RequestHandlerSelectors.basePackage;
@@ -68,24 +61,7 @@ public class InsuranceCompanyCompositeServiceApplication {
         }
 
 	@Autowired
-	HealthAggregator healthAggregator;
-
-	@Autowired
 	InsuranceCompanyCompositeIntegration integration;
-
-	@Bean
-	ReactiveHealthIndicator coreServices() {
-
-		ReactiveHealthIndicatorRegistry registry = new DefaultReactiveHealthIndicatorRegistry(new LinkedHashMap<>());
-
-		registry.register("insuranceCompany", () -> integration.getInsuranceCompanyHealth());
-		registry.register("employee", () -> integration.getEmployeeHealth());
-		registry.register("insuranceOffer", () -> integration.getInsuranceOfferHealth());
-		registry.register("transactions", () -> integration.getTransactionHealth());
-
-		return new CompositeReactiveHealthIndicator(healthAggregator, registry);
-	}
-
 	@Bean
 	@LoadBalanced
 	public WebClient.Builder loadBalancedWebClientBuilder() {

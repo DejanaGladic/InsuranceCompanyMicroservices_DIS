@@ -1,12 +1,11 @@
-server:
-  port: 8761
+server.port: 8761
 
 eureka:
   instance:
     hostname: localhost
   client:
-    registerWithEureka: false
     fetchRegistry: false
+    registerWithEureka: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   # from: https://github.com/spring-cloud-samples/eureka/blob/master/src/main/resources/application.yml

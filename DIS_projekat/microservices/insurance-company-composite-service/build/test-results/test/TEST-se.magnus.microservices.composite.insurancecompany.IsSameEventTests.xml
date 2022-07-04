@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="se.magnus.microservices.composite.insurancecompany.IsSameEventTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-06-28T23:12:23" hostname="DESKTOP-HJGV6OB" time="0.014">
+<testsuite name="se.magnus.microservices.composite.insurancecompany.IsSameEventTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-07-04T11:59:02" hostname="DESKTOP-HJGV6OB" time="0.08">
   <properties/>
-  <testcase name="testEventObjectCompare" classname="se.magnus.microservices.composite.insurancecompany.IsSameEventTests" time="0.014"/>
+  <testcase name="testEventObjectCompare" classname="se.magnus.microservices.composite.insurancecompany.IsSameEventTests" time="0.08"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
