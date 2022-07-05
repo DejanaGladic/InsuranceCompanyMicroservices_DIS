@@ -3,7 +3,7 @@
 #   HOST=localhost PORT=7000 ./test-em-all.bash
 #
 : ${HOST=localhost}
-: ${PORT=8081}
+: ${PORT=8443}
 : ${INCP_ID_EMP_INSOFF_TRAN=1}
 : ${INCP_ID_NOT_FOUND=13}
 : ${INCP_ID_NO_EMP=113}
