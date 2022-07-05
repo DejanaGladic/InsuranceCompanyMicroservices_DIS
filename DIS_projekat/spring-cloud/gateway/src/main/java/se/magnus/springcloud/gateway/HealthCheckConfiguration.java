@@ -35,6 +35,7 @@ public class HealthCheckConfiguration {
 
         ReactiveHealthIndicatorRegistry registry = new DefaultReactiveHealthIndicatorRegistry(new LinkedHashMap<>());
 
+        registry.register("auth-server",       () -> getHealth("http://auth-server"));
         registry.register("insuranceCompany", () -> getHealth("http://insuranceCompany"));
         registry.register("employee", () -> getHealth("http://employee"));
         registry.register("insuranceOffer", () -> getHealth("http://insuranceOffer"));
