@@ -9,7 +9,7 @@ import se.magnus.microservices.core.employee.persistence.EmployeeEntity;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-07-04T13:58:05+0200",
+    date = "2022-07-06T00:05:12+0200",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_271 (Oracle Corporation)"
 )
 @Component

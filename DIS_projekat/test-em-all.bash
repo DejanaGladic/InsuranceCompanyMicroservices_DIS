@@ -4,7 +4,7 @@
 #
 : ${HOST=localhost}
 : ${PORT=8443}
-: ${INCP_ID_EMP_INSOFF_TRAN=1}
+: ${INCP_ID_EMP_INSOFF_TRAN=100}
 : ${INCP_ID_NOT_FOUND=13}
 : ${INCP_ID_NO_EMP=113}
 : ${INCP_ID_NO_INSOFF=213}
@@ -26,11 +26,12 @@ function assertCurl() {
     else
       echo "Test OK (HTTP Code: $httpCode, $RESPONSE)"
     fi
+    return 0
   else
       echo  "Test FAILED, EXPECTED HTTP Code: $expectedHttpCode, GOT: $httpCode, WILL ABORT!"
       echo  "- Failing command: $curlCmd"
       echo  "- Response Body: $RESPONSE"
-      exit 1
+      return 1
   fi
 }
 
@@ -42,9 +43,10 @@ function assertEqual() {
   if [ "$actual" = "$expected" ]
   then
     echo "Test OK (actual value: $actual)"
+    return 0
   else
     echo "Test FAILED, EXPECTED VALUE: $expected, ACTUAL VALUE: $actual, WILL ABORT"
-    exit 1
+    return 1
   fi
 }
 set -e
@@ -85,7 +87,7 @@ function waitForService() {
 function testCompositeCreated() {
 
     # Expect that the INCP Composite for inCpId $INCP_ID_REVS_RECS has been created with three emp and three trans and three insOff
-    if ! assertCurl 200 "curl http://$HOST:$PORT/insurance-company-composite/$INCP_ID_EMP_INSOFF_TRAN -s"
+    if ! assertCurl 200 "curl $AUTH -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_EMP_INSOFF_TRAN -s"
     then
         echo -n "FAIL"
         return 1
@@ -133,8 +135,8 @@ function recreateComposite() {
     local insuranceCompanyId=$1
     local composite=$2
 
-    assertCurl 200 "curl -X DELETE http://$HOST:$PORT/insurance-company-composite/${insuranceCompanyId} -s"
-    curl -X POST http://$HOST:$PORT/insurance-company-composite -H "Content-Type: application/json" --data "$composite"
+    assertCurl 200 "curl $AUTH -X DELETE -k https://$HOST:$PORT/insurance-company-composite/${insuranceCompanyId} -s"
+    curl -X POST -k https://$HOST:$PORT/insurance-company-composite -H "Content-Type: application/json" -H "Authorization: Bearer $ACCESS_TOKEN" --data "$composite"
 }
 
 function setupTestdata() {
@@ -208,60 +210,70 @@ then
     docker-compose up -d
 fi
 
-waitForService curl http://$HOST:$PORT/actuator/health
+waitForService curl -k https://$HOST:$PORT/actuator/health
+
+ACCESS_TOKEN=$(curl -k https://writer:secret@$HOST:$PORT/oauth/token -d grant_type=password -d username=magnus -d password=password -s | jq .access_token -r)
+AUTH="-H \"Authorization: Bearer $ACCESS_TOKEN\""
 
 setupTestdata
 
 waitForMessageProcessing
 
 # Verify that a normal request works
-assertCurl 200 "curl http://$HOST:$PORT/insurance-company-composite/$INCP_ID_EMP_INSOFF_TRAN -s"
-assertEqual 1 $(echo $RESPONSE | jq .insuranceCompanyId)
+assertCurl 200 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_EMP_INSOFF_TRAN $AUTH -s"
+assertEqual 100 $(echo $RESPONSE | jq .insuranceCompanyId)
 assertEqual 3 $(echo $RESPONSE | jq ".employees | length")
 assertEqual 3 $(echo $RESPONSE | jq ".insuranceOffers | length")
 assertEqual 3 $(echo $RESPONSE | jq ".transactions | length")
 
 
 # Verify that a 404 (Not Found) error is returned for a non existing insuranceCompanyId
-assertCurl 404 "curl http://$HOST:$PORT/insurance-company-composite/"$INCP_ID_NOT_FOUND" -s"
+assertCurl 404 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_NOT_FOUND $AUTH -s"
 
 # Verify that no employees are returned for insuranceCompanyId
-assertCurl 200 "curl http://$HOST:$PORT/insurance-company-composite/$INCP_ID_NO_EMP -s"
+assertCurl 200 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_NO_EMP $AUTH -s"
 assertEqual 113 $(echo $RESPONSE | jq .insuranceCompanyId)
 assertEqual 0 $(echo $RESPONSE | jq ".employees | length")
 assertEqual 3 $(echo $RESPONSE | jq ".insuranceOffers | length")
 assertEqual 3 $(echo $RESPONSE | jq ".transactions | length")
 
 # Verify that no insuranceOffers are returned for insuranceCompanyId
-assertCurl 200 "curl http://$HOST:$PORT/insurance-company-composite/$INCP_ID_NO_INSOFF -s"
+assertCurl 200 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_NO_INSOFF $AUTH -s"
 assertEqual 213 $(echo $RESPONSE | jq .insuranceCompanyId)
 assertEqual 3 $(echo $RESPONSE | jq ".employees | length")
 assertEqual 0 $(echo $RESPONSE | jq ".insuranceOffers | length")
 assertEqual 3 $(echo $RESPONSE | jq ".transactions | length")
 
 # Verify that no transactions are returned for insuranceCompanyId
-assertCurl 200 "curl http://$HOST:$PORT/insurance-company-composite/$INCP_ID_NO_TRAN -s"
+assertCurl 200 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_NO_TRAN $AUTH -s"
 assertEqual 313 $(echo $RESPONSE | jq .insuranceCompanyId)
 assertEqual 3 $(echo $RESPONSE | jq ".employees | length")
 assertEqual 3 $(echo $RESPONSE | jq ".insuranceOffers | length")
 assertEqual 0 $(echo $RESPONSE | jq ".transactions | length")
 
 # Verify that a 422 (Unprocessable Entity) error is returned for a insuranceCompanyId that is out of range (-1)
-assertCurl 422 "curl http://$HOST:$PORT/insurance-company-composite/-1 -s"
+assertCurl 422 "curl -k https://$HOST:$PORT/insurance-company-composite/-1 $AUTH -s"
 assertEqual "\"Invalid insuranceCompanyId: -1\"" "$(echo $RESPONSE | jq .message)"
 
 # Verify that a 400 (Bad Request) error error is returned for a insuranceCompanyId that is not a number, i.e. invalid format
-assertCurl 400 "curl http://$HOST:$PORT/insurance-company-composite/invalidInsuranceCompanyId -s"
+assertCurl 400 "curl -k https://$HOST:$PORT/insurance-company-composite/invalidInsuranceCompanyId $AUTH -s"
 assertEqual "\"Type mismatch.\"" "$(echo $RESPONSE | jq .message)"
 
-echo "End:" `date`
+# Verify that a request without access token fails on 401, Unauthorized
+assertCurl 401 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_EMP_INSOFF_TRAN -s"
+
+# Verify that the reader - client with only read scope can call the read API but not delete API.
+READER_ACCESS_TOKEN=$(curl -k https://reader:secret@$HOST:$PORT/oauth/token -d grant_type=password -d username=magnus -d password=password -s | jq .access_token -r)
+READER_AUTH="-H \"Authorization: Bearer $READER_ACCESS_TOKEN\""
+
+assertCurl 200 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_EMP_INSOFF_TRAN $READER_AUTH -s"
+assertCurl 403 "curl -k https://$HOST:$PORT/insurance-company-composite/$INCP_ID_EMP_INSOFF_TRAN $READER_AUTH -X DELETE -s"
+
+echo "End, all tests OK:" `date`
 
 if [[ $@ == *"stop"* ]]
 then
-    echo "We are done, stopping the test environment..."
+    echo "Stopping the test environment..."
     echo "$ docker-compose down --remove-orphans"
     docker-compose down --remove-orphans
 fi
-
-
-

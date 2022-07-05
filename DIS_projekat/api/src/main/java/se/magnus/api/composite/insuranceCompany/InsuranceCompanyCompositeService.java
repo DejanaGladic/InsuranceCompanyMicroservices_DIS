@@ -16,7 +16,7 @@ public interface InsuranceCompanyCompositeService {
 			@ApiResponse(code = 400, message = "Bad Request, invalid format of the request. See response message for more information."),
 			@ApiResponse(code = 422, message = "Unprocessable entity, input parameters caused the processing to fail. See response message for more information.") })
 	@PostMapping(value = "/insurance-company-composite", consumes = "application/json")
-	void createCompositeInsuranceCompany(@RequestBody InsuranceCompanyAggregate body);
+	Mono<Void> createCompositeInsuranceCompany(@RequestBody InsuranceCompanyAggregate body);
 
 	
 	@ApiOperation(value = "${api.insurance-company-composite.get-composite-insurance-company.description}", notes = "${api.insurance-company-composite.get-composite-insurance-company.notes}")
@@ -34,6 +34,6 @@ public interface InsuranceCompanyCompositeService {
 			@ApiResponse(code = 400, message = "Bad Request, invalid format of the request. See response message for more information."),
 			@ApiResponse(code = 422, message = "Unprocessable entity, input parameters caused the processing to fail. See response message for more information.") })
 	@DeleteMapping(value = "/insurance-company-composite/{insuranceCompanyId}")
-	void deleteCompositeInsuranceCompany(@PathVariable int insuranceCompanyId);
+	Mono<Void> deleteCompositeInsuranceCompany(@PathVariable int insuranceCompanyId);
 
 }

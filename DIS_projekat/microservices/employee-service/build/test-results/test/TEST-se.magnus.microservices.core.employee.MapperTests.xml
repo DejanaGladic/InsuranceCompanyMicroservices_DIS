@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="se.magnus.microservices.core.employee.MapperTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-07-04T11:58:27" hostname="DESKTOP-HJGV6OB" time="0.005">
+<testsuite name="se.magnus.microservices.core.employee.MapperTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-07-05T22:05:50" hostname="DESKTOP-HJGV6OB" time="0.012">
   <properties/>
-  <testcase name="mapperTests" classname="se.magnus.microservices.core.employee.MapperTests" time="0.004"/>
+  <testcase name="mapperTests" classname="se.magnus.microservices.core.employee.MapperTests" time="0.011"/>
   <testcase name="mapperListTests" classname="se.magnus.microservices.core.employee.MapperTests" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
