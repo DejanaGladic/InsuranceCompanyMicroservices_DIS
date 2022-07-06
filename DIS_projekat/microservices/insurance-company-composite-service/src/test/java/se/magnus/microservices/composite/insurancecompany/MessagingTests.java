@@ -37,7 +37,7 @@ import static se.magnus.microservices.composite.insurancecompany.IsSameEvent.sam
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=RANDOM_PORT, classes = {InsuranceCompanyCompositeServiceApplication.class, TestSecurityConfig.class },
-        properties = {"spring.main.allow-bean-definition-overriding=true","eureka.client.enabled=false"})
+        properties = {"spring.main.allow-bean-definition-overriding=true","eureka.client.enabled=false","spring.cloud.config.enabled=false"})
 public class MessagingTests {
 
     private static final int INSURANCE_COMPANY_ID_OK = 1;

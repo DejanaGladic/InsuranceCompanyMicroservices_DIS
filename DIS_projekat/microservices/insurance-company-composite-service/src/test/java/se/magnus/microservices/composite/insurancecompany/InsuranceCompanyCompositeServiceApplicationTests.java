@@ -30,7 +30,7 @@ import static reactor.core.publisher.Mono.just;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT,classes = {InsuranceCompanyCompositeServiceApplication.class, TestSecurityConfig.class},
-		properties = {"spring.main.allow-bean-definition-overriding=true","eureka.client.enabled=false"})
+		properties = {"spring.main.allow-bean-definition-overriding=true","eureka.client.enabled=false","spring.cloud.config.enabled=false"})
 public class InsuranceCompanyCompositeServiceApplicationTests {
 
 	private static final int INSURANCE_COMPANY_ID_OK = 1;

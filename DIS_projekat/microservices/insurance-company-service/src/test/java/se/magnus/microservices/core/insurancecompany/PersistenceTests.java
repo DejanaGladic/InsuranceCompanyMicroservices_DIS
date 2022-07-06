@@ -12,7 +12,7 @@ import reactor.test.StepVerifier;
 import se.magnus.microservices.core.insurancecompany.persistence.*;
 
 @RunWith(SpringRunner.class)
-@DataMongoTest
+@DataMongoTest(properties = {"spring.cloud.config.enabled=false"})
 public class PersistenceTests {
 
 	@Autowired

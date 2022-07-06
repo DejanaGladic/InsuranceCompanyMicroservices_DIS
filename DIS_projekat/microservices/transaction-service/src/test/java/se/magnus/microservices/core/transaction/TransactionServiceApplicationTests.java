@@ -26,7 +26,7 @@ import static se.magnus.api.event.Event.Type.CREATE;
 import static se.magnus.api.event.Event.Type.DELETE;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = RANDOM_PORT, properties = { "eureka.client.enabled=false","spring.datasource.url=jdbc:h2:mem:review-db" })
+@SpringBootTest(webEnvironment = RANDOM_PORT, properties = { "eureka.client.enabled=false","spring.datasource.url=jdbc:h2:mem:transaction-db", "spring.cloud.config.enabled=false"})
 public class TransactionServiceApplicationTests {
 
 	@Autowired

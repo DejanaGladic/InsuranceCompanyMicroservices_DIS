@@ -141,6 +141,7 @@ logging:
         root: INFO
         se.magnus: DEBUG
 
+org.springframework.web.server.adapter.HttpWebHandlerAdapter: TRACE
 management.endpoint.health.show-details: "ALWAYS"
 management.endpoints.web.exposure.include: "*"
 ---
