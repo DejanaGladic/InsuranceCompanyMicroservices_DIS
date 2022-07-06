@@ -17,6 +17,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -78,14 +79,14 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .authorizedGrantTypes("code","authorization_code", "implicit","password")
                 .redirectUris("http://my.redirect.uri")
                 .secret("{noop}secret")
-                .scopes("product:read")
+                .scopes("insuranceCompany:read")
                 .accessTokenValiditySeconds(600_000_000)
                 .and()
                 .withClient("writer")
                 .authorizedGrantTypes("code","authorization_code", "implicit","password")
                 .redirectUris("http://my.redirect.uri")
                 .secret("{noop}secret")
-                .scopes("product:read", "product:write")
+                .scopes("insuranceCompany:read", "insuranceCompany:write")
                 .accessTokenValiditySeconds(600_000_000)
                 .and()
                 .withClient("noscopes")
@@ -101,6 +102,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         // @formatter:off
         endpoints
+                .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST)
                 .authenticationManager(this.authenticationManager)
                 .tokenStore(tokenStore());
 

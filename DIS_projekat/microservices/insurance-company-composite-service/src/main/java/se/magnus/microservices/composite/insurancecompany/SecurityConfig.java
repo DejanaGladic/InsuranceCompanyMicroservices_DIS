@@ -14,9 +14,9 @@ public class SecurityConfig {
         http
                 .authorizeExchange()
                 .pathMatchers("/actuator/**").permitAll()
-                .pathMatchers(POST, "/insurance-company-composite/**").hasAuthority("SCOPE_product:write")
-                .pathMatchers(DELETE, "/insurance-company-composite/**").hasAuthority("SCOPE_product:write")
-                .pathMatchers(GET, "/insurance-company-composite/**").hasAuthority("SCOPE_product:read")
+                .pathMatchers(POST, "/insurance-company-composite/**").hasAuthority("SCOPE_insuranceCompany:write")
+                .pathMatchers(DELETE, "/insurance-company-composite/**").hasAuthority("SCOPE_insuranceCompany:write")
+                .pathMatchers(GET, "/insurance-company-composite/**").hasAuthority("SCOPE_insuranceCompany:read")
                 .anyExchange().authenticated()
                 .and()
                 .oauth2ResourceServer()
