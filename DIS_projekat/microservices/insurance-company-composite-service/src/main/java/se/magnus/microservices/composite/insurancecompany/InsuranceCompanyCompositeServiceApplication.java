@@ -51,7 +51,7 @@ public class InsuranceCompanyCompositeServiceApplication {
 				.apiInfo(new ApiInfo(
                     apiTitle,
                     apiDescription,
-                    apiVersion,
+					apiVersion,
                     apiTermsOfServiceUrl,
                     new Contact(apiContactName, apiContactUrl, apiContactEmail),
                     apiLicense,

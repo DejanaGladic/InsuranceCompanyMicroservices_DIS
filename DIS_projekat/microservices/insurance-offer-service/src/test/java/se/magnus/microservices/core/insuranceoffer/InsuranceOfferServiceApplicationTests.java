@@ -25,7 +25,12 @@ import static se.magnus.api.event.Event.Type.CREATE;
 import static se.magnus.api.event.Event.Type.DELETE;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = RANDOM_PORT, properties = { "eureka.client.enabled=false","spring.datasource.url=jdbc:h2:mem:insurance-offer-db", "spring.cloud.config.enabled=false" })
+@SpringBootTest(webEnvironment=RANDOM_PORT, properties = {
+		"logging.level.se.magnus=DEBUG",
+		"eureka.client.enabled=false",
+		"spring.cloud.config.enabled=false",
+		"spring.datasource.url=jdbc:h2:mem:insurance-offer-db",
+		"server.error.include-message=always"})
 public class InsuranceOfferServiceApplicationTests {
 
 	@Autowired

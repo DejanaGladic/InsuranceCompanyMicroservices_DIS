@@ -7,7 +7,6 @@ api:
     termsOfServiceUrl: MINE TERMS OF SERVICE URL
     license: License
     licenseUrl: MY LICENSE URL
-
     contact:
       name: Contact
       url: My
@@ -66,8 +65,6 @@ api:
 server.port: 7000
 server.error.include-message: always
 
-spring.application.name: insurance-company-composite
-
 ribbon.ServerListRefreshInterval: 5000
 
 ribbon.NFLoadBalancerPingInterval: 5
@@ -92,16 +89,6 @@ spring.cloud.stream:
       destination: transactions
       producer:
         required-groups: auditGroup
-
-spring.cloud.stream.kafka.binder:
-  brokers: 127.0.0.1
-  defaultBrokerPort: 9092
-
-spring.rabbitmq:
-  host: 127.0.0.1
-  port: 5672
-  username: guest
-  password: guest
 
 spring.security.oauth2.resourceserver.jwt.jwk-set-uri: http://${app.auth-server}:9999/.well-known/jwks.json
 
@@ -133,7 +120,7 @@ spring.cloud.stream.bindings.output-transactions.producer:
   partition-key-expression: payload.key
   partition-count: 2
 ---
-spring.cloud.stream.kafka.binder.brokers: kafka
+spring.profiles: kafka
 
 management.health.rabbit.enabled: false
 spring.cloud.stream.defaultBinder: kafka

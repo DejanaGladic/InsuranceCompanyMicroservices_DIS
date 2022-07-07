@@ -73,28 +73,11 @@ public class InsuranceCompanyCompositeIntegration
 
 	@Autowired
 	public InsuranceCompanyCompositeIntegration(WebClient.Builder webClientBuilder, ObjectMapper mapper,
-												MessageSources messageSources
-
-			/*,@Value("${app.insurance-company-service.host}") String insuranceCompanyServiceHost,
-			@Value("${app.insurance-company-service.port}") int insuranceCompanyServicePort,
-
-			@Value("${app.employee-service.host}") String employeeServiceHost,
-			@Value("${app.employee-service.port}") int employeeServicePort,
-
-			@Value("${app.insurance-offer-service.host}") String insuranceOfferServiceHost,
-			@Value("${app.insurance-offer-service.port}") int insuranceOfferServicePort,
-
-			@Value("${app.transaction-service.host}") String transactionServiceHost,
-			@Value("${app.transaction-service.port}") int transactionServicePort*/) {
+												MessageSources messageSources) {
 
 		this.webClientBuilder = webClientBuilder;
 		this.mapper = mapper;
 		this.messageSources = messageSources;
-
-		/*insuranceCompanyServiceUrl = "http://" + insuranceCompanyServiceHost + ":" + insuranceCompanyServicePort;
-		employeeServiceUrl = "http://" + employeeServiceHost + ":" + employeeServicePort;
-		insuranceOfferServiceUrl = "http://" + insuranceOfferServiceHost + ":" + insuranceOfferServicePort;
-		transactionServiceUrl = "http://" + transactionServiceHost + ":" + transactionServicePort;*/
 	}
 
 	@Override
