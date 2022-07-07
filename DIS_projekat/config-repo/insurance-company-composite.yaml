@@ -21,10 +21,10 @@ api:
         # Normal response
         If the requested insurance company id is found the method will return information regarding:
         1. Base insurance company information
-        1. Employees
-        1. Insurance offers
-        1. Transactions
-        1. Service Addresses
+        2. Employees
+        3. Insurance offers
+        4. Transactions
+        5. Service Addresses
         (technical information regarding the addresses of the microservices that created the response)
 
         # Expected partial and error responses
@@ -68,40 +68,9 @@ server.error.include-message: always
 
 spring.application.name: insurance-company-composite
 
-app:
-  eureka-username: u
-  eureka-password: p
-  eureka-server: localhost
-  auth-server: localhost
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: "http://${app.eureka-username}:${app.eureka-password}@${app.eureka-server}:8761/eureka/"
-    initialInstanceInfoReplicationIntervalSeconds: 5
-    registryFetchIntervalSeconds: 5
-  instance:
-    leaseRenewalIntervalInSeconds: 5
-    leaseExpirationDurationInSeconds: 5
-
 ribbon.ServerListRefreshInterval: 5000
 
 ribbon.NFLoadBalancerPingInterval: 5
-
-
-#app:
-#  insurance-company-service:
-#    host: localhost
-#    port: 7001
-#  employee-service:
-#    host: localhost
-#    port: 7002
-#  insurance-offer-service:
-#    host: localhost
-#    port: 7003
-#  transaction-service:
-#    host: localhost
-#    port: 7004
 
 spring.cloud.stream:
   defaultBinder: rabbit
@@ -137,36 +106,34 @@ spring.rabbitmq:
 spring.security.oauth2.resourceserver.jwt.jwk-set-uri: http://${app.auth-server}:9999/.well-known/jwks.json
 
 logging:
-    level:
-        root: INFO
-        se.magnus: DEBUG
-
-org.springframework.web.server.adapter.HttpWebHandlerAdapter: TRACE
-management.endpoint.health.show-details: "ALWAYS"
-management.endpoints.web.exposure.include: "*"
+  level:
+    root: INFO
+    se.magnus: DEBUG
+    org.springframework.web.server.adapter.HttpWebHandlerAdapter: TRACE
 ---
 spring.profiles: docker
 
 server.port: 8081
+---
+spring.profiles: streaming_partitioned
 
-#app:
-#  employee-service:
-#    host: employee
-#    port: 8081
-#  insurance-company-service:
-#    host: insurance-company
-#    port: 8081
-#  insurance-offer-service:
-#    host: insurance-offer
-#    port: 8081
-#  transaction-service:
-#    host: transaction
-#    port: 8081
+spring.cloud.stream.bindings.output-insurance-companies.producer:
+  partition-key-expression: payload.key
+  partition-count: 2
 
-spring.rabbitmq.host: rabbitmq
+spring.cloud.stream.bindings.output-employees.producer:
+  partition-key-expression: payload.key
+  partition-count: 2
 
+spring.cloud.stream.bindings.output-insurance-offers.producer:
+  partition-key-expression: payload.key
+  partition-count: 2
+
+spring.cloud.stream.bindings.output-transactions.producer:
+  partition-key-expression: payload.key
+  partition-count: 2
+---
 spring.cloud.stream.kafka.binder.brokers: kafka
 
-app:
-  eureka-server: eureka
-  auth-server: auth-server
+management.health.rabbit.enabled: false
+spring.cloud.stream.defaultBinder: kafka
