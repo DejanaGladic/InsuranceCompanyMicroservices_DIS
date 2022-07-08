@@ -26,7 +26,9 @@ public interface InsuranceCompanyCompositeService {
 			@ApiResponse(code = 422, message = "Unprocessable entity, input parameters caused the processing to fails. See response message for more information.") })
 
 	@GetMapping(value = "/insurance-company-composite/{insuranceCompanyId}", produces = "application/json")
-	Mono<InsuranceCompanyAggregate> getCompositeInsuranceCompany(@PathVariable int insuranceCompanyId);
+	Mono<InsuranceCompanyAggregate> getCompositeInsuranceCompany(@PathVariable int insuranceCompanyId,
+																 @RequestParam(value = "delay", required = false, defaultValue = "0") int delay,
+																 @RequestParam(value = "faultPercent", required = false, defaultValue = "0") int faultPercent);
 
 	
 	@ApiOperation(value = "${api.insurance-company-composite.delete-composite-insurance-company.description}", notes = "${api.insurance-company-composite.delete-composite-insurance-company.notes}")

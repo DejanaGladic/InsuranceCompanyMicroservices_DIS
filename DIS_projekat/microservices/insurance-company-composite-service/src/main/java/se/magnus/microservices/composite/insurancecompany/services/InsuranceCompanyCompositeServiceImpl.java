@@ -1,5 +1,6 @@
 package se.magnus.microservices.composite.insurancecompany.services;
 
+import io.github.resilience4j.circuitbreaker.CallNotPermittedException;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.core.context.SecurityContext;
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import se.magnus.api.core.insuranceCompany.InsuranceCompany;
 import se.magnus.api.core.insuranceOffer.InsuranceOffer;
 import se.magnus.api.core.employee.Employee;
 import se.magnus.api.core.transaction.Transaction;
+import se.magnus.util.exceptions.NotFoundException;
 import se.magnus.util.http.ServiceUtil;
 
 import java.net.URL;
@@ -84,19 +86,18 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
     }
 
     @Override
-    public Mono<InsuranceCompanyAggregate> getCompositeInsuranceCompany(int insuranceCompanyId) {
-
+    public Mono<InsuranceCompanyAggregate> getCompositeInsuranceCompany(int insuranceCompanyId, int delay, int faultPercent) {
         return Mono.zip(
                         values -> createInsuranceCompanyAggregate((SecurityContext) values[0],(InsuranceCompany) values[1], (List<Employee>) values[2],
                                 (List<InsuranceOffer>) values[3], (List<Transaction>) values[4], serviceUtil.getServiceAddress()),
                         ReactiveSecurityContextHolder.getContext().defaultIfEmpty(nullSC),
-                        integration.getInsuranceCompany(insuranceCompanyId),
+                        integration.getInsuranceCompany(insuranceCompanyId, delay, faultPercent)
+                                .onErrorReturn(CallNotPermittedException.class, getInsuranceCompanyFallbackValue(insuranceCompanyId)),
                         integration.getEmployees(insuranceCompanyId).collectList(),
                         integration.getInsuranceOffers(insuranceCompanyId).collectList(),
-                        integration.getTransactions(insuranceCompanyId).collectList()
-                )
-                .doOnError(ex -> LOG.warn("getCompositeInsuranceCompany failed: {}", ex.toString()))
-                .log();
+                        integration.getTransactions(insuranceCompanyId).collectList())
+                      .doOnError(ex -> LOG.warn("getCompositeInsuranceCompany failed: {}", ex.toString()))
+                      .log();
     }
 
     @Override
@@ -123,6 +124,19 @@ public class InsuranceCompanyCompositeServiceImpl implements InsuranceCompanyCom
             LOG.warn("deleteCompositeProduct failed: {}", re.toString());
             throw re;
         }
+    }
+
+    private InsuranceCompany getInsuranceCompanyFallbackValue(int insuranceCompanyId) {
+
+        LOG.warn("Creating a fallback insurance company for insuranceCompanyId = {}", insuranceCompanyId);
+
+        if (insuranceCompanyId == 13) {
+            String errMsg = "Insurance company id: " + insuranceCompanyId + " not found in fallback cache!";
+            LOG.warn(errMsg);
+            throw new NotFoundException(errMsg);
+        }
+
+        return new InsuranceCompany(insuranceCompanyId, "Fallback insurance company" + insuranceCompanyId, "city", "address","phoneNumber", serviceUtil.getServiceAddress());
     }
 
     private InsuranceCompanyAggregate createInsuranceCompanyAggregate(SecurityContext sc, InsuranceCompany insuranceCompany,

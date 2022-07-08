@@ -2,8 +2,11 @@ package se.magnus.microservices.composite.insurancecompany.services;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Output;
@@ -12,6 +15,7 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
+import org.springframework.web.util.UriComponentsBuilder;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import se.magnus.api.event.Event;
@@ -28,6 +32,8 @@ import se.magnus.util.exceptions.NotFoundException;
 import se.magnus.util.http.HttpErrorInfo;
 
 import java.io.IOException;
+import java.net.URI;
+import java.time.Duration;
 
 import static reactor.core.publisher.Flux.empty;
 import static se.magnus.api.event.Event.Type.CREATE;
@@ -48,6 +54,8 @@ public class InsuranceCompanyCompositeIntegration
 	private final String employeeServiceUrl= "http://employee";
 	private final String insuranceOfferServiceUrl= "http://insuranceOffer";
 	private final String transactionServiceUrl= "http://transaction";
+
+	private final int insuranceCompanyServiceTimeoutSec;
 
 	private MessageSources messageSources;
 
@@ -73,11 +81,12 @@ public class InsuranceCompanyCompositeIntegration
 
 	@Autowired
 	public InsuranceCompanyCompositeIntegration(WebClient.Builder webClientBuilder, ObjectMapper mapper,
-												MessageSources messageSources) {
+												MessageSources messageSources, @Value("${app.insurance-company-service.timeoutSec}") int insuranceCompanyServiceTimeoutSec) {
 
 		this.webClientBuilder = webClientBuilder;
 		this.mapper = mapper;
 		this.messageSources = messageSources;
+		this.insuranceCompanyServiceTimeoutSec = insuranceCompanyServiceTimeoutSec;
 	}
 
 	@Override
@@ -87,11 +96,17 @@ public class InsuranceCompanyCompositeIntegration
 		return body;
 	}
 
-	public Mono<InsuranceCompany> getInsuranceCompany(int insuranceCompanyId) {
-		String url = insuranceCompanyServiceUrl + "/insuranceCompany/" + insuranceCompanyId;
+	@Retry(name = "insuranceCompany")
+	@CircuitBreaker(name = "insuranceCompany")
+	@Override
+	public Mono<InsuranceCompany> getInsuranceCompany(int insuranceCompanyId, int delay, int faultPercent) {
+		URI url = UriComponentsBuilder.fromUriString(insuranceCompanyServiceUrl + "/insuranceCompany/{insuranceCompanyId}?delay={delay}&faultPercent={faultPercent}").build(insuranceCompanyId, delay, faultPercent);
 		LOG.debug("Will call the getInsuranceCompany API on URL: {}", url);
 
-		return getWebClient().get().uri(url).retrieve().bodyToMono(InsuranceCompany.class).log().onErrorMap(WebClientResponseException.class, ex -> handleException(ex));
+		return getWebClient().get().uri(url)
+				.retrieve().bodyToMono(InsuranceCompany.class).log()
+				.onErrorMap(WebClientResponseException.class, ex -> handleException(ex))
+				.timeout(Duration.ofSeconds(insuranceCompanyServiceTimeoutSec));
 	}
 
 	@Override

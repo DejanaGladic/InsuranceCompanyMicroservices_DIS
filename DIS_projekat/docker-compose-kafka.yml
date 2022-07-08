@@ -4,6 +4,8 @@ services:
   insurance-company:
     build: microservices/insurance-company-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -15,6 +17,8 @@ services:
   insurance-company-p1:
     build: microservices/insurance-company-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -26,6 +30,8 @@ services:
   employee:
     build: microservices/employee-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -37,6 +43,8 @@ services:
   employee-p1:
     build: microservices/employee-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -48,6 +56,8 @@ services:
   insurance-offer:
     build: microservices/insurance-offer-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -61,6 +71,8 @@ services:
   insurance-offer-p1:
     build: microservices/insurance-offer-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -74,6 +86,8 @@ services:
   transaction:
     build: microservices/transaction-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -87,6 +101,8 @@ services:
   transaction-p1:
     build: microservices/transaction-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -100,6 +116,8 @@ services:
   insurance-company-composite:
     build: microservices/insurance-company-composite-service
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,kafka
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -114,6 +132,8 @@ services:
       - CONFIG_SERVER_PWD=${CONFIG_SERVER_PWD}
     build: spring-cloud/eureka-server
     mem_limit: 350m
+    networks:
+      - my-network
 
   gateway:
     environment:
@@ -122,6 +142,8 @@ services:
       - CONFIG_SERVER_PWD=${CONFIG_SERVER_PWD}
     build: spring-cloud/gateway
     mem_limit: 350m
+    networks:
+      - my-network
     ports:
       - "8443:8443"
 
@@ -132,6 +154,8 @@ services:
       - CONFIG_SERVER_PWD=${CONFIG_SERVER_PWD}
     build: spring-cloud/authorization-server
     mem_limit: 350m
+    networks:
+      - my-network
 
 
   config-server:
@@ -144,11 +168,15 @@ services:
       - $PWD/config-repo:/config-repo
     build: spring-cloud/config-server
     mem_limit: 350m
+    networks:
+      - my-network
 
   # $ mongo
   mongodb:
     image: mongo:3.6.9
     mem_limit: 600m
+    networks:
+      - my-network
     ports:
       - "27017:27017"
     command: mongod --smallfiles
@@ -161,6 +189,8 @@ services:
   mysql1:
     image: mysql:5.7
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
       MYSQL_USER: user
@@ -178,6 +208,8 @@ services:
   mysql2:
     image: mysql:5.7
     mem_limit: 600m
+    networks:
+      - my-network
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
       MYSQL_USER: user
@@ -196,6 +228,8 @@ services:
   kafka:
     image: wurstmeister/kafka
     mem_limit: 600m
+    networks:
+      - my-network
     ports:
       - "9092:9092"
     environment:
@@ -209,7 +243,13 @@ services:
   zookeeper:
     image: wurstmeister/zookeeper
     mem_limit: 600m
+    networks:
+      - my-network
     ports:
       - "2181:2181"
     environment:
       - KAFKA_ADVERTISED_HOST_NAME=zookeeper
+
+networks:
+  my-network:
+    name: my-network

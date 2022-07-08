@@ -7,7 +7,7 @@ import se.magnus.microservices.core.insurancecompany.persistence.InsuranceCompan
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-07-07T17:23:50+0200",
+    date = "2022-07-08T13:55:01+0200",
     comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_271 (Oracle Corporation)"
 )
 @Component

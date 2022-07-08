@@ -4,6 +4,8 @@ services:
   insurance-company:
     build: microservices/insurance-company-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -17,6 +19,8 @@ services:
   insurance-company-p1:
     build: microservices/insurance-company-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -30,6 +34,8 @@ services:
   employee:
     build: microservices/employee-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -43,6 +49,8 @@ services:
   employee-p1:
     build: microservices/employee-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -56,6 +64,8 @@ services:
   insurance-offer:
     build: microservices/insurance-offer-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -69,6 +79,8 @@ services:
   insurance-offer-p1:
     build: microservices/insurance-offer-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -82,6 +94,8 @@ services:
   transaction:
     build: microservices/transaction-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_0
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -95,6 +109,8 @@ services:
   transaction-p1:
     build: microservices/transaction-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned,streaming_instance_1
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -108,6 +124,8 @@ services:
   insurance-company-composite:
     build: microservices/insurance-company-composite-service
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       - SPRING_PROFILES_ACTIVE=docker,streaming_partitioned
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
@@ -122,6 +140,8 @@ services:
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PWD=${CONFIG_SERVER_PWD}
     build: spring-cloud/eureka-server
+    networks:
+      - my-network
     mem_limit: 350m
 
   gateway:
@@ -130,6 +150,8 @@ services:
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PWD=${CONFIG_SERVER_PWD}
     build: spring-cloud/gateway
+    networks:
+      - my-network
     mem_limit: 350m
     ports:
       - "8443:8443"
@@ -140,6 +162,8 @@ services:
       - CONFIG_SERVER_USR=${CONFIG_SERVER_USR}
       - CONFIG_SERVER_PWD=${CONFIG_SERVER_PWD}
     build: spring-cloud/authorization-server
+    networks:
+      - my-network
     mem_limit: 350m
 
   config-server:
@@ -152,11 +176,15 @@ services:
       - $PWD/config-repo:/config-repo
     build: spring-cloud/config-server
     mem_limit: 350m
+    networks:
+      - my-network
 
   # $ mongo
   mongodb:
     image: mongo:3.6.9
     mem_limit: 350m
+    networks:
+      - my-network
     ports:
       - "27017:27017"
     command: mongod --smallfiles
@@ -169,6 +197,8 @@ services:
   mysql1:
     image: mysql:5.7
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
       MYSQL_USER: user
@@ -186,6 +216,8 @@ services:
   mysql2:
     image: mysql:5.7
     mem_limit: 350m
+    networks:
+      - my-network
     environment:
       MYSQL_ROOT_PASSWORD: rootpwd
       MYSQL_USER: user
@@ -203,6 +235,8 @@ services:
   rabbitmq:
     image: rabbitmq:3.7.8-management
     mem_limit: 350m
+    networks:
+      - my-network
     ports:
       - 5672:5672
       - 15672:15672
@@ -211,3 +245,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
+
+networks:
+  my-network:
+    name: my-network
