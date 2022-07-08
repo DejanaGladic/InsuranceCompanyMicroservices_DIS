@@ -24,6 +24,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.3.RELEASE'
+	implementation 'org.springframework.cloud:spring-cloud-starter-zipkin:2.2.3.RELEASE'
+	implementation 'org.springframework.cloud:spring-cloud-starter-stream-rabbit:3.0.6.RELEASE'
+	implementation 'org.springframework.cloud:spring-cloud-starter-stream-kafka:3.0.6.RELEASE'
 }
 
 dependencyManagement {
