@@ -56,12 +56,12 @@ Microservice landscape is attached in the following image.
 <br />
 **SpringCloud** is used to make services production-ready, scalable, robust, configurable, secure and resilient. SpingCloud is used to implement the following design pattern:
 - **Service Discovery using Netflix Eureka** – Service Discovery keeps track of currently available microservices and the IP addressess of its instances.
--	**Edge server using Spring Cloud Gateway** – The gateway provides entry point to the microservice landscape, and it is used for routing to APIs. Some of the microservices are exposed to the outside of the system landscape (service discovery and composite services) and remaining of them (core services) is hidden from external access. The exposed microservices must be protected against requests from malicious clients.
--	**Reactive microservices** that are previously described.
--	**Central configuration using Spring Cloud Configuration Server** – Central configuration is used to centralize managing the configuration of microservices. Configuration files for microservices are placed in a central configuration repository in the local memory.
--	**Circuit breaker using Resilience4j and retry mechanism** – Circuit breaker and retry mechanism is used to make microservices resilient, that is, how to mitigate and recover from error.
--	**Distributed tracing using Spring Cloud Sleuth and Zipkin** - Distributed tracing is user to track and visualize how requests and messages flow between microservices when processiing an external call to the system landscape.
-
+- **Edge server using Spring Cloud Gateway** – The gateway provides entry point to the microservice landscape, and it is used for routing to APIs. Some of the microservices are exposed to the outside of the system landscape (service discovery and composite services) and remaining of them (core services) is hidden from external access. The exposed microservices must be protected against requests from malicious clients.
+- **Reactive microservices** that are previously described.
+- **Central configuration using Spring Cloud Configuration Server** – Central configuration is used to centralize managing the configuration of microservices. Configuration files for microservices are placed in a central configuration repository in the local memory.
+- **Circuit breaker using Resilience4j and retry mechanism** – Circuit breaker and retry mechanism is used to make microservices resilient, that is, how to mitigate and recover from error.
+- **Distributed tracing using Spring Cloud Sleuth and Zipkin** - Distributed tracing is user to track and visualize how requests and messages flow between microservices when processiing an external call to the system landscape.
+- **Security access to APIs using OAuth 2.0 and OpenID Connect**
 
 ## Pipeline (build/test)
 
