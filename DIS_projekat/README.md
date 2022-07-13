@@ -51,7 +51,7 @@ In contrast to the approach used for the retrieving of data, for **creating and 
 Microservice landscape is attached in the following image.
 <br />
 <br />
-![plot](https://github.com/DejanaGladic/InsuranceCompanyMicroservices_DIS/blob/master/DIS_projekat/diagrams/MicroservicesLandscape.jpg)
+![plot](https://github.com/DejanaGladic/InsuranceCompanyMicroservices_DIS/blob/master/DIS_projekat/diagrams/MicroservicesLandscape(2).jpg)
 <br />
 <br />
 **SpringCloud** is used to make services production-ready, scalable, robust, configurable, secure and resilient. SpingCloud is used to implement the following design pattern:
